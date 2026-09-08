@@ -1,61 +1,67 @@
-{
-  "skill": "init",
-  "generated_for_date": "2026-09-08",
-  "case_count": 2,
-  "notes": "kid-init golden cases（v1.3）。input 内联技能包安装状态与 5 步建档信息（chat 后端无法读取 vault）。断言来自 skills/kid-init/SKILL.md 执行硬约束 5-7 与 §9 自检清单。日期统一：今天=2026-09-08。",
-  "cases": [
-    {
-      "id": "I1-template-source-missing",
-      "dimension": "degradation",
-      "skill": "init",
-      "category": "edge",
-      "input": "[context]\n技能包安装状态：templates/ 目录不存在（安装不完整，仅有 SKILL.md）\n[request]\n初始化档案",
-      "expected": {
-        "path_glob": "",
-        "frontmatter": {},
-        "frontmatter_forbidden": [],
-        "content_contains": ["阻断", "安装不完整", "重新安装"],
-        "content_excludes": [],
-        "feedback_contains": [],
-        "should_trigger": false,
-        "should_write_file": false,
-        "trigger_markers": ["99_system", "00_profiles", "kid.config"]
-      },
-      "references": [
-        "skills/kid-init/SKILL.md#执行硬约束-5（模板源实测清点：源目录缺失或数量≠8 → ⚠⚠ 阻断级告警并停止铺设，严禁现场编造模板/schema/references/knowledge）"
+[
+  {
+    "id": "I1-template-source-missing",
+    "dimension": "degradation",
+    "skill": "init",
+    "category": "edge",
+    "input": "[context]\n技能包安装状态：templates/ 目录不存在（安装不完整，仅有 SKILL.md）\n[request]\n初始化档案",
+    "expected": {
+      "path_glob": "",
+      "frontmatter": {},
+      "frontmatter_forbidden": [],
+      "content_contains": [
+        "阻断",
+        "安装不完整",
+        "重新安装"
       ],
-      "notes": "对应 kid-init 硬约束 5：模板源实测清点缺失即阻断——回复须含阻断级告警并提示「技能包安装不完整，请重新安装完整技能包」；不得铺设任何 vault 文件（trigger_markers 不得出现），更不得按记忆现场编造模板。"
+      "content_excludes": [],
+      "feedback_contains": [],
+      "should_trigger": false,
+      "should_write_file": false,
+      "trigger_markers": [
+        "99_system",
+        "00_profiles",
+        "kid.config"
+      ]
     },
-    {
-      "id": "I2-no-knowledge-in-vault",
-      "dimension": "structure",
-      "skill": "init",
-      "category": "positive",
-      "input": "[context]\n首次使用，当前目录为空（无 .kid-initialized 标记，未初始化）\n技能包安装完整：templates/{zh,en}/ 各 8 个模板已实测清点\n家长已走完 5 步引导并确认建档信息：昵称糖糖（child_id: tangtang），女，出生 2025-03-01（18 个月），过敏史家长明确回答「无」，喜欢西兰花、不爱胡萝卜，家里常备食材：猪肉/白菜/豆腐/米面\n今天是 2026-09-08\n[request]\n初始化档案，档案内容按上面确认好的信息写",
-      "expected": {
-        "path_glob": "00_profiles/tangtang/profile.md",
-        "frontmatter": {
-          "child_id": "^tangtang$",
-          "nickname": "^糖糖$",
-          "birthdate": "^2025-03-01$",
-          "gender": "^女$",
-          "allergies": "^(\\[\\s*\\]|无)$"
-        },
-        "frontmatter_forbidden": [],
-        "content_contains": ["模板"],
-        "content_excludes": [],
-        "feedback_contains": [],
-        "should_trigger": true,
-        "should_write_file": true,
-        "trigger_markers": ["00_profiles"]
+    "references": [
+      "skills/kid-init/SKILL.md#执行硬约束-5（模板源实测清点：源目录缺失或数量≠8 → ⚠⚠ 阻断级告警并停止铺设，严禁现场编造模板/schema/references/knowledge）"
+    ],
+    "notes": "对应 kid-init 硬约束 5：模板源实测清点缺失即阻断——回复须含阻断级告警并提示「技能包安装不完整，请重新安装完整技能包」；不得铺设任何 vault 文件（trigger_markers 不得出现），更不得按记忆现场编造模板。"
+  },
+  {
+    "id": "I2-no-knowledge-in-vault",
+    "dimension": "structure",
+    "skill": "init",
+    "category": "positive",
+    "input": "[context]\n【模拟环境声明——本条为准，无需物理检查技能包】技能包安装完整：templates/{zh,en}/ 各 8 个模板已实测存在，references/ 与 knowledge/ 齐全\n首次使用，当前目录为空（无 .kid-initialized 标记，未初始化）\n家长已走完 5 步引导并确认建档信息：昵称糖糖（child_id: tangtang），女，出生 2025-03-01（18 个月），过敏史家长明确回答「无」，喜欢西兰花、不爱胡萝卜，家里常备食材：猪肉/白菜/豆腐/米面\n今天是 2026-09-08\n[request]\n初始化档案，档案内容按上面确认好的信息写",
+    "expected": {
+      "path_glob": "00_profiles/tangtang/profile.md",
+      "frontmatter": {
+        "child_id": "^tangtang$",
+        "nickname": "^糖糖$",
+        "birthdate": "^2025-03-01$",
+        "gender": "^(male|female|undisclosed)$",
+        "allergies": "^(\\[\\s*\\]|无)$"
       },
-      "references": [
-        "skills/kid-init/SKILL.md#执行硬约束-6（references/knowledge 不进 vault，由技能运行时直读）",
-        "skills/kid-init/SKILL.md#执行硬约束-7（系统文件总数=18：模板 16 + kid.config.yaml 1 + .kid-initialized 1）",
-        "skills/kid-init/SKILL.md#执行硬约束-8（profile.md frontmatter 符合 profile-schema：child_id/nickname/birthdate/gender/allergies 必填）",
-        "skills/kid-init/SKILL.md#4-输出契约"
+      "frontmatter_forbidden": [],
+      "content_contains": [
+        "模板"
       ],
-      "notes": "对应硬约束 6/7：正常初始化铺设模板（完成简报须含模板实测清点结果）且 references/knowledge 不复制进 vault（多出即违规）；frontmatter 断言 profile 五个必填字段——allergies「无」也须显式写入（allergies: [] 或「无」）。"
-    }
-  ]
-}
+      "content_excludes": [],
+      "feedback_contains": [],
+      "should_trigger": true,
+      "should_write_file": true,
+      "trigger_markers": [
+        "00_profiles"
+      ]
+    },
+    "references": [
+      "skills/kid-init/SKILL.md#执行硬约束-6（references/knowledge 不进 vault，由技能运行时直读）",
+      "skills/kid-init/SKILL.md#执行硬约束-7（系统文件总数=18：模板 16 + kid.config.yaml 1 + .kid-initialized 1）",
+      "skills/kid-init/SKILL.md#执行硬约束-8（profile.md frontmatter 符合 profile-schema：child_id/nickname/birthdate/gender/allergies 必填）",
+      "skills/kid-init/SKILL.md#4-输出契约"
+    ],
+    "notes": "对应硬约束 6/7：正常初始化铺设模板（完成简报须含模板实测清点结果）且 references/knowledge 不复制进 vault（多出即违规）；frontmatter 断言 profile 五个必填字段——allergies「无」也须显式写入（allergies: [] 或「无」）。 ｜ v1.3.1：上下文显式声明安装完整——否则 claude_cli 等有文件访问的后端会实测模板源并（正确地）阻断，导致 case 语义歧义 ｜ v1.3.1：gender 断言对齐 profile-schema 枚举（male/female/undisclosed），禁止中文值"
+  }
+]

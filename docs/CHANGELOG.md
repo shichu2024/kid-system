@@ -27,6 +27,14 @@
 ### Added · WP5 评测防回归
 - 全量 bench case path_glob 适配多儿童布局；新增 init case 集（模板源缺失阻断 / 知识不进 vault）；harness SKILL_PATHS 增加 init
 
+## [1.3.1] - 2026-09-08
+
+### Fixed · 首次真实评测（init 集 2/2 hard 100%）暴露的问题
+- **case 文件格式 bug**：`{"cases":[...]}` 包装导致 skillopt ratio split 把 wrapper 字段值误当 item——menu/journal/init 三集转为纯数组（与蓝本一致），wrapper 元信息挪至各 case 目录 README.md
+- **repro_case.py Windows 编码崩溃**：控制台 cp936 无法打印 ✅/▌ glyph → stdout/stderr reconfigure UTF-8
+- **kid-init 契约补强**（评测三轮迭代驱动）：完成简报须 ① 以 yaml 围栏回显 profile.md frontmatter ② 档案完整路径一行连续书写；① 步性别写入用枚举值 male/female/undisclosed
+- **I2 case 修正**：上下文改「模拟环境权威声明」（claude_cli 后端有文件访问权，会实测模板源并按硬约束 5 正确阻断，产生语义歧义）；gender 断言对齐 profile-schema 枚举
+
 ## [1.2.0] - 2026-09-08
 
 ### Added · SkillOpt 行为评测体系
