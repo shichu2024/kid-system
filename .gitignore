@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.idea/
+.vscode/
+*.swp
+
+# Node
+node_modules/
+
+# 用户数据 vault（本地测试产生，不入库）
+/data/
+*.local/
+
+# 临时文件
+*.tmp
+*.bak
+__pycache__/

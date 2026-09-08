@@ -1,0 +1,77 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "kid-system",
+  "version": "0.1.0",
+  "description": "育儿实践成长系统 — 面向 0-12 岁儿童家长的全链路科学育儿技能包：个性化档案 → 规则注入 → 每日日志 → 菜单/学习/游戏方案 → 复盘迭代。Parenting practice & growth system for children aged 0-12.",
+  "owner": {
+    "name": "shichu2024",
+    "url": "https://github.com/shichu2024"
+  },
+  "publisher": "shichu2024",
+  "homepage": "https://github.com/shichu2024/kid-system",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shichu2024/kid-system.git"
+  },
+  "license": "MIT",
+  "tags": [
+    "parenting",
+    "child-development",
+    "nutrition",
+    "daily-planning",
+    "agent-skills",
+    "claude-code"
+  ],
+  "runtimes": [
+    "claude-code",
+    "codex",
+    "cursor",
+    "opencode"
+  ],
+  "plugins": [
+    {
+      "name": "kid-system",
+      "description": "育儿实践成长系统：9 skills (init/profile/rules/journal/menu/learning/games/plan/review) + bilingual templates + authoritative age-based knowledge base (nutrition / milestones / sleep / safety / games).",
+      "displayName": "kid-system",
+      "author": {
+        "name": "shichu2024",
+        "url": "https://github.com/shichu2024"
+      },
+      "category": "productivity",
+      "source": "./",
+      "homepage": "https://github.com/shichu2024/kid-system",
+      "license": "MIT",
+      "tags": [
+        "parenting",
+        "child-development",
+        "nutrition",
+        "daily-planning"
+      ]
+    }
+  ],
+  "skills": [
+    { "name": "kid-init", "path": "skills/kid-init/" },
+    { "name": "kid-profile", "path": "skills/kid-profile/" },
+    { "name": "kid-rules", "path": "skills/kid-rules/" },
+    { "name": "kid-journal", "path": "skills/kid-journal/" },
+    { "name": "kid-menu", "path": "skills/kid-menu/" },
+    { "name": "kid-learning", "path": "skills/kid-learning/" },
+    { "name": "kid-games", "path": "skills/kid-games/" },
+    { "name": "kid-plan", "path": "skills/kid-plan/" },
+    { "name": "kid-review", "path": "skills/kid-review/" }
+  ],
+  "phases": {
+    "v0.1": { "codename": "skeleton", "status": "in-progress" },
+    "v1.0": { "codename": "release", "status": "planned" }
+  },
+  "install": {
+    "one_liner": "npx skills add shichu2024/kid-system",
+    "claude_code": "/plugin marketplace add shichu2024/kid-system",
+    "manual_paths": {
+      "claude-code": "~/.claude/skills/kid-system/",
+      "codex": "~/.codex/skills/kid-system/",
+      "cursor": "~/.cursor/skills/kid-system/",
+      "opencode": "~/.opencode/skills/kid-system/"
+    }
+  }
+}

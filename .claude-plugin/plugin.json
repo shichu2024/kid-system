@@ -1,0 +1,57 @@
+{
+  "name": "kid-system",
+  "version": "0.1.0",
+  "description": "育儿实践成长系统 — 个性化档案 / 规则注入 / 每日日志 / 菜单·学习·游戏方案 / 复盘迭代，面向 0-12 岁儿童家长。Parenting practice & growth skill pack for children aged 0-12.",
+  "publisher": {
+    "name": "shichu2024",
+    "url": "https://github.com/shichu2024"
+  },
+  "homepage": "https://github.com/shichu2024/kid-system",
+  "repository": "https://github.com/shichu2024/kid-system",
+  "license": "MIT",
+  "type": "skill-pack",
+  "categories": [
+    "productivity",
+    "parenting",
+    "health"
+  ],
+  "keywords": [
+    "parenting",
+    "child-development",
+    "nutrition",
+    "daily-plan",
+    "agent-skills",
+    "claude-code"
+  ],
+  "capabilities": {
+    "skills_count": 9,
+    "languages": ["zh", "en"],
+    "templates_count": 16,
+    "knowledge_files": 8,
+    "closed_loop": "档案 → 规则 → 日志 → 方案 → 复盘"
+  },
+  "minimal_runtime": {
+    "claude-code": ">=1.0",
+    "codex": ">=0.5",
+    "cursor": ">=0.40",
+    "opencode": ">=0.30"
+  },
+  "dependencies": {
+    "optional": [
+      {
+        "name": "Python http.server / npx serve",
+        "purpose": "Web 仪表盘本地浏览（web/dashboard.html）",
+        "degradation": "无本地服务时仪表盘不可用，技能本体全部功能不受影响"
+      }
+    ]
+  },
+  "entrypoints": {
+    "default": "skills/kid-init/SKILL.md",
+    "triggers": [
+      "初始化档案", "建立孩子资料", "设置宝宝信息",
+      "Initialize child profile",
+      "记录今天", "写日志", "今日方案", "今日菜单",
+      "注入规则", "周总结", "月度报告"
+    ]
+  }
+}
