@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       skill:
-        description: '被评测技能集（menu / journal / flow / unseen）'
+        description: '被评测技能集（menu / journal / flow / unseen / init）'
         required: false
         default: 'menu'
       split:

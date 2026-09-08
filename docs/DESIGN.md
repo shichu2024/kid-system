@@ -68,17 +68,20 @@ kid-init 在用户指定目录（默认 CWD）创建：
 │       ├── profile.md              # 五维度档案（frontmatter + 正文）
 │       └── tags.md                 # 自动沉淀的动态标签（饮食偏好/能力/兴趣）
 ├── 01_journal/
-│   └── YYYY-MM/
-│       └── YYYY-MM-DD.md           # 每日成长日志
+│   └── <child-id>/
+│       └── YYYY-MM/
+│           └── YYYY-MM-DD.md       # 每日成长日志（按儿童分目录，v1.3）
 ├── 02_plans/
-│   └── YYYY-MM-DD.md               # 每日方案（菜单/学习/游戏三节）
+│   └── <child-id>/
+│       └── YYYY-MM-DD.md           # 每日方案（菜单/学习/游戏三节合一单文件，v1.3）
 ├── 03_rules/
-│   ├── rules.md                    # 家长规则库（优先级排序，frontmatter 管理）
+│   ├── rules.md                    # 家长规则库（全局共享，优先级排序）
 │   └── conflicts-log.md            # 冲突处理记录
 ├── 04_reviews/
-│   ├── weekly/YYYY-Www.md          # 周复盘
-│   ├── monthly/YYYY-MM.md          # 月复盘
-│   └── milestones.md               # 发育里程碑追踪时间轴
+│   └── <child-id>/
+│       ├── weekly/YYYY-Www.md      # 周复盘（v1.3）
+│       ├── monthly/YYYY-MM.md      # 月复盘（v1.3）
+│       └── milestones.md           # 该儿童的发育里程碑时间轴（v1.3）
 ├── 99_system/
 │   ├── kid.config.yaml             # 全局配置
 │   └── templates/{zh,en}/          # 输出模板副本（init 铺设）
@@ -92,8 +95,21 @@ language: zh                # zh / en，驱动模板选择与生成内容语言
 active_child: <child-id>    # 当前活跃儿童（多孩家庭切换）
 children: [<child-id>]      # 全部儿童 ID 列表
 initialized_at: YYYY-MM-DD
-skill_version: v1.0.0
+skill_version: v1.3.0
+review:                     # kid-review 量化阈值（v1.3，可省略走默认值）
+  min_coverage: 0.5         # 数据覆盖率下限，低于则报告降级为「初步观察版」
+  warning_days: 3           # 连续异常天数达到该值必须触发预警（机械判定）
 ```
+
+### 3.3 多儿童路径规则（v1.3）
+
+所有**按儿童归属**的数据（日志/方案/复盘）一律带 `<child-id>` 目录层，单双儿童一致——添加二孩时不迁移既有文件：
+
+- `01_journal/<child-id>/YYYY-MM/YYYY-MM-DD.md`
+- `02_plans/<child-id>/YYYY-MM-DD.md`（**三节合一单文件**，禁止按模块拆分文件或加 menu-/learning- 前缀）
+- `04_reviews/<child-id>/{weekly|monthly|milestones.md}`
+
+全局共享数据不带儿童层：`00_profiles/`（自带 child-id 子目录）、`03_rules/`（规则全家适用）、`99_system/`。
 
 ### 3.2 .kid-initialized 标记
 
@@ -141,13 +157,13 @@ initialized_at: YYYY-MM-DD
 - 工程车（游戏选择倾向 6/10 次）`updated: 2026-09-07`
 ```
 
-### 4.3 每日日志 01_journal/YYYY-MM/YYYY-MM-DD.md
+### 4.3 每日日志 01_journal/<child-id>/YYYY-MM/YYYY-MM-DD.md
 
 frontmatter：`date` `child_id` `health_status`（healthy/ill/recovering） `illness_notes` `mood_summary`（happy/calm/fussy/crying） `tags[]`
 
 正文五节：饮食记录 / 运动记录 / 学习记录 / 睡眠记录 / 情绪与健康（+ 今日备注）。
 
-### 4.4 每日方案 02_plans/YYYY-MM-DD.md
+### 4.4 每日方案 02_plans/<child-id>/YYYY-MM-DD.md
 
 frontmatter：`date` `child_id` `age_months_at_plan` `plan_type`（daily/weekly_batch） `adjustments[]`（调整记录：指令+原因） `health_mode`（normal/care）
 
@@ -334,3 +350,6 @@ journal 提交
 | v0.5 | kid-menu/learning/games/plan | done |
 | v0.6 | kid-rules + kid-review | done |
 | v1.0 | 校验脚本 + CI + demo-vault + 文档定版 + Web 仪表盘 | done |
+| v1.1 | knowledge 精选方法论层（书籍导读/绘本库/救场游戏/问题导航/话术库，zh+en） | done |
+| v1.2 | SkillOpt 行为评测体系（bench 四件套 + 52 golden cases + nightly CI） | done |
+| v1.3 | 验证报告迭代：多儿童路径规范 + init 安装健壮性 + review 量化 + 评测防回归（docs/dev/v1.3-iteration-verification-review.md） | done |

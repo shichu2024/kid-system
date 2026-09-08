@@ -8,7 +8,7 @@ description: |
   Triggers (EN): today's learning plan / daily learning / enlightenment plan
 version: v1.0.0
 phase: v0.5
-applies_to: 02_plans/YYYY-MM-DD.md（学习计划节）
+applies_to: 02_plans/<child-id>/YYYY-MM-DD.md（学习计划节）
 source_of_truth:
   - docs/DESIGN.md §6.5（难度动态调整）· §6.3（安全滤网）
   - docs/SKILLS_SPEC.md §6
@@ -96,7 +96,7 @@ source_of_truth:
 
 | 项 | 值 |
 |----|----|
-| 路径 | `02_plans/YYYY-MM-DD.md` 学习计划节（frontmatter 由首次写入方维护） |
+| 路径 | `02_plans/<child-id>/YYYY-MM-DD.md` 学习计划节（frontmatter 由首次写入方维护） |
 | 双版本 | 默认 both；护理模式强制基础版 |
 | 调整依据 | level_shift ≠ 0 时必须在输出中说明（引用日志日期） |
 
@@ -120,7 +120,7 @@ source_of_truth:
 
 ## 8. 自检清单
 
-- [ ] 难度对照了正确月龄段里程碑；level_shift 判定有日志依据
+- [ ] 难度对照了正确月龄段里程碑；level_shift 判定有日志依据（**引用了具体日志日期与反馈内容**，如「基于 09-07 颜色配对 2/3 正确」）
 - [ ] 屏幕时间红线零违反
 - [ ] 核心环节含 ≥2 个互动提问；观察要点齐备
 - [ ] 习惯培养取自 habits_target（或说明轮换逻辑）

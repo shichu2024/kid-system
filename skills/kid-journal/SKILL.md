@@ -8,7 +8,7 @@ description: |
   Triggers (EN): log today / daily journal / record meal / view yesterday's journal / search journal
 version: v1.0.0
 phase: v0.4
-applies_to: 01_journal/YYYY-MM/YYYY-MM-DD.md · 00_profiles/<child-id>/tags.md
+applies_to: 01_journal/<child-id>/YYYY-MM/YYYY-MM-DD.md · 00_profiles/<child-id>/tags.md
 source_of_truth:
   - docs/DESIGN.md §4.2（动态标签）· §4.3（日志模型）· §6.2（闭环数据流）· §6.6（异常预警）
   - docs/SKILLS_SPEC.md §4
@@ -109,7 +109,7 @@ source_of_truth:
 
 | 项 | 值 |
 |----|----|
-| 日志路径 | `01_journal/YYYY-MM/YYYY-MM-DD.md` |
+| 日志路径 | `01_journal/<child-id>/YYYY-MM/YYYY-MM-DD.md` |
 | frontmatter | date / child_id / health_status / illness_notes? / mood_summary? / tags[] |
 | 标签更新 | `00_profiles/<child-id>/tags.md` 三节（饮食偏好/能力观察/兴趣点），每条带证据与 updated 日期 |
 | 模板 | `99_system/templates/<lang>/journal.md` |

@@ -165,45 +165,50 @@ async function loadVault(base) {
   state.base = (document.getElementById('base').value || state.base).replace(/\/+$/, '')
   if (!state.base) return
   document.getElementById('content').innerHTML = '<div class="empty">加载中…</div>'
+  // v1.3 多儿童布局：<child-id> 目录层（01_journal/<child>/YYYY-MM/、02_plans/<child>/、04_reviews/<child>/）
+  let activeChild = ''
+  try {
+    const cfg = await fetchText('99_system/kid.config.yaml')
+    activeChild = (cfg.match(/active_child:\s*(\S+)/) || [])[1] || ''
+  } catch (e) { /* config 缺失时退化为枚举第一个 child 目录 */ }
+  if (!activeChild) {
+    const children = await listDir('00_profiles').catch(() => [])
+    activeChild = children[0] || ''
+  }
   const results = await Promise.allSettled([
-    fetchText('99_system/kid.config.yaml'),
-    (async () => { // profile: 尝试从 config 拿 active_child，否则猜第一个目录
-      const cfg = await fetchText('99_system/kid.config.yaml')
-      const id = (cfg.match(/active_child:\s*(\S+)/) || [])[1] || ''
-      return { cfg, profile: await fetchText('00_profiles/' + id + '/profile.md'), tags: await fetchText('00_profiles/' + id + '/tags.md') }
-    })(),
+    (async () => ({ profile: await fetchText('00_profiles/' + activeChild + '/profile.md'), tags: await fetchText('00_profiles/' + activeChild + '/tags.md') }))(),
     fetchText('03_rules/rules.md'),
     fetchText('03_rules/conflicts-log.md').catch(() => ''),
-    fetchText('04_reviews/milestones.md').catch(() => ''),
-    (async () => { return { list: await listDir('01_journal') } })(),
-    (async () => { return { list: await listDir('02_plans') } })(),
-    (async () => { return { list: await listDir('04_reviews') } })(),
+    fetchText('04_reviews/' + activeChild + '/milestones.md').catch(() => ''),
   ])
   try {
-    const [, prof, rules, conflicts, milestones] = results
-    state.profile = prof.status === 'fulfilled' ? prof.value.profile : null
-    state.tags = prof.status === 'fulfilled' ? prof.value.tags : ''
+    const [, rules, conflicts, milestones] = results
+    state.profile = results[0].status === 'fulfilled' ? results[0].value.profile : null
+    state.tags = results[0].status === 'fulfilled' ? results[0].value.tags : ''
     state.rules = rules.status === 'fulfilled' ? rules.value : ''
     state.conflicts = conflicts.status === 'fulfilled' ? conflicts.value : ''
     state.milestones = milestones.status === 'fulfilled' ? milestones.value : ''
     state.journals = []
-    for (const month of await listDir('01_journal').catch(() => [])) {
-      for (const f of await listDir('01_journal/' + month).catch(() => [])) {
-        const t = await fetchText('01_journal/' + month + '/' + f).catch(() => '')
+    const jRoot = activeChild ? '01_journal/' + activeChild : '01_journal'
+    for (const month of await listDir(jRoot).catch(() => [])) {
+      for (const f of await listDir(jRoot + '/' + month).catch(() => [])) {
+        const t = await fetchText(jRoot + '/' + month + '/' + f).catch(() => '')
         if (t) state.journals.push({ file: f, fm: parseFrontmatter(t), text: t })
       }
     }
     state.journals.sort((a, b) => b.fm.date.localeCompare(a.fm.date))
     state.plans = []
-    for (const f of await listDir('02_plans').catch(() => [])) {
-      const t = await fetchText('02_plans/' + f).catch(() => '')
+    const pRoot = activeChild ? '02_plans/' + activeChild : '02_plans'
+    for (const f of await listDir(pRoot).catch(() => [])) {
+      const t = await fetchText(pRoot + '/' + f).catch(() => '')
       if (t) state.plans.push({ file: f, fm: parseFrontmatter(t), text: t })
     }
     state.plans.sort((a, b) => b.fm.date.localeCompare(a.fm.date))
     state.reviews = []
+    const rRoot = activeChild ? '04_reviews/' + activeChild : '04_reviews'
     for (const sub of ['weekly', 'monthly']) {
-      for (const f of await listDir('04_reviews/' + sub).catch(() => [])) {
-        const t = await fetchText('04_reviews/' + sub + '/' + f).catch(() => '')
+      for (const f of await listDir(rRoot + '/' + sub).catch(() => [])) {
+        const t = await fetchText(rRoot + '/' + sub + '/' + f).catch(() => '')
         if (t) state.reviews.push({ file: sub + '/' + f, fm: parseFrontmatter(t), text: t })
       }
     }

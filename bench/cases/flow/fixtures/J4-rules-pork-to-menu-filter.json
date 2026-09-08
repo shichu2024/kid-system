@@ -14,7 +14,9 @@
         "name": "毛毛",
         "birthdate": "2024-07-12",
         "age_months": 26,
-        "allergies": ["虾"],
+        "allergies": [
+          "虾"
+        ],
         "diet_restrictions": [],
         "chronic_conditions": []
       },
@@ -28,12 +30,22 @@
   ],
   "expected_downstream": {
     "skill": "menu",
-    "produce_path": "02_plans/2026-09-10.md",
+    "produce_path": "02_plans/maomao/2026-09-10.md",
     "produce_frontmatter_contains": {
       "plan_type": "daily"
     },
-    "consume_fields": ["rule_id", "type", "scope", "status"],
-    "produce_content_excludes": ["猪肉", "红烧肉", "午餐肉", "肉肠"],
+    "consume_fields": [
+      "rule_id",
+      "type",
+      "scope",
+      "status"
+    ],
+    "produce_content_excludes": [
+      "猪肉",
+      "红烧肉",
+      "午餐肉",
+      "肉肠"
+    ],
     "filter_rule": "R004 active diet_restriction + scope=menu → 猪肉及猪肉制品在菜单与替换方案中零出现，蛋白源改从牛/鸡/鱼/豆制品选取"
   }
 }

@@ -1,0 +1,34 @@
+# bench/configs/init-default.yaml
+# Config for SkillOpt eval of the kid-init skill (v1.3: pure eval, no training).
+# Covers template-source blocking (hard constraint 5) and the
+# no-knowledge-in-vault / 18-file system layout (hard constraints 6/7).
+# Case count is tiny (2), so every case goes to the test split (like flow).
+#
+# Run:
+#   python bench/run_eval.py --skill init --split test
+
+env: kidsys_init
+
+data:
+  data_root: bench/cases/init/
+  split_mode: ratio
+  split_ratio: "1:1:1000"      # effectively all cases → test (skillopt requires
+                               # positive ratio parts; int-truncation sends every
+                               # case to the test bucket for suites < 1000)
+  split_seed: 42
+  task_type: init
+
+model:
+  backend: chat                # chat backend (set SKILLOPT_BACKEND in .env)
+  max_completion_tokens: 4096
+
+train:
+  epochs: 0                    # no optimizer — eval harness only
+  batchsize: 8
+
+gate:
+  enabled: false               # pure evaluation, no regression gate
+
+output:
+  out_dir: bench/reports/
+  deploy_skill: false          # NEVER auto-deploy; human review only

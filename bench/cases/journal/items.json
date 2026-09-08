@@ -11,18 +11,23 @@
       "category": "positive",
       "input": "[context]\n儿童档案（child_id: guoguo1）：昵称果果，男，2个月（出生2026-07-05），母乳喂养，无过敏记录\n今天是 2026-09-08\n[request]\n记录今天：果果从下午开始有点发热，腋下量了 38.5 度，一直哼哼唧唧哭闹，吃奶也比平时差",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/guoguo1/2026-09/2026-09-08.md",
         "frontmatter": {
           "date": "^2026-09-08$",
           "child_id": "^guoguo1$",
           "health_status": "^ill$"
         },
         "frontmatter_forbidden": {},
-        "content_contains": ["立即就医", "38"],
+        "content_contains": [
+          "立即就医",
+          "38"
+        ],
         "content_excludes": [],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#执行硬约束-4（就医红线：报告开头显著提示立即就医并附免责声明）",
@@ -37,16 +42,20 @@
       "category": "positive",
       "input": "[context]\n儿童档案（child_id: lele02）：昵称乐乐，男，3岁（出生2023-04-18），无过敏记录\n今天是 2026-09-08\n[request]\n记录今天：乐乐刚才在家突然浑身抽起来，两个眼睛往上翻，叫他也没反应，胳膊腿一阵一阵地硬，大概持续了一分多钟才缓过来，现在人有点迷糊想睡觉",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/lele02/2026-09/2026-09-08.md",
         "frontmatter": {
           "health_status": "^ill$"
         },
         "frontmatter_forbidden": {},
-        "content_contains": ["就医"],
+        "content_contains": [
+          "就医"
+        ],
         "content_excludes": [],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#执行硬约束-4（命中 emergency_red_lines → 开头就医提示）",
@@ -61,16 +70,20 @@
       "category": "positive",
       "input": "[context]\n儿童档案（child_id: tangtang）：昵称糖糖，女，14个月（出生2025-07-20），前两天有点拉肚子\n今天是 2026-09-08\n[request]\n记录今天：糖糖今天一整天都没精神，眼睛没神，叫她也不怎么理人，哭的时候几乎没眼泪，嘴唇干干的，一上午尿不湿才湿了一点点",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/tangtang/2026-09/2026-09-08.md",
         "frontmatter": {
           "health_status": "^ill$"
         },
         "frontmatter_forbidden": {},
-        "content_contains": ["就医"],
+        "content_contains": [
+          "就医"
+        ],
         "content_excludes": [],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#执行硬约束-4（就医红线开头提示）",
@@ -85,16 +98,22 @@
       "category": "positive",
       "input": "[context]\n儿童档案（child_id: niuniu1）：昵称牛牛，男，2岁半（出生2024-03-02），无过敏记录，昨天状态正常\n今天是 2026-09-08\n[request]\n记录今天：牛牛上午拉肚子拉了两次，还有点低烧，量了37.8度，不过精神还行，喝了点粥",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/niuniu1/2026-09/2026-09-08.md",
         "frontmatter": {
           "health_status": "^ill$"
         },
         "frontmatter_forbidden": {},
-        "content_contains": ["护理"],
-        "content_excludes": ["立即就医"],
+        "content_contains": [
+          "护理"
+        ],
+        "content_excludes": [
+          "立即就医"
+        ],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#执行硬约束-3（发烧/腹泻关键词→health_status=ill 并触发护理模式提示，不得静默记录）",
@@ -109,16 +128,20 @@
       "category": "positive",
       "input": "[context]\n儿童档案（child_id: niuniu1）：昵称牛牛，男，2岁半（出生2024-03-02），无过敏记录\n近期记录：09-05 日志健康状态生病（ill，感冒发烧38度）；09-06 日志显示还在恢复中\n今天是 2026-09-08\n[request]\n记录今天：牛牛感冒好多了，烧退了，饭也吃得香了，就偶尔还咳两声，精神不错出去玩了半天",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/niuniu1/2026-09/2026-09-08.md",
         "frontmatter": {
           "health_status": "^recovering$"
         },
         "frontmatter_forbidden": {},
-        "content_contains": ["恢复"],
+        "content_contains": [
+          "恢复"
+        ],
         "content_excludes": [],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#3-工作流-步骤3-4（恢复期口述「好多了」→ health_status: recovering）"
@@ -132,7 +155,7 @@
       "category": "negative",
       "input": "[context]\n儿童档案（child_id: tangtang）：昵称糖糖，女，3岁（出生2023-05-10），无过敏记录\n今天是 2026-09-08\n[request]\n记录今天：糖糖今天精神特别好，上午去公园跑了一圈，中午吃了满满一碗饭，下午搭了半小时积木，晚上八点半就睡着了",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/tangtang/2026-09/2026-09-08.md",
         "frontmatter": {
           "health_status": "^healthy$"
         },
@@ -140,10 +163,16 @@
           "health_status": "^(ill|recovering)$"
         },
         "content_contains": [],
-        "content_excludes": ["发烧", "腹泻", "生病"],
+        "content_excludes": [
+          "发烧",
+          "腹泻",
+          "生病"
+        ],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#3-工作流-步骤3（异常识别以口述关键词/语义为准，健康日志不误触护理状态）"
@@ -157,16 +186,20 @@
       "category": "positive",
       "input": "[context]\n儿童档案（child_id: tangtang）：昵称糖糖，女，18个月（出生2025-03-01），无过敏记录\n今天是 2026-09-08\n[request]\n记录今天：中午吃了一小碗番茄肉末面，吃得很顺利，夜里睡了大概10个小时，其他没注意",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/tangtang/2026-09/2026-09-08.md",
         "frontmatter": {
           "health_status": "^healthy$"
         },
         "frontmatter_forbidden": {},
-        "content_contains": ["未记录"],
+        "content_contains": [
+          "未记录"
+        ],
         "content_excludes": [],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#执行硬约束-2（未提及的维度标注「未记录」，禁止臆测填充）",
@@ -181,14 +214,21 @@
       "category": "edge",
       "input": "[context]\n儿童档案（child_id: lele02）：昵称乐乐，男，2岁（出生2024-08-22），无过敏记录\n今天是 2026-09-08\n[request]\n记录今天：乐乐三餐都正常吃了，吃得不错，白天玩得挺高兴，别的没什么特别的",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/lele02/2026-09/2026-09-08.md",
         "frontmatter": {},
         "frontmatter_forbidden": {},
-        "content_contains": ["正常"],
-        "content_excludes": ["偏多", "偏少"],
+        "content_contains": [
+          "正常"
+        ],
+        "content_excludes": [
+          "偏多",
+          "偏少"
+        ],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#3-工作流-步骤2（含糊表述处理：「吃得不错」→食量=正常、接受度=一般，不夸大）"
@@ -202,16 +242,20 @@
       "category": "edge",
       "input": "[context]\n儿童档案（child_id: xixi01）：昵称西西，女，20个月（出生2024-12-30），无过敏记录\n今天是 2026-09-08\n[request]\n记录今天：今天挺好的。不用再多问了，就记这一句就行",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/xixi01/2026-09/2026-09-08.md",
         "frontmatter": {
           "health_status": "^healthy$"
         },
         "frontmatter_forbidden": {},
-        "content_contains": ["未记录"],
+        "content_contains": [
+          "未记录"
+        ],
         "content_excludes": [],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#7-降级路径（口述过短→补问1轮；家长拒绝→如实记录、其余「未记录」）"
@@ -225,16 +269,23 @@
       "category": "positive",
       "input": "[context]\n儿童档案（child_id: tangtang）：昵称糖糖，女，18个月（出生2025-03-01），无过敏记录\n偏好档案现状：喜欢 西兰花（近30天出现8次）；无任何拒绝类记录\n今天是 2026-09-08\n[request]\n记录今天：中午第一次给糖糖试青椒，她直接吐出来了，扭头不肯吃，其他吃饭睡觉都正常",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/tangtang/2026-09/2026-09-08.md",
         "frontmatter": {
           "health_status": "^healthy$"
         },
         "frontmatter_forbidden": {},
-        "content_contains": ["观察"],
-        "content_excludes": ["不爱吃青椒", "讨厌青椒"],
+        "content_contains": [
+          "观察"
+        ],
+        "content_excludes": [
+          "不爱吃青椒",
+          "讨厌青椒"
+        ],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#执行硬约束-5（单次出现的观察不直接定性，标注「观察中」）",
@@ -249,16 +300,21 @@
       "category": "positive",
       "input": "[context]\n儿童档案（child_id: tangtang）：昵称糖糖，女，18个月（出生2025-03-01），无过敏记录\n偏好档案现状：胡萝卜 拒绝，近30天出现2次（08-20、09-01，标记观察中）；喜欢 西兰花（近30天出现8次）\n今天是 2026-09-08\n[request]\n记录今天：午餐里又放了胡萝卜，糖糖把胡萝卜一根根全挑出来了，碰都不碰，西兰花倒是吃了不少",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/tangtang/2026-09/2026-09-08.md",
         "frontmatter": {
           "health_status": "^healthy$"
         },
         "frontmatter_forbidden": {},
-        "content_contains": ["胡萝卜", "3"],
+        "content_contains": [
+          "胡萝卜",
+          "3"
+        ],
         "content_excludes": [],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#3-工作流-步骤4（食物接受度：近30天出现N次，N≥3 升级为稳定标签）",
@@ -273,14 +329,18 @@
       "category": "positive",
       "input": "[context]\n儿童档案（child_id: tangtang）：昵称糖糖，女，26个月（出生2024-07-10），无过敏记录\n偏好档案现状：能力观察一栏还没有双脚跳相关条目\n今天是 2026-09-08\n[request]\n记录今天：糖糖在小区游乐场玩的时候，第一次自己双脚同时跳起来了，还连着跳了三下，高兴得直笑",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/tangtang/2026-09/2026-09-08.md",
         "frontmatter": {},
         "frontmatter_forbidden": {},
-        "content_contains": ["双脚跳"],
+        "content_contains": [
+          "双脚跳"
+        ],
         "content_excludes": [],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#3-工作流-步骤4（能力表现：首次出现新技能→写入能力观察·强项 + 证据日期）"
@@ -294,18 +354,22 @@
       "category": "positive",
       "input": "[context]\n儿童档案（child_id: tangtang）：昵称糖糖，女，3岁（出生2023-05-10），无过敏记录，今天状态正常\n今天是 2026-09-08\n[request]\n帮我记录今天的情况：上午在家画画差不多20分钟，下午在小区跑了半小时满头汗，晚饭吃了大半碗米饭和青菜，九点就上床睡着了",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/tangtang/2026-09/2026-09-08.md",
         "frontmatter": {
           "date": "^2026-09-08$",
           "child_id": "^tangtang$",
           "health_status": "^healthy$"
         },
         "frontmatter_forbidden": {},
-        "content_contains": ["未记录"],
+        "content_contains": [
+          "未记录"
+        ],
         "content_excludes": [],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#description（触发词：记录今天）",
@@ -323,11 +387,15 @@
         "path_glob": null,
         "frontmatter": {},
         "frontmatter_forbidden": {},
-        "content_contains": ["今天"],
+        "content_contains": [
+          "今天"
+        ],
         "content_excludes": [],
         "feedback_contains": [],
         "should_trigger": false,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#7-降级路径（日期未来→拒绝，说明只能记录今天及过去）"
@@ -341,7 +409,7 @@
       "category": "positive",
       "input": "[context]\n儿童档案（child_id: tangtang）：昵称糖糖，女，18个月（出生2025-03-01），无过敏记录，偏好档案已有「喜欢 西兰花」条目\n今天是 2026-09-08\n[request]\n写日志：糖糖今天中午自己用勺子吃了大半碗西兰花肉末饭，吃得很香，下午睡了一个半小时，晚上九点入睡，一整天没生病没闹腾",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/tangtang/2026-09/2026-09-08.md",
         "frontmatter": {
           "date": "^2026-09-08$",
           "child_id": "^tangtang$",
@@ -350,11 +418,15 @@
         "frontmatter_forbidden": {
           "illness_notes": ".+"
         },
-        "content_contains": ["未记录"],
+        "content_contains": [
+          "未记录"
+        ],
         "content_excludes": [],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#执行硬约束-7（frontmatter 符合 journal-schema：required date/child_id/health_status）",
@@ -369,17 +441,21 @@
       "category": "positive",
       "input": "[context]\n儿童档案（child_id: tangtang）：昵称糖糖，女，18个月（出生2025-03-01），无过敏记录，偏好档案已有「喜欢 西兰花」条目\n今天是 2026-09-08\n[request]\n记录今天：糖糖晚饭主动指着要西兰花，给了两次都吃光了，饭后在客厅跟着音乐扭了一会儿，八点半就困了揉眼睛，一夜睡到天亮",
       "expected": {
-        "path_glob": "01_journal/2026-09/2026-09-08.md",
+        "path_glob": "01_journal/tangtang/2026-09/2026-09-08.md",
         "frontmatter": {
           "date": "^2026-09-08$",
           "tags": "^\\[.*\\]$"
         },
         "frontmatter_forbidden": {},
-        "content_contains": ["西兰花"],
+        "content_contains": [
+          "西兰花"
+        ],
         "content_excludes": [],
         "feedback_contains": [],
         "should_trigger": true,
-        "trigger_markers": ["01_journal"]
+        "trigger_markers": [
+          "01_journal"
+        ]
       },
       "references": [
         "skills/kid-journal/SKILL.md#5-输出契约（frontmatter 含 tags[]，数组类型）",

@@ -26,7 +26,7 @@ from pathlib import Path
 
 # Mirror of rollout.SKILL_PATHS keys (kept local to avoid an import cycle).
 _VALID_SKILLS = frozenset(
-    {"menu", "journal", "learning", "games", "plan", "rules", "review", "profile"}
+    {"init", "menu", "journal", "learning", "games", "plan", "rules", "review", "profile"}
 )
 
 try:  # skillopt is optional at import time (pure scoring stays testable)

@@ -3,4 +3,7 @@ language: zh
 active_child: tangtang
 children: [tangtang]
 initialized_at: 2026-08-30
-skill_version: v1.0.0
+skill_version: v1.3.0
+review:
+  min_coverage: 0.5
+  warning_days: 3

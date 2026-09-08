@@ -41,8 +41,8 @@
           {
             "type": "string",
             "enum": [
-              "menu", "journal", "learning", "games", "plan", "rules", "review", "profile",
-              "kid-menu", "kid-journal", "kid-learning", "kid-games", "kid-plan", "kid-rules", "kid-review", "kid-profile"
+              "menu", "journal", "learning", "games", "plan", "rules", "review", "profile", "init",
+              "kid-menu", "kid-journal", "kid-learning", "kid-games", "kid-plan", "kid-rules", "kid-review", "kid-profile", "kid-init"
             ]
           },
           { "type": "null" }
@@ -59,7 +59,7 @@
         "properties": {
           "path_glob": {
             "type": "string",
-            "description": "fnmatch glob for the file the skill should claim to write (e.g. 01_journal/2026-09/*.md). Empty string = no file expected."
+            "description": "fnmatch glob for the file the skill should claim to write (e.g. 01_journal/<child-id>/2026-09/*.md; v1.3 multi-child layout — journal/plan/review paths carry the <child-id> layer). Empty string = no file expected."
           },
           "frontmatter": {
             "type": "object",

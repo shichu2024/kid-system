@@ -8,7 +8,7 @@ description: |
   Triggers (EN): today's full plan / next 3 days plan / weekly plan / adjust plan
 version: v1.0.0
 phase: v0.5
-applies_to: 02_plans/YYYY-MM-DD.md（聚合三节）
+applies_to: 02_plans/<child-id>/YYYY-MM-DD.md（聚合三节）
 source_of_truth:
   - docs/DESIGN.md §6.1（指令优先级）· §6.2（闭环数据流）
   - docs/SKILLS_SPEC.md §8
@@ -25,7 +25,7 @@ source_of_truth:
 2. **不重复实现推荐逻辑**：菜单/学习/游戏分别按对应技能的硬约束与工作流生成；本技能不得绕过其安全滤网
 3. **批量上限 7 天**：days ≤ 7；逐日生成时日期 +1 并重算月龄（跨月龄段时提示标准切换）
 4. **调整不改档案**：调整指令只影响当次方案并记录 `adjustments[]`；涉及过敏/禁忌的永久变更必须引导 kid-profile
-5. **单文件完整**：每日方案聚合在同一个 `02_plans/YYYY-MM-DD.md`，frontmatter 按 journal-schema plan 定义（date/child_id/age_months_at_plan/plan_type/health_mode/adjustments）
+5. **单文件完整**：每日方案聚合在同一个 `02_plans/<child-id>/YYYY-MM-DD.md`，frontmatter 按 journal-schema plan 定义（date/child_id/age_months_at_plan/plan_type/health_mode/adjustments）
 6. **聚合简报必附**：三栏概览 + 营养重点 + 今日提醒（健康/里程碑/规则变更提示）
 
 ## 1. 何时调用
@@ -60,7 +60,7 @@ source_of_truth:
 1. **kid-menu**：生成菜单节（mode 默认 normal；care → light）
 2. **kid-learning**：生成学习计划节（双版本；care → 减半温和版）
 3. **kid-games**：生成游戏节（默认 3 个；care → 低强度组合）
-4. 写入 `02_plans/YYYY-MM-DD.md`：frontmatter（含 age_months_at_plan 重算）+ 三节
+4. 写入 `02_plans/<child-id>/YYYY-MM-DD.md`：frontmatter（含 age_months_at_plan 重算）+ 三节
 5. 批量模式：下一日期时各模块的周期均衡窗口滚动 +1 天
 
 ### 步骤 4 · 聚合简报
@@ -94,7 +94,7 @@ source_of_truth:
 
 | 项 | 值 |
 |----|----|
-| 路径 | `02_plans/YYYY-MM-DD.md` × N 天 |
+| 路径 | `02_plans/<child-id>/YYYY-MM-DD.md` × N 天 |
 | frontmatter | date / child_id / age_months_at_plan / plan_type（daily｜weekly_batch）/ health_mode / adjustments[] |
 | 简报 | 单日：三栏概览；批量：矩阵 + 多样性统计 |
 
@@ -125,5 +125,5 @@ source_of_truth:
 - [ ] frontmatter 完整（age_months_at_plan 为当日重算值）
 - [ ] 批量 ≤7 天且滚动窗口生效
 - [ ] 聚合简报含营养重点与今日提醒
-- [ ] adjustments[] 记录完整（调整类调用）
+- [ ] adjustments[] 记录完整（调整类调用）；同日重生成后 **adjustments[] 历史条目仍然保留**（未被覆盖丢失）
 - [ ] 永久健康变更已引导 kid-profile（未擅改档案）

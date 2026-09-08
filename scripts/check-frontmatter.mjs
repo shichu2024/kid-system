@@ -54,11 +54,12 @@ function parseFrontmatter(text) {
 
 function classify(relPath) {
   const p = relPath.replace(/\\/g, '/')
-  if (/^00_profiles\/.*\/profile\.md$/.test(p)) return 'profile'
-  if (/^01_journal\//.test(p)) return 'journal'
-  if (/^02_plans\//.test(p)) return 'plan'
-  if (/^04_reviews\/(weekly|monthly)\//.test(p)) return 'review'
-  if (/^04_reviews\/milestones\.md$/.test(p) || /^03_rules\//.test(p)) return 'minimal'
+  // v1.3 多儿童布局：<child-id> 目录层（单双儿童一致）
+  if (/^00_profiles\/[^/]+\/profile\.md$/.test(p)) return 'profile'
+  if (/^01_journal\/[^/]+\/\d{4}-\d{2}\/[^/]+\.md$/.test(p)) return 'journal'
+  if (/^02_plans\/[^/]+\/\d{4}-\d{2}-\d{2}\.md$/.test(p)) return 'plan'
+  if (/^04_reviews\/[^/]+\/(weekly|monthly)\/[^/]+\.md$/.test(p)) return 'review'
+  if (/^04_reviews\/[^/]+\/milestones\.md$/.test(p) || /^03_rules\//.test(p)) return 'minimal'
   return null
 }
 

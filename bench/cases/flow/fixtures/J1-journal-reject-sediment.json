@@ -2,13 +2,16 @@
   "fixture_id": "J1-journal-reject-sediment",
   "upstream_skill": "journal",
   "upstream_product": {
-    "path": "01_journal/2026-09/2026-09-08.md",
+    "path": "01_journal/maomao/2026-09/2026-09-08.md",
     "frontmatter": {
       "date": "2026-09-08",
       "child_id": "maomao",
       "health_status": "healthy",
       "mood_summary": "calm",
-      "tags": ["拒绝-胡萝卜", "喜欢-西兰花"]
+      "tags": [
+        "拒绝-胡萝卜",
+        "喜欢-西兰花"
+      ]
     },
     "content": "## 饮食\n- 午餐：米饭半碗、清蒸鲈鱼两块（接受度 一般）、炒青菜几口（接受度 一般）\n- 晚餐：面条小半碗、胡萝卜全部挑出（第 3 次拒绝，一叉子不肯尝）、西兰花主动夹了好几朵（接受度 高）\n- 食量：正常\n\n## 运动\n未记录\n\n## 学习\n未记录\n\n## 睡眠\n未记录\n\n## 情绪与健康\n整体平静，无异常。"
   },
@@ -19,12 +22,12 @@
       "content": "# 标签\n\n## 饮食偏好\n- **喜欢** 西兰花（近30天出现8次，接受度 高）`updated: 2026-09-05`\n- **拒绝** 胡萝卜（近30天出现2次，接受度 低，观察中）`updated: 2026-09-05`\n\n## 能力观察\n（暂无）\n\n## 兴趣点\n（暂无）"
     },
     {
-      "path": "01_journal/2026-09/2026-09-03.md",
+      "path": "01_journal/maomao/2026-09/2026-09-03.md",
       "frontmatter": {},
       "content": "## 饮食\n- 晚餐：胡萝卜挑出不吃（拒绝第 1 次）"
     },
     {
-      "path": "01_journal/2026-09/2026-09-05.md",
+      "path": "01_journal/maomao/2026-09/2026-09-05.md",
       "frontmatter": {},
       "content": "## 饮食\n- 晚餐：胡萝卜挑出不吃（拒绝第 2 次）"
     }
@@ -33,8 +36,14 @@
     "skill": "journal",
     "produce_path": "00_profiles/maomao/tags.md",
     "produce_frontmatter_contains": {},
-    "consume_fields": ["health_status", "tags"],
-    "produce_content_contains": ["胡萝卜", "西兰花"],
+    "consume_fields": [
+      "health_status",
+      "tags"
+    ],
+    "produce_content_contains": [
+      "胡萝卜",
+      "西兰花"
+    ],
     "sediment_rule": "拒绝胡萝卜计数 2→3，达到 N≥3 阈值，应从「观察中」升级为稳定标签并更新计数与日期"
   }
 }

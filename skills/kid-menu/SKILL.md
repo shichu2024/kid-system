@@ -8,7 +8,7 @@ description: |
   Triggers (EN): today's menu / weekly menu / adjust menu / replace ingredient
 version: v1.0.0
 phase: v0.5
-applies_to: 02_plans/YYYY-MM-DD.md（菜单节）
+applies_to: 02_plans/<child-id>/YYYY-MM-DD.md（菜单节）
 source_of_truth:
   - docs/DESIGN.md §6.1（指令优先级）· §6.3（安全滤网）· §6.4（周期均衡）
   - docs/SKILLS_SPEC.md §5
@@ -95,7 +95,7 @@ source_of_truth:
 
 | 项 | 值 |
 |----|----|
-| 路径 | `02_plans/YYYY-MM-DD.md` 菜单节（文件不存在则创建，frontmatter 按 journal-schema plan 定义；存在则只重写菜单节） |
+| 路径 | `02_plans/<child-id>/YYYY-MM-DD.md` 菜单节（文件不存在则创建，frontmatter 按 journal-schema plan 定义；存在则只重写菜单节） |
 | 菜品完整性 | 每菜 5 要素（食材用量/步骤/营养亮点/喂食注意/替换方案） |
 | 批量 | days>1 时逐日生成，日期+1 滚动均衡窗口 |
 | 调整 | adjustments[] 记录完整 |
@@ -127,6 +127,6 @@ source_of_truth:
 - [ ] 3 天窗口查重执行（列出查重依据）
 - [ ] 每菜 5 要素齐全，替换方案 ≥2 种
 - [ ] 护理模式正确触发（如适用）
-- [ ] 营养重点对照了正确年龄段标准
+- [ ] 营养重点对照了正确年龄段标准，并**标注来源**（nutrition-standards.md 对应表 / feeding-stages.json 对应阶段）
 - [ ] 免责声明已附
 - [ ] adjustments[] 已记录（调整类调用）

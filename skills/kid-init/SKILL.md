@@ -24,9 +24,11 @@ source_of_truth:
 2. **不采集敏感信息**：禁止询问/写入真实姓名、照片、住址、身份证号等；儿童标识只用**昵称**
 3. **过敏必答**：步骤 ② 健康禁忌中「过敏史」必须得到明确回答（可以是「无」），不得留空或跳过
 4. **档案写盘前确认**：`profile.md` 写入前必须向家长完整展示档案内容并获得确认
-5. **模板铺设数量**：`99_system/templates/{zh,en}/` 各 **8 个**模板（dish/daily-menu/game/learning-plan/journal/weekly-review/monthly-report/milestone-timeline），写完 `ls` 实测清点
-6. **frontmatter 合规**：`profile.md` 必须符合 `references/profile-schema.json`（required: child_id, nickname, birthdate, gender, allergies, created, updated）
-7. **自检清单（§9）逐项核对后才输出完成报告**
+5. **模板源实测清点（v1.3）**：铺设前先清点**技能包**模板源 `templates/{zh,en}/`（各 8 个：dish/daily-menu/game/learning-plan/journal/weekly-review/monthly-report/milestone-timeline）。**源目录缺失或数量 ≠ 8 → 输出 ⚠⚠ 阻断级告警并停止铺设**，明确提示「技能包安装不完整，请重新安装完整技能包」——**严禁按记忆现场编造模板 / schema / references / knowledge 替代**（走样副本会污染安全数据依据）。铺设后对 `99_system/templates/{zh,en}/` 再次 `ls` 实测清点
+6. **知识不进 vault（v1.3）**：`references/` 与 `knowledge/` 由各技能运行时**直接从技能包读取**，**严禁复制进 vault**（避免随技能包升级出现过期失真的「双真相源」，尤其 safety-rules 的就医红线）。`99_system/` 下只允许 config + templates
+7. **系统文件总数清点（v1.3）**：init 产出的系统文件 = 模板 **16**（8×2）+ `kid.config.yaml` **1** + `.kid-initialized` **1** = **18 个**；多出任何 references/knowledge 文件即违规
+8. **frontmatter 合规**：`profile.md` 必须符合 `references/profile-schema.json`（required: child_id, nickname, birthdate, gender, allergies, created, updated）
+9. **自检清单（§9）逐项核对后才输出完成报告**
 
 ## 1. 何时调用
 
@@ -54,15 +56,17 @@ source_of_truth:
 
 ### 步骤 2 · 铺设 vault 骨架
 
-按 DESIGN §3 创建：
+按 DESIGN §3（v1.3 多儿童布局）创建：
 
 ```
-00_profiles/          01_journal/        02_plans/
-03_rules/             04_reviews/weekly/  04_reviews/monthly/
-99_system/config/     99_system/templates/{zh,en}/
+00_profiles/<child-id>/            01_journal/<child-id>/
+02_plans/<child-id>/               03_rules/
+04_reviews/<child-id>/weekly/      04_reviews/<child-id>/monthly/
+99_system/config/                  99_system/templates/{zh,en}/
 ```
 
-- 复制技能包 `templates/{zh,en}/*.md`（8 个/语言）到 `99_system/templates/{zh,en}/`
+- **先清点技能包模板源**（硬约束 5）：`templates/{zh,en}/` 各 8 个，缺失/不符 → 阻断，不铺设
+- 复制技能包 `templates/{zh,en}/*.md`（8 个/语言）到 `99_system/templates/{zh,en}/`；**不复制 references/knowledge**（硬约束 6）
 - 写 `99_system/kid.config.yaml`：
 
 ```yaml
@@ -70,7 +74,10 @@ language: zh
 active_child: <child-id>
 children: [<child-id>]
 initialized_at: YYYY-MM-DD
-skill_version: v1.0.0
+skill_version: v1.3.0
+review:                # 量化阈值（可省略走默认值）
+  min_coverage: 0.5    # 复盘数据覆盖率下限
+  warning_days: 3      # 连续异常预警天数阈值
 ```
 
 - 写 `03_rules/rules.md` 空骨架（含说明头 + 空规则列表）
@@ -78,7 +85,7 @@ skill_version: v1.0.0
 
 ```yaml
 schema_version: 1
-skill_version: v1.0.0
+skill_version: v1.3.0
 language: zh
 initialized_at: YYYY-MM-DD
 ```
@@ -154,8 +161,11 @@ initialized_at: YYYY-MM-DD
 ## 9. 自检清单（完成报告前逐项核对）
 
 - [ ] `.kid-initialized` 存在且为 YAML 格式（含 schema_version/skill_version/language/initialized_at）
-- [ ] `99_system/kid.config.yaml` 四项齐全（language/active_child/children/initialized_at）
+- [ ] `99_system/kid.config.yaml` 四项齐全（language/active_child/children/initialized_at；review 阈值块可选）
+- [ ] **技能包模板源铺设前已实测清点**（缺失/≠8 时已阻断，未编造任何模板/schema/知识文件）
 - [ ] `99_system/templates/{zh,en}/` 各实测 **8 个**模板（ls 清点 ≠ 8 → 阻断级告警）
+- [ ] **`99_system/` 下无 references/knowledge 目录或文件**（系统文件总数 = 18）
+- [ ] 目录骨架符合 v1.3 多儿童布局（01_journal/02_plans/04_reviews 均含 <child-id> 层）
 - [ ] `00_profiles/<child-id>/profile.md` frontmatter 含全部 required 字段且 allergies 非空（「无」也显式写入 `allergies: []` 并在正文注明）
 - [ ] `tags.md` 三节骨架存在
 - [ ] 未覆盖任何既有文件（幂等守门执行）

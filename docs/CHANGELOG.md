@@ -2,6 +2,31 @@
 
 本项目的所有显著变更记录于此。格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [1.3.0] - 2026-09-08
+
+> 来源：外部全链路验证报告的虚假问题甄别与迭代（docs/dev/v1.3-iteration-verification-review.md，WP1-WP5）。
+> 报告唯一「确认问题」（rule_id 格式矛盾）经核实为虚假——测试环境安装不完整导致现场编造 schema；
+> 本版修复的三个真问题全部来自报告未识别的根因。
+
+### Changed · WP2 多儿童路径规范（破坏性：vault 布局变更）
+- 按儿童归属的数据全部带 `<child-id>` 目录层（单双儿童一致）：`01_journal/<child-id>/YYYY-MM/`、`02_plans/<child-id>/YYYY-MM-DD.md`（三节合一单文件写入硬约束，禁止模块前缀拆分）、`04_reviews/<child-id>/{weekly,monthly,milestones.md}`
+- DESIGN §3.3 新增多儿童路径规则；9 技能 applies_to 与读写路径同步；demo-vault 迁移；check-frontmatter.mjs 分类正则更新；Web 仪表盘按 active_child 发现数据
+
+### Added · WP1 kid-init 安装健壮性
+- 硬约束：模板源铺设前实测清点（缺失/≠8 → ⚠⚠ 阻断，禁止现场编造模板/schema/references/knowledge——防止安全数据依据被走样副本污染）
+- 硬约束：references/knowledge 严禁复制进 vault（避免双真相源过期失真）；系统文件总数 18 个清点
+
+### Added · WP3 kid-review 量化与机械判定
+- `kid.config.yaml → review.{min_coverage, warning_days}` 配置化（缺省 0.5 / 3），报告开头声明生效阈值
+- 连续异常预警从「工作流步骤」升格为硬约束机械判定（禁止语义跳过）；N-1 天输出「持续观察」
+- 里程碑滞后窗口量化：≥1 个月 = 观察说明、≥2 个月 = 建议儿保科评估（非诊断）
+
+### Changed · WP4 自检清单强化
+- kid-learning 难度调整依据须引用具体日志日期；kid-plan 同日重生成后 adjustments 历史保留；kid-menu 营养重点标注来源；kid-profile 影响提示具体到模块与动作
+
+### Added · WP5 评测防回归
+- 全量 bench case path_glob 适配多儿童布局；新增 init case 集（模板源缺失阻断 / 知识不进 vault）；harness SKILL_PATHS 增加 init
+
 ## [1.2.0] - 2026-09-08
 
 ### Added · SkillOpt 行为评测体系

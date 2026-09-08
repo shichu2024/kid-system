@@ -39,6 +39,7 @@ from .scoring import aggregate
 # path relative to repo root. Flow cases resolve their downstream skill
 # through this same map (``expected.flow_downstream_check.skill``).
 SKILL_PATHS = {
+    "init": "skills/kid-init/SKILL.md",
     "menu": "skills/kid-menu/SKILL.md",
     "journal": "skills/kid-journal/SKILL.md",
     "learning": "skills/kid-learning/SKILL.md",

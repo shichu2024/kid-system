@@ -8,7 +8,7 @@ description: |
   Triggers (EN): today's games / outdoor games / indoor play / travel games / quick games
 version: v1.0.0
 phase: v0.5
-applies_to: 02_plans/YYYY-MM-DD.md（游戏节）
+applies_to: 02_plans/<child-id>/YYYY-MM-DD.md（游戏节）
 source_of_truth:
   - docs/DESIGN.md §6.1（指令优先级）· §6.3（安全滤网）
   - docs/SKILLS_SPEC.md §7
@@ -81,7 +81,7 @@ source_of_truth:
 
 | 项 | 值 |
 |----|----|
-| 路径 | `02_plans/YYYY-MM-DD.md` 游戏节 |
+| 路径 | `02_plans/<child-id>/YYYY-MM-DD.md` 游戏节 |
 | 来源 | 每游戏标注 games-library id |
 | 推荐理由 | 每游戏 1 行 |
 | 组合说明 | 能力域覆盖 + 总时长 |

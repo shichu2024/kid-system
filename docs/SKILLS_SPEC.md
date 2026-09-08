@@ -5,7 +5,7 @@
 
 ## 通用约定
 
-- **路径表达**：一律相对 vault 根（如 `01_journal/2026-09/2026-09-08.md`）
+- **路径表达**：一律相对 vault 根（如 `01_journal/tangtang/2026-09/2026-09-08.md`）
 - **日期格式**：ISO `YYYY-MM-DD`；周编号 `YYYY-Www`
 - **月龄计算**：`age_months = (today - birthdate) 换算月数`，每次读写档案时重算并回写
 - **语言**：由 `99_system/kid.config.yaml.language` 决定（zh/en），模板取 `99_system/templates/<lang>/`
@@ -87,7 +87,7 @@
 4. 标签沉淀：提取食物接受度/能力表现/兴趣点 → 更新 `tags.md`（带证据引用与日期）
 5. 输出日志确认 + 沉淀摘要 + 次日方案优化提示
 
-**输出**：`01_journal/YYYY-MM/YYYY-MM-DD.md` + `tags.md` 增量更新
+**输出**：`01_journal/<child-id>/YYYY-MM/YYYY-MM-DD.md` + `tags.md` 增量更新
 
 **边界**：不编造未提及的维度；健康异常只做护理建议 + 就医指征提示；单日日志幂等（重写需确认）
 
@@ -108,7 +108,7 @@
 6. 周期均衡：连续 3 天不重复；输出周食材多样性统计（批量模式）
 7. 调整模式：基于调整指令重生成对应餐次，记录 `adjustments[]`
 
-**输出**：`02_plans/YYYY-MM-DD.md` 菜单节（符合 daily-menu + dish 模板）
+**输出**：`02_plans/<child-id>/YYYY-MM-DD.md` 菜单节（符合 daily-menu + dish 模板）
 
 **边界**：过敏原绝对排除；不推荐保健品/补剂；用量不确定时标注区间并说明
 
@@ -127,7 +127,7 @@
 4. 组装：核心环节（绘本共读含互动提问设计）+ 拓展启蒙 + 习惯培养，标注时长与操作方法
 5. 护理模式：时长减半，只保留温和内容（绘本/音乐）
 
-**输出**：`02_plans/YYYY-MM-DD.md` 学习计划节（含完成记录勾选框）
+**输出**：`02_plans/<child-id>/YYYY-MM-DD.md` 学习计划节（含完成记录勾选框）
 
 **边界**：不推荐屏幕时间 >30 分钟的内容；不布置强制打卡任务；内容须匹配发展里程碑
 
@@ -146,7 +146,7 @@
 4. 组装：每游戏含目标/道具/步骤/安全提示/进阶拓展/能力培养点
 5. 兴趣注入：至少 1 个游戏结合 tags.md 兴趣点
 
-**输出**：`02_plans/YYYY-MM-DD.md` 游戏节
+**输出**：`02_plans/<child-id>/YYYY-MM-DD.md` 游戏节
 
 **边界**：道具限家用常见物品；不推荐需专业设备项目；安全提示不可省略
 
@@ -160,12 +160,12 @@
 
 **工作流**：
 1. 前置校验：vault 已初始化 + 档案完整（缺核心信息 → 引导补全）
-2. 依序调用：kid-menu → kid-learning → kid-games（同一 `02_plans/YYYY-MM-DD.md`）
+2. 依序调用：kid-menu → kid-learning → kid-games（同一 `02_plans/<child-id>/YYYY-MM-DD.md`）
 2.5. 汇总展示：三栏概览 + 营养重点 + 今日提醒
 3. 批量模式：逐日生成（日期+1 时自动重算月龄、滚动周期均衡窗口）
 4. 调整流程：接收调整指令 → 定位受影响模块 → 重生成 → 记录 `adjustments[]` + 调整原因沉淀
 
-**输出**：`02_plans/YYYY-MM-DD.md`（完整三节）+ 概览简报
+**输出**：`02_plans/<child-id>/YYYY-MM-DD.md`（完整三节）+ 概览简报
 
 **边界**：批量 ≤7 天；调整不改档案事实字段（过敏等走 kid-profile）
 
@@ -185,6 +185,6 @@
 5. 优化建议：3-5 条可执行建议，每条标注「可转化为规则」标记
 6. 一键转规则：家长确认后，调用 kid-rules 注入
 
-**输出**：`04_reviews/weekly|monthly/...md` + `milestones.md` 更新
+**输出**：`04_reviews/<child-id>/weekly/YYYY-Www.md`（或 monthly/）+ `04_reviews/<child-id>/milestones.md` 更新
 
 **边界**：里程碑滞后不做诊断性结论，建议儿保科评估；复盘不评判家长
