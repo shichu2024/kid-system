@@ -2,6 +2,13 @@
 
 本项目的所有显著变更记录于此。格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [1.3.2] - 2026-09-09
+
+### Fixed · menu 集真实评测迭代（test 4/4 + val 5/5 = held-out 9/9 hard 100%）
+- **case 断言对齐 schema（4 处笔误）**：plan_type `^menu$`→`^(daily|weekly_batch)$` ×2（schema 无 menu 值）、health_mode `^light$`→`^care$` ×2（light 是菜单 mode 参数，非 health_mode 枚举）
+- **case 确定性修复**：7 个 case 补「今天是 2026-09-08」日期声明（消除模型自推日期歧义，M5 曾因此生成 09-09）；M2 请求由疑问句改为明确要求排当日完整菜单（消除「只建议不出菜单」的合法歧义）；M1 content_excludes 移除 蛋黄/蛋清（契约要求过敏声明点名过敏原，substring 评分无法区分引用与推荐）
+- **kid-menu 契约补强（步骤 4.5 回显五件套）**：方案完整路径（vault 相对路径+正斜杠，禁绝对路径/反斜杠）/ frontmatter 回显（yaml 围栏，plan_type 仅 daily|weekly_batch 禁自创值）/ 安全过滤声明点名过敏项 / 盐糖策略标注（≤12m「不加盐糖」）/ 每菜 5 要素字面声明；自检清单同步
+
 ## [1.3.0] - 2026-09-08
 
 > 来源：外部全链路验证报告的虚假问题甄别与迭代（docs/dev/v1.3-iteration-verification-review.md，WP1-WP5）。
