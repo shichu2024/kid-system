@@ -246,7 +246,11 @@ journal 提交
 
 ---
 
-## 7. 知识库文件规范（references/）
+## 7. 知识库文件规范（references/ 与 knowledge/）
+
+两层知识：**references/ 为权威标准数据**（分龄营养/里程碑/睡眠/安全，推荐引擎的事实依据）；**knowledge/ 为精选方法论层**（经典书籍导读/绘本库/救场游戏/问题导航/沟通话术，内容与咨询类输出的素材库）。
+
+### 7.1 references/（权威标准数据）
 
 | 文件 | 内容 | 数据结构要点 |
 |------|------|-------------|
@@ -256,8 +260,21 @@ journal 提交
 | `sleep-guide.json` | 分月龄睡眠总时长（夜/日）+ 清醒窗口 | `bands[] → {age_range, night_hours, day_naps, wake_windows[]}` |
 | `safety-rules.json` | 就医红线/窒息风险清单/居家安全 | `categories[] → {rules[], severity}` |
 | `games-library.json` | 游戏库索引：领域×月龄×场景×时长×道具 | `games[] → {id, name, domains[], age_range, scene, duration_min, props[], safety}` |
-| `knowledge-index.json` | 问题关键词 → 知识文件/章节映射 | `entries[] → {keywords[], resource, section}` |
+| `knowledge-index.json` | 问题关键词 → 知识文件/章节映射（含 knowledge/ 条目） | `entries[] → {keywords[], resource, section}` |
 | `profile-schema.json` `journal-schema.json` | §4 数据模型的 JSON Schema（draft-07） | CI 校验依据 |
+
+### 7.2 knowledge/（精选方法论层，zh 主源 + en/ 副本）
+
+| 文件 | 内容 | 消费方 |
+|------|------|--------|
+| `books-guide.md` | 12 本经典育儿书导读（核心方法/适用年龄/话术级技巧/一句话精华）+ 问题域速查表 | 问题解答、家长咨询 |
+| `communication-playbook.md` | 五步沟通框架 + 10 个高频场景话术（✅/❌ 对照）+ 表达白/黑名单 | 话术建议、复盘建议 |
+| `picture-books.md` | 0-12 岁分龄绘本库（选书原则/每本共读要点/六维度对应） | kid-learning 绘本选题 |
+| `quick-rescue-games.md` | 10 个狼狈场景 × 2-3 个 5 分钟救场游戏（零道具/家常用具） | kid-games 场景推荐 |
+| `problem-navigation.md` | 四大类高频问题导航（L1 即时应对/L2 习惯策略/深入资源/红旗信号） | 问题分流、journal 异常应对 |
+| `index.json` | knowledge 层索引（问题/方法名/绘本年龄/救场场景 → 文件章节） | 全技能检索 |
+
+引用规则：知识条目与安全红线冲突时以 references/safety-rules.json 为准；书籍方法引用必须标注来源书名。
 
 ---
 

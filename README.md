@@ -100,7 +100,8 @@ python -m http.server 8080   # 或 npx serve
 ```
 ├── skills/          # 9 个技能（SKILL.md）
 ├── templates/       # 中英双语 8 类输出模板
-├── references/      # 内置知识库（营养标准/辅食分龄/里程碑/睡眠/安全/游戏库）
+├── references/      # 权威标准数据（营养标准/辅食分龄/里程碑/睡眠/安全/游戏库）
+├── knowledge/       # 精选方法论层（经典书籍导读/分龄绘本库/5分钟救场游戏/问题导航/沟通话术）
 ├── docs/            # DESIGN.md（真相源）、SKILLS_SPEC.md、CHANGELOG.md
 ├── scripts/         # frontmatter / 死链校验脚本
 ├── web/             # 轻量仪表盘（单文件 HTML）

@@ -4,7 +4,7 @@ description: |
   每日亲子游戏推荐：按场景（室内/户外/车程/排队/做饭时/睡前）× 能力目标（大运动/精细动作/
   语言/认知/社交情绪）× 时长（5/15/30分钟）多维筛选，结合兴趣点与能力短板个性化匹配，
   全部游戏过安全滤网、道具限家用常见物品。
-  触发词（中文）：今日游戏推荐 / 增加户外游戏 / 室内玩什么 / 车上玩什么 / 5分钟游戏 / 游戏推荐
+  触发词（中文）：今日游戏推荐 / 增加户外游戏 / 室内玩什么 / 车上玩什么 / 5分钟游戏 / 做饭时孩子缠人怎么办 / 救场游戏 / 游戏推荐
   Triggers (EN): today's games / outdoor games / indoor play / travel games / quick games
 version: v1.0.0
 phase: v0.5
@@ -13,6 +13,7 @@ source_of_truth:
   - docs/DESIGN.md §6.1（指令优先级）· §6.3（安全滤网）
   - docs/SKILLS_SPEC.md §7
   - references/games-library.json · references/safety-rules.json
+  - knowledge/quick-rescue-games.md（狼狈场景 5 分钟救场游戏）
   - templates/{zh,en}/game.md
 ---
 
@@ -22,7 +23,7 @@ source_of_truth:
 
 ## ⚠ 执行硬约束
 
-1. **只从 `games-library.json` 选游戏**（id 引用），不凭空编造游戏；库内游戏可按家庭情况微调道具，但安全等级不得降低
+1. **只从 `games-library.json` 选游戏**（id 引用），不凭空编造游戏；库内游戏可按家庭情况微调道具，但安全等级不得降低。**例外**：救场场景类请求（做饭时/车程/排队等）可从 `knowledge/quick-rescue-games.md` 取材，标注「救场游戏」与来源章节
 2. **安全滤网强制**：<3 岁排除含细小零件/小颗粒道具的游戏（对照 `safety-rules.json → choking_hazards`）；护理模式（ill/recovering）排除剧烈运动类（gross_motor 高强度）
 3. **道具约束**：优先匹配档案 `pantry_scope` 与家用常见物品；推荐的游戏若道具家庭大概率没有，标注「无道具替代玩法」
 4. **筛选四维对齐**：月龄 ∧ 场景 ∧ 时长 ∧ 能力目标必须同时满足用户显式要求；未指定的维度按个性化匹配评分选择

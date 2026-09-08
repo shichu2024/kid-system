@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "updated": "2026-09-08",
+    "description": "kid-system knowledge-layer retrieval index (English mirror): maps parenting problem keywords (bilingual zh/en) to methodology files under knowledge/en/, per docs/DESIGN.md §6.3 safety filtering and §6.7 multilingual strategy. Skills match keywords first, then read the resource's section. Age-based data (sleep/feeding/milestones) remains in references/knowledge-index.json. level meanings: general=general navigation and overviews; method=classic parenting methodologies (books/communication techniques); scenario=immediate responses for concrete situations (problem navigation / rescue games).",
+    "usage": "keywords support mixed Chinese/English matching so both languages hit; resource is a repository-relative path under knowledge/ (this mirror points to knowledge/en/ files); section names a section or topic block inside the file. The zh primary source is knowledge/index.json."
+  },
+  "entries": [
+    {
+      "keywords": ["育儿问题导航", "常见问题", "问题分诊", "problem navigation", "triage", "common problems"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Triage principles (rule out physiological causes → check age-appropriateness → apply strategies)",
+      "level": "general"
+    },
+    {
+      "keywords": ["发脾气", "哭闹", "tantrum", "meltdown", "emotional collapse"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Emotions & Behavior → Tantrums (L1 in-the-moment + L2 emotion vocabulary and trigger logging)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["打人", "咬人", "攻击行为", "hitting", "biting", "aggressive behavior"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Emotions & Behavior → Hitting/Biting (immediate stop + substitute actions)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["抢玩具", "不愿分享", "轮流", "sharing", "turn taking", "grabbing toys", "mine"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Emotions & Behavior → Grabbing/Not sharing (timed turns + ownership language)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["说谎", "撒谎", "lying", "fantasy vs reality", "making things up"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Emotions & Behavior → Lying (no trap questions + real-or-made-up games)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["磨蹭", "拖延", "dawdling", "slow to get ready", "stalling"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Emotions & Behavior → Dawdling (concrete first-step instructions + visual routines)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["分离焦虑", "告别困难", "separation anxiety", "goodbye struggle", "clinging"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Emotions & Behavior → Separation anxiety (fixed goodbye ritual + graded practice)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["夜惊", "噩梦", "night terrors", "nightmares", "night scares"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Emotions & Behavior → Night terrors & nightmares (don't wake terrors / comfort and rewrite nightmares)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["屏幕时间", "抢手机", "screen time battle", "tablet", "phone addiction", "turning off screens"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Emotions & Behavior → Screen-time battles (preview + countdown + screen-free substitutes)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["挑食", "拒食", "不吃蔬菜", "picky eating", "food refusal", "picky eater", "won't eat vegetables"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Feeding & Nutrition → Picky eating (15-exposure rule + same-category swaps)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["边吃边玩", "追喂", "mealtime struggles", "playing during meals", "chase feeding", "wandering at table"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Feeding & Nutrition → Playing during meals (leaving the table ends the meal + meal structure)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["食量小", "忽大忽小", "appetite fluctuation", "eating less", "how much should kids eat"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Feeding & Nutrition → Appetite fluctuations (judge intake by the week, not the meal)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["要零食", "零食哭闹", "snack demands", "sweets", "constant snacking"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Feeding & Nutrition → Snack demands (snack schedule + visibility management)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["自主进食倒退", "要喂", "self-feeding regression", "refusing spoon", "demanding to be fed"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Feeding & Nutrition → Self-feeding regression (lower the difficulty ladder + extra connection)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["夜醒", "夜奶频繁", "night waking", "night feeding", "frequent waking"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Sleep & Rhythm → Frequent night waking (delayed response + bedtime routine and night-feed weaning)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["睡眠倒退", "拒绝午睡", "并觉", "sleep regression", "nap refusal", "nap transition"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Sleep & Rhythm → Sleep regressions / nap refusal (quiet-time floor + spotting nap transitions)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["睡前拖延", "早醒", "bedtime delay", "early waking", "bedtime stalling", "one more book"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Sleep & Rhythm → Bedtime stalling / early waking (pre-packed needs + blackout and low interaction)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["如厕训练", "戒尿布", "憋便", "potty training", "toilet learning", "withholding stool"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Social Skills & Habits → Potty training (readiness check + visualized routine)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["二胎矛盾", "大宝打二宝", "行为退化", "sibling rivalry", "new baby regression", "older child acting out"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Social Skills & Habits → Sibling rivalry (exclusive big-kid time + big-kid privileges)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["入园适应", "上幼儿园哭", "入园焦虑", "kindergarten adaptation", "preschool transition", "starting school"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Social Skills & Habits → Preschool adjustment (short goodbyes + advance preview)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["害怕", "恐惧", "怕黑", "怕医生", "fears", "afraid of dark", "fear of strangers", "doctor visit", "white coat"],
+      "resource": "knowledge/en/problem-navigation.md",
+      "section": "Social Skills & Habits → Fears (validate the fear + role-play desensitization)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["游戏力", "打闹游戏", "playful parenting", "Playful Parenting", "Lawrence Cohen", "role-reversal games"],
+      "resource": "knowledge/en/books-guide.md",
+      "section": "Playful Parenting (connection through play; dissolving standoffs and fears)",
+      "level": "method"
+    },
+    {
+      "keywords": ["正面管教", "和善而坚定", "positive discipline", "Positive Discipline", "kind and firm", "natural consequences"],
+      "resource": "knowledge/en/books-guide.md",
+      "section": "Positive Discipline (limit enforcement without punishment or permissiveness)",
+      "level": "method"
+    },
+    {
+      "keywords": ["非暴力沟通", "观察感受需要请求", "nonviolent communication", "NVC", "Nonviolent Communication", "Marshall Rosenberg"],
+      "resource": "knowledge/en/books-guide.md",
+      "section": "Nonviolent Communication (observation-feeling-need-request, applied to parenting)",
+      "level": "method"
+    },
+    {
+      "keywords": ["PET", "父母效能训练", "双赢", "parent effectiveness training", "P.E.T.", "win-win conflict resolution", "Thomas Gordon"],
+      "resource": "knowledge/en/books-guide.md",
+      "section": "P.E.T. Parent Effectiveness Training (problem ownership + no-lose conflict resolution)",
+      "level": "method"
+    },
+    {
+      "keywords": ["全脑教养法", "先连接后引导", "whole-brain child", "The Whole-Brain Child", "connect then redirect", "name it to tame it", "Siegel"],
+      "resource": "knowledge/en/books-guide.md",
+      "section": "The Whole-Brain Child (integrating the brain; naming emotions to tame them)",
+      "level": "method"
+    },
+    {
+      "keywords": ["如何说孩子才会听", "共情式沟通", "how to talk so kids will listen", "How to Talk So Kids Will Listen", "Faber and Mazlish", "descriptive praise"],
+      "resource": "knowledge/en/books-guide.md",
+      "section": "How to Talk So Kids Will Listen (empathic responses; concrete alternatives to praise and criticism)",
+      "level": "method"
+    },
+    {
+      "keywords": ["共情", "反映式倾听", "我信息", "empathy", "reflective listening", "I-message", "communication scripts"],
+      "resource": "knowledge/en/communication-playbook.md",
+      "section": "Reflective listening + I-messages (copy-ready daily dialogue scripts)",
+      "level": "method"
+    },
+    {
+      "keywords": ["0-1岁绘本", "婴儿绘本", "books for babies", "board books", "cloth books", "baby picture books"],
+      "resource": "knowledge/en/picture-books.md",
+      "section": "By age → 0-1 years (visual stimulation and interactive reading)",
+      "level": "general"
+    },
+    {
+      "keywords": ["1-3岁绘本", "习惯绘本", "books for toddlers", "toddler picture books", "habit books"],
+      "resource": "knowledge/en/picture-books.md",
+      "section": "By age → 1-3 years (daily-life habits and early emotion recognition)",
+      "level": "general"
+    },
+    {
+      "keywords": ["3-6岁绘本", "绘本推荐", "入园绘本", "情绪绘本", "picture books", "books for preschoolers", "book recommendations"],
+      "resource": "knowledge/en/picture-books.md",
+      "section": "By age → 3-6 years + themed lists (emotions / separation / potty / sleep entry points)",
+      "level": "general"
+    },
+    {
+      "keywords": ["做饭时玩游戏", "厨房游戏", "kitchen games", "cooking with toddler", "games while cooking"],
+      "resource": "knowledge/en/quick-rescue-games.md",
+      "section": "Rescue games for cooking time (self-directed play needing no continuous parent involvement)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["车程游戏", "车上玩什么", "car games", "road trip activities", "travel games"],
+      "resource": "knowledge/en/quick-rescue-games.md",
+      "section": "Car-ride games (no props; voice and observation games)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["排队游戏", "等餐游戏", "waiting games", "restaurant games", "queue games", "waiting room games"],
+      "resource": "knowledge/en/quick-rescue-games.md",
+      "section": "Queue / waiting games (quiet, playable in tiny spaces)",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["睡前游戏", "安抚游戏", "bedtime calming games", "wind down games", "calming activities"],
+      "resource": "knowledge/en/quick-rescue-games.md",
+      "section": "Bedtime calming games (low-arousal closing games)",
+      "level": "scenario"
+    }
+  ]
+}

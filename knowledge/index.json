@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "updated": "2026-09-08",
+    "description": "kid-system 知识层检索索引：育儿问题关键词（中英双语）到 knowledge/ 方法论文件的映射，对应 docs/DESIGN.md §6.3 安全滤网与 §6.7 多语言策略。技能检索时先命中 keywords，再读取 resource 的 section 定位内容；分龄数据（睡眠/辅食/里程碑）仍在 references/knowledge-index.json。level 含义：general=通用导航与方法总览；method=经典育儿方法论（书籍/沟通技巧）；scenario=具体场景的即时应对（问题导航/救场游戏）。",
+    "usage": "keywords 支持中英文混合匹配；resource 为本仓库 knowledge/ 下的相对路径（en 镜像在 knowledge/en/）；section 指向文件内章节或主题块。"
+  },
+  "entries": [
+    {
+      "keywords": ["育儿问题导航", "常见问题", "问题分诊", "分诊原则", "先排除生理原因", "problem navigation", "triage"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "分诊原则（先排除生理原因 → 再看发展适龄性 → 再用策略）",
+      "level": "general"
+    },
+    {
+      "keywords": ["发脾气", "哭闹", "崩溃", "情绪崩溃", "躺地打滚", "tantrum", "meltdown"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "情绪与行为类 → 发脾气（L1 即时安抚 + L2 情绪词汇与规律记录）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["打人", "咬人", "攻击行为", "抓人", "hitting", "biting", "aggressive behavior"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "情绪与行为类 → 打人/咬人（即时制止 + 替代动作教学）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["抢玩具", "不愿分享", "不分享", "物权", "轮流", "sharing", "turn taking", "grabbing toys"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "情绪与行为类 → 抢玩具/不愿分享（轮流计时 + 所有权语言）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["说谎", "撒谎", "编故事", "想象与现实", "lying", "fantasy vs reality"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "情绪与行为类 → 说谎（不设陷阱提问 + 区分想象与事实）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["磨蹭", "拖延", "拖拉", "催促", "出门慢", "dawdling", "slow to get ready"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "情绪与行为类 → 磨蹭拖延（具体第一步指令 + 流程可视化）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["分离焦虑", "告别困难", "抱大腿", "separation anxiety", "goodbye struggle"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "情绪与行为类 → 分离焦虑（固定告别仪式 + 逐级分离练习）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["夜惊", "噩梦", "做噩梦", "梦中惊醒", "night terrors", "nightmares"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "情绪与行为类 → 夜惊与噩梦（夜惊勿唤醒 / 噩梦安抚与改写结局）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["屏幕时间", "抢手机", "关不掉", "看电视哭", "电子产品", "screen time battle", "tablet"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "情绪与行为类 → 屏幕时间争夺战（预告倒计时 + 无屏替代库存）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["挑食", "拒食", "不吃蔬菜", "不吃肉", "picky eating", "food refusal"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "饮食营养类 → 挑食/拒食（15 次曝光法则 + 同类替换）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["边吃边玩", "追喂", "下桌", "吃饭乱跑", "mealtime struggles", "picky at table"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "饮食营养类 → 边吃边玩（下桌即结束 + 餐次结构）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["食量小", "忽大忽小", "吃多少算正常", "胃口波动", "appetite fluctuation", "eating less"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "饮食营养类 → 食量忽大忽小/零食索要（以周为单位看摄入）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["要零食", "零食哭闹", "吃糖", "零食时间", "snack demands", "sweets"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "饮食营养类 → 零食索要（零食时间表 + 可见性管理）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["自主进食倒退", "要喂", "扔勺子", "不吃颗粒", "self-feeding regression", "refusing spoon"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "饮食营养类 → 自主进食倒退（降难度台阶 + 退行期多关注）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["夜醒", "夜奶频繁", "睡不踏实", "频繁夜醒", "night waking", "night feeding"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "睡眠作息类 → 夜醒频繁（延迟响应 + 睡前程序与减夜奶）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["睡眠倒退", "拒绝午睡", "不肯睡", "并觉", "sleep regression", "nap refusal", "nap transition"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "睡眠作息类 → 睡眠倒退期/拒绝午睡（安静时间保底 + 并觉期识别）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["睡前拖延", "早醒", "不肯睡", "再讲一本", "bedtime delay", "early waking", "bedtime stalling"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "睡眠作息类 → 睡前拖延/早醒（需求预打包 + 遮光与低互动）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["如厕训练", "戒尿布", "憋便", "尿裤子", "马桶抗拒", "potty training", "toilet learning"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "社会性与习惯类 → 如厕训练（准备度确认 + 流程可视化）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["二胎矛盾", "大宝打二宝", "同胞竞争", "行为退化", "sibling rivalry", "new baby regression"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "社会性与习惯类 → 二胎矛盾（专属时间 + 大孩子特权）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["入园适应", "入园焦虑", "上幼儿园哭", "分离哭闹", "kindergarten adaptation", "preschool transition"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "社会性与习惯类 → 幼儿园入园适应（简短告别 + 提前预演）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["害怕", "恐惧", "怕黑", "怕陌生人", "怕医生", "白大褂", "fears", "afraid of dark", "doctor visit"],
+      "resource": "knowledge/problem-navigation.md",
+      "section": "社会性与习惯类 → 害怕与恐惧（承认恐惧 + 角色扮演脱敏）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["游戏力", "笑声养育", "打闹游戏", "角色置换", "playful parenting", "Lawrence Cohen"],
+      "resource": "knowledge/books-guide.md",
+      "section": "《游戏力》（用游戏建立连接、化解对峙与恐惧）",
+      "level": "method"
+    },
+    {
+      "keywords": ["正面管教", "和善而坚定", "积极暂停", "自然后果", "positive discipline", "gentle and firm"],
+      "resource": "knowledge/books-guide.md",
+      "section": "《正面管教》（不惩罚不娇纵的界限执行）",
+      "level": "method"
+    },
+    {
+      "keywords": ["非暴力沟通", "观察感受需要请求", "NVC", "nonviolent communication", "Marshall Rosenberg"],
+      "resource": "knowledge/books-guide.md",
+      "section": "《非暴力沟通》（观察-感受-需要-请求四要素的亲子应用）",
+      "level": "method"
+    },
+    {
+      "keywords": ["PET", "父母效能训练", "双赢", "第三法", "parent effectiveness training", "win-win"],
+      "resource": "knowledge/books-guide.md",
+      "section": "《PET 父母效能训练》（问题归属 + 没有输家的冲突解决）",
+      "level": "method"
+    },
+    {
+      "keywords": ["全脑教养法", "上下脑", "左右脑", "先连接后引导", "whole-brain child", "connect then redirect"],
+      "resource": "knowledge/books-guide.md",
+      "section": "《全脑教养法》（整合大脑、命名情绪以驯服情绪）",
+      "level": "method"
+    },
+    {
+      "keywords": ["如何说孩子才会听", "共情式沟通", "描述式表扬", "how to talk so kids will listen", "Faber & Mazlish"],
+      "resource": "knowledge/books-guide.md",
+      "section": "《如何说 孩子才会听》（共情回应、替代表扬与批评的具体话术）",
+      "level": "method"
+    },
+    {
+      "keywords": ["共情", "反映式倾听", "情绪命名", "我信息", "沟通话术", "empathy", "reflective listening", "I-message"],
+      "resource": "knowledge/communication-playbook.md",
+      "section": "反映式倾听 + 我信息表达（日常可复制的对话脚本）",
+      "level": "method"
+    },
+    {
+      "keywords": ["0-1岁绘本", "婴儿绘本", "布书", "洞洞书", "books for babies", "board books"],
+      "resource": "knowledge/picture-books.md",
+      "section": "分龄书单 → 0-1 岁（视觉激发与互动玩法）",
+      "level": "general"
+    },
+    {
+      "keywords": ["1-3岁绘本", "幼儿绘本", "习惯绘本", "books for toddlers"],
+      "resource": "knowledge/picture-books.md",
+      "section": "分龄书单 → 1-3 岁（生活习惯与情绪认知启蒙）",
+      "level": "general"
+    },
+    {
+      "keywords": ["3-6岁绘本", "绘本推荐", "入园绘本", "情绪绘本", "picture books", "books for preschoolers"],
+      "resource": "knowledge/picture-books.md",
+      "section": "分龄书单 → 3-6 岁 + 主题书单（情绪/分离/如厕/睡眠主题入口）",
+      "level": "general"
+    },
+    {
+      "keywords": ["做饭时玩游戏", "厨房游戏", "做饭孩子闹", "kitchen games", "cooking with toddler"],
+      "resource": "knowledge/quick-rescue-games.md",
+      "section": "做饭时的救场游戏（无需家长连续参与的自选游戏）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["车程游戏", "车上玩什么", "旅行游戏", "car games", "road trip activities"],
+      "resource": "knowledge/quick-rescue-games.md",
+      "section": "车程游戏（无道具、语音与观察类游戏）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["排队游戏", "等餐游戏", "候诊游戏", "waiting games", "restaurant games"],
+      "resource": "knowledge/quick-rescue-games.md",
+      "section": "排队/等位游戏（静音、极小空间可玩）",
+      "level": "scenario"
+    },
+    {
+      "keywords": ["睡前游戏", "安抚游戏", "平静游戏", "bedtime calming games", "wind down"],
+      "resource": "knowledge/quick-rescue-games.md",
+      "section": "睡前安抚游戏（降唤醒水平的收尾游戏）",
+      "level": "scenario"
+    }
+  ]
+}

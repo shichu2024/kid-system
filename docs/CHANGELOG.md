@@ -2,6 +2,22 @@
 
 本项目的所有显著变更记录于此。格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [1.1.0] - 2026-09-08
+
+### Added · knowledge/ 精选方法论知识层（zh + en）
+- `books-guide.md`：12 本经典育儿书导读（核心方法/适用年龄/话术级技巧）+ 问题域速查表
+- `communication-playbook.md`：五步沟通框架 + 10 个高频场景话术（✅/❌ 对照）+ 表达白/黑名单
+- `picture-books.md`：0-12 岁分龄绘本库（经典书单/共读要点/六维度对应建议）
+- `quick-rescue-games.md`：10 个狼狈场景 × 5 分钟救场游戏（零道具/家用常见物品）
+- `problem-navigation.md`：四大类高频问题导航（L1 即时应对/L2 习惯策略/深入资源/红旗信号）
+- `index.json`：knowledge 层检索索引
+
+### Changed
+- kid-learning：绘本选题接入 picture-books.md 书单（禁止捏造书名）
+- kid-games：救场场景接入 quick-rescue-games.md，新增触发词
+- kid-journal：行为困扰可引用 problem-navigation.md 给 L1 即时应对
+- DESIGN.md §7 拆分为 references/（权威标准）与 knowledge/（方法论）两层规范
+
 ## [1.0.0] - 2026-09-08
 
 ### v1.0 · 定版
