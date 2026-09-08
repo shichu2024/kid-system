@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kid-system · 成长仪表盘</title>
+<style>
+  :root {
+    --bg: #f6f7fb; --card: #ffffff; --primary: #4f6ef7; --primary-soft: #eef1fe;
+    --text: #2b2f3a; --muted: #8a90a3; --border: #e6e8f0;
+    --danger: #e5484d; --danger-soft: #fdecec; --ok: #2fa96e; --ok-soft: #e8f7f0;
+    --warn: #f5a623; --warn-soft: #fdf5e6; --radius: 14px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; background: var(--bg); color: var(--text); }
+  .layout { display: flex; min-height: 100vh; }
+
+  /* 侧边栏 */
+  .sidebar { width: 220px; background: #1f2437; color: #cdd3e8; padding: 20px 0; flex-shrink: 0; }
+  .logo { font-size: 20px; font-weight: 700; color: #fff; padding: 0 24px 18px; border-bottom: 1px solid #2c3247; }
+  .logo span { color: var(--primary); }
+  .nav { margin-top: 14px; }
+  .nav-item { display: block; padding: 11px 24px; cursor: pointer; color: #aab2cc; font-size: 14px; border-left: 3px solid transparent; user-select: none; }
+  .nav-item:hover { color: #fff; background: #262c42; }
+  .nav-item.active { color: #fff; background: #262c42; border-left-color: var(--primary); }
+  .sidebar .foot { position: absolute; bottom: 20px; padding: 0 24px; font-size: 12px; color: #6b7390; }
+
+  /* 主区 */
+  .main { flex: 1; padding: 26px 32px; max-width: 1100px; }
+  .topbar { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; flex-wrap: wrap; }
+  h1 { font-size: 22px; }
+  .topbar .spacer { flex: 1; }
+  .status-chip { font-size: 13px; padding: 5px 14px; border-radius: 999px; background: var(--ok-soft); color: var(--ok); font-weight: 600; }
+  .status-chip.ill { background: var(--danger-soft); color: var(--danger); }
+  .status-chip.recovering { background: var(--warn-soft); color: var(--warn); }
+  input#base { padding: 7px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; width: 300px; background: var(--card); }
+  button { padding: 7px 18px; border: none; border-radius: 8px; background: var(--primary); color: #fff; font-size: 13px; cursor: pointer; }
+  button.ghost { background: var(--card); border: 1px solid var(--border); color: var(--text); }
+  button:disabled { opacity: .5; cursor: not-allowed; }
+
+  /* 卡片 */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+  .card { background: var(--card); border-radius: var(--radius); padding: 20px 22px; border: 1px solid var(--border); }
+  .card h3 { font-size: 15px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .card h3 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); }
+  .muted { color: var(--muted); font-size: 13px; }
+  .tag { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 6px; background: var(--primary-soft); color: var(--primary); margin: 2px 4px 2px 0; }
+  .tag.danger { background: var(--danger-soft); color: var(--danger); }
+  .tag.warn { background: var(--warn-soft); color: var(--warn); }
+  .kv { display: flex; font-size: 13.5px; padding: 5px 0; border-bottom: 1px dashed var(--border); }
+  .kv:last-child { border-bottom: none; }
+  .kv .k { width: 120px; color: var(--muted); flex-shrink: 0; }
+  .kv .v { flex: 1; }
+  .alert { border-radius: 10px; padding: 12px 16px; font-size: 13.5px; margin-bottom: 14px; line-height: 1.6; }
+  .alert.danger { background: var(--danger-soft); color: #a02c30; border-left: 4px solid var(--danger); }
+  .alert.warn { background: var(--warn-soft); color: #8a6116; border-left: 4px solid var(--warn); }
+  .alert.info { background: var(--primary-soft); color: #3b53c9; border-left: 4px solid var(--primary); }
+
+  /* 时间线 */
+  .timeline { display: flex; flex-direction: column; gap: 14px; }
+  .tl-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; }
+  .tl-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+  .tl-date { font-weight: 700; font-size: 14px; }
+  .tl-body { font-size: 13.5px; color: #4a4f60; line-height: 1.7; white-space: pre-wrap; max-height: 220px; overflow: hidden; position: relative; }
+  .tl-body.expanded { max-height: none; }
+  .tl-more { color: var(--primary); font-size: 12.5px; cursor: pointer; margin-top: 4px; display: inline-block; }
+
+  /* 列表 */
+  .rule-item { border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; background: var(--card); font-size: 13.5px; }
+  .rule-item .rid { font-weight: 700; color: var(--primary); margin-right: 8px; }
+  .rule-item .meta { color: var(--muted); font-size: 12px; margin-top: 5px; }
+
+  .section-title { font-size: 17px; font-weight: 700; margin: 26px 0 14px; }
+  .empty { text-align: center; color: var(--muted); padding: 50px 0; font-size: 14px; }
+  pre.raw { background: #232839; color: #dbe2ff; padding: 18px; border-radius: 10px; font-size: 12.5px; overflow-x: auto; line-height: 1.6; }
+  .plan-day { margin-bottom: 20px; }
+  .health-flag { font-size: 12px; font-weight: 700; color: var(--warn); }
+  .hidden { display: none; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" style="position:relative">
+    <div class="logo">kid<span>-</span>system</div>
+    <nav class="nav" id="nav">
+      <div class="nav-item active" data-view="dashboard">成长总览</div>
+      <div class="nav-item" data-view="profile">儿童档案</div>
+      <div class="nav-item" data-view="journal">成长日志</div>
+      <div class="nav-item" data-view="plans">每日方案</div>
+      <div class="nav-item" data-view="rules">育儿规则</div>
+      <div class="nav-item" data-view="reviews">成长复盘</div>
+    </nav>
+    <div class="foot">kid-system v1.0.0<br>只读展示 · 编辑请回技能指令</div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h1 id="viewTitle">成长总览</h1>
+      <span id="healthChip" class="status-chip hidden"></span>
+      <div class="spacer"></div>
+      <input id="base" placeholder="vault 地址（如 ../examples/demo-vault）">
+      <button onclick="loadVault()">加载</button>
+      <button class="ghost" onclick="loadDemo()">示例数据</button>
+    </div>
+    <div id="alertArea"></div>
+    <div id="content"><div class="empty">点击右上角「加载」或「示例数据」开始浏览</div></div>
+    <footer>
+      kid-system 仪表盘为只读视图，所有数据来自你的本地 vault（技能写入）。<br>
+      编辑档案 / 写日志 / 生成方案 / 注入规则请回到 Claude Code 使用对应技能指令（如「查看孩子档案」「记录今天」「今日方案」）。<br>
+      育儿建议仅供参考，不能替代专业医疗诊断与治疗。
+    </footer>
+  </main>
+</div>
+
+<script>
+'use strict'
+/* ============ 状态 ============ */
+const state = { base: '', profile: null, tags: '', journals: [], plans: [], rules: '', conflicts: '', reviews: [], milestones: '' }
+
+/* ============ 工具 ============ */
+async function fetchText(path) {
+  const res = await fetch(state.base + '/' + path)
+  if (!res.ok) throw new Error(res.status + ' ' + path)
+  return res.text()
+}
+function parseFrontmatter(text) {
+  const m = text.match(/^---\r?\n([\s\S]*?)\r?\n---/)
+  if (!m) return {}
+  const fm = {}
+  let key = null
+  for (const line of m[1].split(/\r?\n/)) {
+    const kv = line.match(/^([A-Za-z_][\w]*):\s*(.*)$/)
+    if (kv) { key = kv[1]; const v = kv[2].trim(); fm[key] = v === '' ? [] : v.replace(/^['"]|['"]$/g, '') }
+    else if (key && /^\s*-\s+/.test(line)) {
+      if (!Array.isArray(fm[key])) fm[key] = [fm[key]]
+      fm[key].push(line.replace(/^\s*-\s+/, '').trim())
+    }
+  }
+  return fm
+}
+function body(text) {
+  const i = text.indexOf('---', 3)
+  return text.slice(text.indexOf('\n', i) + 1).trim()
+}
+function ageLabel(birthdate, at) {
+  if (!birthdate) return '?'
+  const b = new Date(birthdate), t = at ? new Date(at) : new Date()
+  let months = (t.getFullYear() - b.getFullYear()) * 12 + (t.getMonth() - b.getMonth())
+  if (t.getDate() < b.getDate()) months--
+  const y = Math.floor(months / 12), m = months % 12
+  return (y > 0 ? y + '岁' : '') + m + '个月'
+}
+function esc(s) { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML }
+function fmtMd(s) {
+  return esc(s)
+    .replace(/^###?\s+(.*)$/gm, '<b>$1</b>')
+    .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+}
+
+/* ============ 数据加载 ============ */
+function setAlert(html) { document.getElementById('alertArea').innerHTML = html }
+async function loadVault(base) {
+  if (base !== undefined) state.base = base
+  state.base = (document.getElementById('base').value || state.base).replace(/\/+$/, '')
+  if (!state.base) return
+  document.getElementById('content').innerHTML = '<div class="empty">加载中…</div>'
+  const results = await Promise.allSettled([
+    fetchText('99_system/kid.config.yaml'),
+    (async () => { // profile: 尝试从 config 拿 active_child，否则猜第一个目录
+      const cfg = await fetchText('99_system/kid.config.yaml')
+      const id = (cfg.match(/active_child:\s*(\S+)/) || [])[1] || ''
+      return { cfg, profile: await fetchText('00_profiles/' + id + '/profile.md'), tags: await fetchText('00_profiles/' + id + '/tags.md') }
+    })(),
+    fetchText('03_rules/rules.md'),
+    fetchText('03_rules/conflicts-log.md').catch(() => ''),
+    fetchText('04_reviews/milestones.md').catch(() => ''),
+    (async () => { return { list: await listDir('01_journal') } })(),
+    (async () => { return { list: await listDir('02_plans') } })(),
+    (async () => { return { list: await listDir('04_reviews') } })(),
+  ])
+  try {
+    const [, prof, rules, conflicts, milestones] = results
+    state.profile = prof.status === 'fulfilled' ? prof.value.profile : null
+    state.tags = prof.status === 'fulfilled' ? prof.value.tags : ''
+    state.rules = rules.status === 'fulfilled' ? rules.value : ''
+    state.conflicts = conflicts.status === 'fulfilled' ? conflicts.value : ''
+    state.milestones = milestones.status === 'fulfilled' ? milestones.value : ''
+    state.journals = []
+    for (const month of await listDir('01_journal').catch(() => [])) {
+      for (const f of await listDir('01_journal/' + month).catch(() => [])) {
+        const t = await fetchText('01_journal/' + month + '/' + f).catch(() => '')
+        if (t) state.journals.push({ file: f, fm: parseFrontmatter(t), text: t })
+      }
+    }
+    state.journals.sort((a, b) => b.fm.date.localeCompare(a.fm.date))
+    state.plans = []
+    for (const f of await listDir('02_plans').catch(() => [])) {
+      const t = await fetchText('02_plans/' + f).catch(() => '')
+      if (t) state.plans.push({ file: f, fm: parseFrontmatter(t), text: t })
+    }
+    state.plans.sort((a, b) => b.fm.date.localeCompare(a.fm.date))
+    state.reviews = []
+    for (const sub of ['weekly', 'monthly']) {
+      for (const f of await listDir('04_reviews/' + sub).catch(() => [])) {
+        const t = await fetchText('04_reviews/' + sub + '/' + f).catch(() => '')
+        if (t) state.reviews.push({ file: sub + '/' + f, fm: parseFrontmatter(t), text: t })
+      }
+    }
+    render()
+  } catch (e) {
+    document.getElementById('content').innerHTML = '<div class="empty">加载失败：' + esc(e.message) + '<br>请确认 vault 地址正确，且以本地 HTTP 服务方式访问（见 web/README.md）</div>'
+  }
+}
+async function listDir(path) {
+  const res = await fetch(state.base + '/' + path + '/')
+  if (!res.ok) throw new Error(path)
+  const html = await res.text()
+  const items = []
+  for (const m of html.matchAll(/href="([^"?/][^"?]*)"/g)) {
+    const name = decodeURIComponent(m[1]).replace(/\/$/, '')
+    if (!name || name.startsWith('.')) continue
+    items.push(name)
+  }
+  return items
+}
+function loadDemo() {
+  document.getElementById('base').value = '../examples/demo-vault'
+  loadVault()
+}
+
+/* ============ 渲染 ============ */
+const VIEWS = { dashboard: '成长总览', profile: '儿童档案', journal: '成长日志', plans: '每日方案', rules: '育儿规则', reviews: '成长复盘' }
+let currentView = 'dashboard'
+document.getElementById('nav').addEventListener('click', (e) => {
+  const item = e.target.closest('.nav-item'); if (!item) return
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'))
+  item.classList.add('active')
+  currentView = item.dataset.view
+  render()
+})
+function render() {
+  document.getElementById('viewTitle').textContent = VIEWS[currentView]
+  const chip = document.getElementById('healthChip')
+  const hs = state.journals[0]?.fm.health_status
+  chip.classList.toggle('hidden', !hs)
+  chip.className = 'status-chip ' + (hs === 'healthy' ? '' : hs)
+  chip.textContent = hs === 'healthy' ? '今日状态：健康' : hs === 'ill' ? '今日状态：生病' : hs === 'recovering' ? '恢复期' : hs || ''
+  setAlert('')
+  const views = { dashboard: renderDashboard, profile: renderProfile, journal: renderJournal, plans: renderPlans, rules: renderRules, reviews: renderReviews }
+  document.getElementById('content').innerHTML = views[currentView]()
+}
+
+function renderDashboard() {
+  const fm = state.profile ? parseFrontmatter(state.profile) : {}
+  const last7 = state.journals.slice(0, 7)
+  const latestPlan = state.plans[0]
+  const latestReview = state.reviews[0]
+  let alerts = ''
+  for (const j of state.journals.slice(0, 3)) {
+    if (j.fm.health_status === 'ill') { alerts += '<div class="alert danger"><b>健康提醒</b>：' + esc(j.fm.date) + ' 日志标记生病（' + esc(j.fm.illness_notes || '详见日志') + '）。护理建议与就医指征请查看当日日志，必要时及时就医。</div>'; break }
+    if (j.fm.health_status === 'recovering') alerts += '<div class="alert warn"><b>恢复期</b>：最近日志显示孩子处于恢复期，方案已自动切换护理模式（清淡饮食、暂停剧烈运动）。</div>'
+  }
+  if (!state.profile) alerts += '<div class="alert info">未读取到儿童档案，请确认 vault 已通过 kid-init 初始化。</div>'
+  return alerts + `
+  <div class="grid">
+    <div class="card">
+      <h3><span class="dot"></span>孩子状态</h3>
+      <div class="kv"><div class="k">昵称</div><div class="v"><b>${esc(fm.nickname || '—')}</b></div></div>
+      <div class="kv"><div class="k">月龄</div><div class="v">${esc(ageLabel(fm.birthdate))}</div></div>
+      <div class="kv"><div class="k">性别</div><div class="v">${esc(fm.gender === 'female' ? '女' : fm.gender === 'male' ? '男' : '—')}</div></div>
+      <div class="kv"><div class="k">过敏</div><div class="v">${(Array.isArray(fm.allergies) && fm.allergies.length ? fm.allergies : []).map(a => '<span class="tag danger">' + esc(a) + '</span>').join('') || '无'}</div></div>
+      <div class="kv"><div class="k">饮食禁忌</div><div class="v">${(Array.isArray(fm.diet_restrictions) ? fm.diet_restrictions : []).map(a => '<span class="tag warn">' + esc(a) + '</span>').join('') || '—'}</div></div>
+    </div>
+    <div class="card">
+      <h3><span class="dot"></span>最新方案（${esc(latestPlan?.fm.date || '—')}）</h3>
+      ${latestPlan ? `<div class="kv"><div class="k">方案类型</div><div class="v">${esc(latestPlan.fm.plan_type)}</div></div>
+      <div class="kv"><div class="k">健康模式</div><div class="v">${latestPlan.fm.health_mode === 'care' ? '<span class="health-flag">护理模式</span>' : '常规'}</div></div>
+      <div class="kv"><div class="k">查看</div><div class="v"><a href="#" onclick="switchTo('plans');return false" style="color:var(--primary)">前往每日方案 →</a></div></div>` : '<div class="muted">暂无方案。回到 Claude Code 输入「今日方案」生成。</div>'}
+    </div>
+    <div class="card">
+      <h3><span class="dot"></span>最近复盘</h3>
+      ${latestReview ? `<div class="kv"><div class="k">报告</div><div class="v">${esc(latestReview.file)}</div></div>
+      <div class="kv"><div class="k">查看</div><div class="v"><a href="#" onclick="switchTo('reviews');return false" style="color:var(--primary)">前往成长复盘 →</a></div></div>` : '<div class="muted">暂无复盘。试试「周总结」「月度报告」。</div>'}
+    </div>
+    <div class="card">
+      <h3><span class="dot"></span>近 ${last7.length} 天日志</h3>
+      ${last7.length ? last7.map(j => `<div class="kv"><div class="k">${esc(j.fm.date)}</div><div class="v">${j.fm.health_status === 'healthy' ? '✅' : j.fm.health_status === 'ill' ? '🤒 生病' : '🌱 恢复'} ${esc(j.fm.mood_summary || '')}</div></div>`).join('') : '<div class="muted">暂无日志记录。</div>'}
+    </div>
+  </div>
+  <div class="section-title">动态标签（由日志自动沉淀）</div>
+  <div class="card"><div style="font-size:13.5px;line-height:1.9;white-space:pre-wrap">${fmtMd(state.tags) || '暂无'}</div></div>`
+}
+
+function renderProfile() {
+  if (!state.profile) return '<div class="empty">未找到档案</div>'
+  return '<pre class="raw">' + esc(state.profile) + '</pre>'
+    + '<div class="section-title">动态标签</div><div class="card"><div style="font-size:13.5px;line-height:1.9;white-space:pre-wrap">' + (fmtMd(state.tags) || '—') + '</div></div>'
+}
+function renderJournal() {
+  if (!state.journals.length) return '<div class="empty">暂无日志</div>'
+  return '<div class="timeline">' + state.journals.map((j, i) => `
+    <div class="tl-item">
+      <div class="tl-head">
+        <span class="tl-date">${esc(j.fm.date)}</span>
+        <span class="tag ${j.fm.health_status === 'healthy' ? '' : 'danger'}">${esc(j.fm.health_status)}</span>
+        ${j.fm.mood_summary ? '<span class="tag">' + esc(j.fm.mood_summary) + '</span>' : ''}
+        ${(Array.isArray(j.fm.tags) ? j.fm.tags : []).slice(0, 5).map(t => '<span class="tag warn">' + esc(t) + '</span>').join('')}
+      </div>
+      <div class="tl-body" id="jl-${i}">${fmtMd(body(j.text))}</div>
+      <span class="tl-more" onclick="toggleBody('jl-${i}', this)">展开全部 ▾</span>
+    </div>`).join('') + '</div>'
+}
+function renderPlans() {
+  if (!state.plans.length) return '<div class="empty">暂无方案</div>'
+  return state.plans.map((p, i) => `
+    <div class="tl-item plan-day">
+      <div class="tl-head">
+        <span class="tl-date">${esc(p.fm.date)} 方案</span>
+        ${p.fm.health_mode === 'care' ? '<span class="health-flag">护理模式</span>' : ''}
+        <span class="tag">${esc(p.fm.plan_type)}</span>
+        <span class="tag">${esc(ageLabel(parseFrontmatter(state.profile || '---\nbirthdate: \n---').birthdate, p.fm.date))}</span>
+      </div>
+      <div class="tl-body" id="pl-${i}">${fmtMd(body(p.text))}</div>
+      <span class="tl-more" onclick="toggleBody('pl-${i}', this)">展开全部 ▾</span>
+    </div>`).join('')
+}
+function renderRules() {
+  if (!state.rules) return '<div class="empty">暂无规则库文件</div>'
+  let html = '<pre class="raw">' + esc(state.rules) + '</pre>'
+  if (state.conflicts) html += '<div class="section-title">冲突处理记录</div><pre class="raw">' + esc(state.conflicts) + '</pre>'
+  return html
+}
+function renderReviews() {
+  let html = ''
+  if (!state.reviews.length) html += '<div class="empty">暂无复盘报告</div>'
+  else html += state.reviews.map((r, i) => `
+    <div class="tl-item plan-day">
+      <div class="tl-head"><span class="tl-date">${esc(r.file)}</span><span class="tag">${esc(r.fm.period || '')}</span></div>
+      <div class="tl-body" id="rv-${i}">${fmtMd(body(r.text))}</div>
+      <span class="tl-more" onclick="toggleBody('rv-${i}', this)">展开全部 ▾</span>
+    </div>`).join('')
+  if (state.milestones) html += '<div class="section-title">发育里程碑时间轴</div><pre class="raw">' + esc(state.milestones) + '</pre>'
+  return html
+}
+function toggleBody(id, el) {
+  const el2 = document.getElementById(id)
+  el2.classList.toggle('expanded')
+  el.textContent = el2.classList.contains('expanded') ? '收起 ▴' : '展开全部 ▾'
+}
+function switchTo(view) {
+  const item = document.querySelector('.nav-item[data-view="' + view + '"]')
+  if (item) item.click()
+}
+</script>
+</body>
+</html>
