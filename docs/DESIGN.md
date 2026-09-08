@@ -304,10 +304,22 @@ journal 提交
 
 ## 10. 质量保障
 
+双层：**静态结构校验（ci.yml，阻塞）** + **行为评测（skillopt.yml，nightly 非阻塞）**。
+
+### 10.1 静态结构校验（阻塞）
+
 - `scripts/check-frontmatter.mjs`：校验 vault/示例数据 frontmatter 合规
 - `scripts/check-links.mjs`：wikilink/相对链接死链检测
 - `examples/demo-vault/`：全链路示例（档案→7 天日志→方案→复盘），CI 校验载体
-- CI（`.github/workflows/ci.yml`）：JSON 解析 + schema 校验 + frontmatter + 死链
+- CI（`.github/workflows/ci.yml`）：JSON 解析 + schema 校验 + 技能清单一致性 + frontmatter + 死链 + 占位符
+
+### 10.2 SkillOpt 行为评测（v1.2）
+
+- golden case 回归：`bench/cases/`（menu 22 / journal 16 / flow 6 / unseen 8），chat 后端单轮（SKILL.md 作 system、case input 作 user），评分 hard=合取 / soft=均值
+- 闭环链路端到端：J1-J6（journal→tags→menu→review→rules，零容忍 split 0:0:6）
+- 泛化探针：unseen 集（U1-U8）不进主 split
+- 入口：`python bench/run_eval.py --skill menu --split test` / `python bench/repro_case.py <case-id>`
+- 设计文档：`docs/dev/v1.2-skillopt-integration.md`；铁律：`deploy_skill: false`、reports 不入库、flow 全 held-out
 
 ---
 

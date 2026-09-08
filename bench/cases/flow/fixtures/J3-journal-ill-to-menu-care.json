@@ -1,0 +1,42 @@
+{
+  "fixture_id": "J3-journal-ill-to-menu-care",
+  "upstream_skill": "journal",
+  "upstream_product": {
+    "path": "01_journal/2026-09/2026-09-07.md",
+    "frontmatter": {
+      "date": "2026-09-07",
+      "child_id": "maomao",
+      "health_status": "ill",
+      "illness_notes": "发烧38.2℃，伴腹泻，已服退热药，精神一般",
+      "mood_summary": "fussy",
+      "tags": []
+    },
+    "content": "## 饮食\n- 全天食量偏少，晚饭只吃了两口粥\n\n## 情绪与健康\n- 下午发烧 38.2℃（腋温），腹泻 3 次，精神一般、有点烦躁\n- 月龄 26 个月，未命中 3 月龄以下发热红线"
+  },
+  "context_files": [
+    {
+      "path": "00_profiles/maomao/profile.md",
+      "frontmatter": {
+        "child_id": "maomao",
+        "name": "毛毛",
+        "birthdate": "2024-07-12",
+        "age_months": 26,
+        "allergies": ["虾"],
+        "diet_restrictions": [],
+        "chronic_conditions": []
+      },
+      "content": "## 基本情况\n2 岁 2 个月男孩。对虾过敏，无其他禁忌。"
+    }
+  ],
+  "expected_downstream": {
+    "skill": "menu",
+    "produce_path": "02_plans/2026-09-08.md",
+    "produce_frontmatter_contains": {
+      "health_mode": "care"
+    },
+    "consume_fields": ["health_status", "illness_notes"],
+    "produce_content_contains": ["护理"],
+    "produce_content_excludes": ["炸鸡", "辣子鸡", "虾仁"],
+    "care_rule": "health_status=ill → 强制清淡易消化（粥/面条/蒸蛋/蔬菜泥），菜单标注护理模式说明；过敏原虾仍然绝对排除"
+  }
+}

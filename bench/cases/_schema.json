@@ -1,0 +1,170 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "kid-system golden case suite",
+  "description": "Schema for bench/cases/<skill>/items.json. A suite file is either a flat JSON array of golden cases or a generator wrapper {\"skill\": ..., \"cases\": [...]}; both are accepted by the loader. Note: some case generators emit {} for empty list fields (e.g. frontmatter_forbidden) — the loader's _normalize_case coerces these to []. Chat backends cannot read the vault, so every case's `input` must inline the needed context ([context] blocks for profiles / journals / rules) verbatim. Dimension prefixes for case ids: safety-filter=SF, care-mode=CM, age-fit=AF, no-fabrication=NF, red-flag=RF, tag-sedimentation=TS, conflict-check=CC, trigger=TG, degradation=DG, flow=FL.",
+  "oneOf": [
+    { "$ref": "#/definitions/caseArray" },
+    {
+      "type": "object",
+      "required": ["skill", "cases"],
+      "additionalProperties": true,
+      "properties": {
+        "skill": { "type": "string", "description": "Suite slug this file was generated for." },
+        "generated_for_date": { "type": "string" },
+        "case_count": { "type": "integer" },
+        "notes": { "type": "string" },
+        "cases": { "$ref": "#/definitions/caseArray" }
+      }
+    }
+  ],
+  "definitions": {
+    "caseArray": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/case" }
+    },
+    "case": {
+    "type": "object",
+    "required": ["id", "dimension", "input", "expected"],
+    "additionalProperties": true,
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[A-Za-z]{1,4}[0-9]+(-[a-z0-9][a-z0-9-]*)?$",
+        "description": "Unique within the suite. Convention: <prefix><sequence> with an optional -<slug>, e.g. M1, J7, U3-chickenpox-recovering-journal, TG02-plan-churn-trigger, FL01-journal-to-plan. Suggested prefixes: SF=safety-filter, CM=care-mode, AF=age-fit, NF=no-fabrication, RF=red-flag, TS=tag-sedimentation, CC=conflict-check, TG=trigger, DG=degradation, FL=flow, M=menu, J=journal, U=unseen."
+      },
+      "dimension": {
+        "type": "string",
+        "description": "Evaluation dimension. Canonical set: safety-filter, care-mode, age-fit, no-fabrication, red-flag, tag-sedimentation, conflict-check, trigger, degradation, flow. Suite-specific dimensions are allowed when they name a distinct behavioral axis (current suites also use: period-balance, structure, frontmatter, care-identify, age-adaptation, health-status, mode-adaptation, multi-child, safety, safety-emergency)."
+      },
+      "skill": {
+        "oneOf": [
+          {
+            "type": "string",
+            "enum": [
+              "menu", "journal", "learning", "games", "plan", "rules", "review", "profile",
+              "kid-menu", "kid-journal", "kid-learning", "kid-games", "kid-plan", "kid-rules", "kid-review", "kid-profile"
+            ]
+          },
+          { "type": "null" }
+        ],
+        "description": "Skill under test (short slug or kid-* full name; the harness normalizes the kid- prefix; null = undetermined, the loader fills the suite name). For flow cases, the actual system prompt is decided by expected.flow_downstream_check.skill."
+      },
+      "input": {
+        "type": "string",
+        "description": "Natural-language user turn. MUST inline any needed vault context ([context] blocks for profile / journal / rules) because the chat backend cannot read files."
+      },
+      "expected": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path_glob": {
+            "type": "string",
+            "description": "fnmatch glob for the file the skill should claim to write (e.g. 01_journal/2026-09/*.md). Empty string = no file expected."
+          },
+          "frontmatter": {
+            "type": "object",
+            "additionalProperties": { "type": "string" },
+            "description": "Required frontmatter fields: field-name → regex the value must match. Dotted names walk nested dicts."
+          },
+          "frontmatter_forbidden": {
+            "oneOf": [
+              { "type": "array", "items": { "type": "string" } },
+              { "type": "object", "additionalProperties": { "type": "string" } }
+            ],
+            "description": "Either a list of frontmatter field names that must NOT appear (stage-leak checks), or a map of field-name → forbidden regex (fails only when the field exists AND matches; journal-suite convention, e.g. {\"health_status\": \"^(ill|recovering)$\"} alongside a required ^healthy$)."
+          },
+          "content_contains": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Substrings (case-insensitive) that must appear in the reply."
+          },
+          "content_excludes": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Substrings (case-insensitive) that must NOT appear in the reply (e.g. fabricated dimensions, fabricated evidence)."
+          },
+          "feedback_contains": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Substrings expected in the feedback / next-step part of the reply (e.g. care-mode prompt, emergency advice)."
+          },
+          "should_trigger": {
+            "type": "boolean",
+            "default": true,
+            "description": "False = the skill must NOT run; the reply must not contain any trigger marker."
+          },
+          "should_write_file": {
+            "type": "boolean",
+            "default": true,
+            "description": "False = no vault file should be produced (documentation flag; path_glob=\"\" is the enforced contract)."
+          },
+          "trigger_markers": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Artifact markers checked when should_trigger=false. Defaults to [\"02_plans\", \"01_journal\"]; add \"00_profiles\" for profile-sedimentation cases."
+          },
+          "multi_child": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["child_id"],
+              "properties": {
+                "child_id": { "type": "string", "description": "Must be mentioned in the reply." },
+                "plan_count": { "type": "integer", "description": "Minimum number of distinct artifact paths matching path_glob attributed to this case (multi-child plans)." },
+                "content_contains": { "type": "array", "items": { "type": "string" } },
+                "content_excludes": { "type": "array", "items": { "type": "string" } }
+              }
+            },
+            "description": "Per-child assertions for multi-child (twins) cases; enforced by the behavior scorer."
+          },
+          "flow_upstream_file": {
+            "type": "string",
+            "description": "Flow cases only: path (repo-relative) to a JSON fixture describing the upstream skill's already-written product(s)."
+          },
+          "flow_downstream_check": {
+            "type": "object",
+            "description": "Flow cases only: contract assertions on the downstream product. Metadata keys (skill, consume_field, produce_field) and unrecognised underscore-prefixed documentation keys (e.g. _evidence, _rule) are skipped; _content_contains/_content_excludes are body substring checks; _frontmatter is a required-field regex map; every other key is treated as frontmatter field-name → regex.",
+            "properties": {
+              "skill": {
+                "type": "string",
+                "enum": ["menu", "journal", "learning", "games", "plan", "rules", "review", "profile"],
+                "description": "Downstream skill (short slug) whose SKILL.md becomes the system prompt."
+              },
+              "consume_field": { "type": "string" },
+              "produce_field": { "type": "string" },
+              "_content_contains": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "_content_excludes": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Body substrings that must NOT appear in the downstream product."
+              },
+              "_frontmatter": {
+                "type": "object",
+                "additionalProperties": { "type": "string" },
+                "description": "Required downstream frontmatter fields: field-name → regex the value must match."
+              }
+            },
+            "additionalProperties": { "type": "string" }
+          }
+        }
+      },
+      "category": {
+        "type": "string",
+        "description": "Free-form grouping label (defaults to the suite name)."
+      },
+      "references": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Docs/specs the case was authored from (e.g. docs/DESIGN.md §6.6)."
+      },
+      "notes": {
+        "type": "string",
+        "description": "Authoring notes / rationale."
+      }
+    }
+    }
+  }
+}

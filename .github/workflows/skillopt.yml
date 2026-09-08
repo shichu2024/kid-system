@@ -1,0 +1,99 @@
+name: SkillOpt Eval
+
+# 行为评测：nightly 非阻塞，与 ci.yml（静态结构校验，阻塞）互补。
+# 参考语义：Rollout → score → report；SkillOpt optimizer 的 train/reflect 阶段 v1.2 未启用
+# （configs/*-default.yaml 中 train.epochs: 0, deploy_skill: false）。
+
+on:
+  schedule:
+    - cron: '23 2 * * *' # 避开整点集群洪峰
+  workflow_dispatch:
+    inputs:
+      skill:
+        description: '被评测技能集（menu / journal / flow / unseen）'
+        required: false
+        default: 'menu'
+      split:
+        description: '评测 split（val / test）'
+        required: false
+        default: 'test'
+
+jobs:
+  skillopt:
+    runs-on: ubuntu-latest
+    continue-on-error: true # NEVER block merge — 行为评测仅供参考回归
+    timeout-minutes: 20
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install bench dependencies
+        run: pip install -r requirements-bench.txt
+
+      - name: Verify case schema (static, zero LLM calls)
+        run: |
+          python - <<'EOF'
+          import glob, json, sys
+          paths = glob.glob('bench/cases/**/items.json', recursive=True)
+          assert paths, 'no items.json found'
+          bad = []
+          total = 0
+          for p in paths:
+              data = json.load(open(p, encoding='utf-8'))
+              if isinstance(data, dict):  # {"cases": [...]} wrapper
+                  data = data.get('cases')
+              if not isinstance(data, list) or not data:
+                  bad.append(p); continue
+              total += len(data)
+              for c in data:
+                  for k in ('id', 'dimension', 'input', 'expected'):
+                      if k not in c:
+                          bad.append(f'{p}:{c.get("id","?")} missing {k}')
+          if bad:
+              print('\n'.join(bad)); sys.exit(1)
+          print(f'Case schema OK: {len(paths)} sets, {total} cases')
+          EOF
+
+      - name: Scoring sanity (zero LLM calls)
+        run: |
+          python - <<'EOF'
+          import sys; sys.path.insert(0, '.')
+          from bench.kidsys.scoring import aggregate
+          a = aggregate([(1.0, 1.0), (1.0, 1.0)])
+          b = aggregate([(1.0, 1.0), (0.0, 0.5)])
+          assert a == (1.0, 1.0), a
+          assert b == (0.0, 0.75), b
+          print('aggregate sanity OK:', a, b)
+          EOF
+
+      - name: Run eval (mock backend smoke)
+        run: |
+          echo "SKILLOPT_BACKEND=mock smoke only — full rollout requires provider secrets"
+
+      - name: Run eval (real backend, optional)
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        env:
+          SKILLOPT_BACKEND: openai_chat
+          AZURE_OPENAI_ENDPOINT: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
+          AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
+        run: |
+          if [ -z "$AZURE_OPENAI_ENDPOINT" ] || [ -z "$AZURE_OPENAI_API_KEY" ]; then
+            echo "::warning::AZURE_OPENAI_* secrets not configured — skipping real eval"
+            exit 0
+          fi
+          python bench/run_eval.py --skill "${{ github.event.inputs.skill || 'menu' }}" --split "${{ github.event.inputs.split || 'test' }}"
+
+      - name: Upload report artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: skillopt-report-${{ github.run_id }}
+          path: bench/reports/
+          retention-days: 30
+          if-no-files-found: warn

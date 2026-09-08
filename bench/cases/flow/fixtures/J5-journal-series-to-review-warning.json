@@ -1,0 +1,62 @@
+{
+  "fixture_id": "J5-journal-series-to-review-warning",
+  "upstream_skill": "journal",
+  "upstream_product": {
+    "path": "01_journal/2026-09/2026-09-06.md",
+    "frontmatter": {
+      "date": "2026-09-06",
+      "child_id": "maomao",
+      "health_status": "healthy",
+      "mood_summary": "fussy",
+      "tags": []
+    },
+    "content": "## 饮食\n- 三餐食量偏少，晚餐只吃几口\n\n## 睡眠\n- 夜间醒 3 次，睡眠质量差\n\n## 情绪与健康\n- 白天烦躁易怒，动不动就哭闹"
+  },
+  "context_files": [
+    {
+      "path": "01_journal/2026-09/2026-09-04.md",
+      "frontmatter": {
+        "date": "2026-09-04",
+        "child_id": "maomao",
+        "health_status": "healthy",
+        "mood_summary": "fussy",
+        "tags": []
+      },
+      "content": "## 饮食\n- 食量偏少，午餐剩了大半碗\n\n## 睡眠\n- 入睡困难，夜间睡眠质量差\n\n## 情绪与健康\n- 烦躁，不顺心就发脾气"
+    },
+    {
+      "path": "01_journal/2026-09/2026-09-05.md",
+      "frontmatter": {
+        "date": "2026-09-05",
+        "child_id": "maomao",
+        "health_status": "healthy",
+        "mood_summary": "fussy",
+        "tags": []
+      },
+      "content": "## 饮食\n- 食量偏少，加餐也只吃两口\n\n## 睡眠\n- 夜醒 2 次，睡眠质量差\n\n## 情绪与健康\n- 烦躁哭闹，比平时难哄"
+    },
+    {
+      "path": "00_profiles/maomao/profile.md",
+      "frontmatter": {
+        "child_id": "maomao",
+        "name": "毛毛",
+        "birthdate": "2024-07-12",
+        "age_months": 26,
+        "allergies": ["虾"],
+        "diet_restrictions": [],
+        "chronic_conditions": []
+      },
+      "content": "## 基本情况\n2 岁 2 个月男孩。对虾过敏，无其他禁忌。"
+    }
+  ],
+  "expected_downstream": {
+    "skill": "review",
+    "produce_path": "04_reviews/weekly/*.md",
+    "produce_frontmatter_contains": {
+      "period": "weekly"
+    },
+    "consume_fields": ["health_status", "mood_summary", "journals"],
+    "produce_content_contains": ["预警", "连续"],
+    "warning_rule": "饮食量偏少 + 睡眠质量差 + 情绪烦躁 均连续 ≥3 天（09-04 至 09-06）→ 预警条目置顶，含日期范围、护理调整建议与就医指征提示"
+  }
+}

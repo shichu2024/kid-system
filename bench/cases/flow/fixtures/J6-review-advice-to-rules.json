@@ -1,0 +1,42 @@
+{
+  "fixture_id": "J6-review-advice-to-rules",
+  "upstream_skill": "review",
+  "upstream_product": {
+    "path": "04_reviews/weekly/2026-W36.md",
+    "frontmatter": {
+      "period": "weekly",
+      "date_range": { "start": "2026-08-31", "end": "2026-09-06" },
+      "child_id": "maomao",
+      "summary_tags": ["食材多样性不足", "睡眠正常"]
+    },
+    "content": "## 数据覆盖\n本周 7 天中 6 天有日志记录。\n\n## 饮食统计\n- 蔬菜 4 种（低于建议的 5 种）、蛋白源 3 种（低于建议的 4 种）\n- 深海鱼本周出现 0 次\n\n## 优化建议\n1. 每周食材多样性不足，建议固定每周 2 次深海鱼（依据：本周蛋白源 3 种、深海鱼 0 次）☐ 转化为规则\n2. 每天保证 1 种深绿叶菜 ☐ 转化为规则\n"
+  },
+  "context_files": [
+    {
+      "path": "03_rules/rules.md",
+      "frontmatter": {},
+      "content": "# 家庭规则库\n\n- rule_id: R001\n  type: feeding\n  scope: [menu]\n  priority: 1\n  status: active\n  source: 家长注入 2026-08-20「吃饭时不看动画片」\n  content: 进餐时间不提供屏幕，专心吃饭\n\n- rule_id: R005\n  type: routine\n  scope: [all]\n  priority: 3\n  status: active\n  source: 家长注入 2026-09-02「周末不睡懒觉」\n  content: 周末保持正常作息时间\n"
+    },
+    {
+      "path": "00_profiles/maomao/profile.md",
+      "frontmatter": {
+        "child_id": "maomao",
+        "name": "毛毛",
+        "birthdate": "2024-07-12",
+        "age_months": 26,
+        "allergies": ["虾"],
+        "diet_restrictions": [],
+        "chronic_conditions": []
+      },
+      "content": "## 基本情况\n2 岁 2 个月男孩。对虾过敏，无其他禁忌。"
+    }
+  ],
+  "expected_downstream": {
+    "skill": "rules",
+    "produce_path": "03_rules/rules.md",
+    "produce_frontmatter_contains": {},
+    "consume_fields": ["建议", "date_range", "child_id"],
+    "produce_content_contains": ["深海鱼", "R006", "复盘"],
+    "convert_rule": "家长确认建议 1 → 走 kid-rules 完整校验（无红线/无冲突）→ 写入新条目 rule_id=R006（现有最大 R005 递增）、type=feeding、scope=[menu]、status=active、source 标注来自 2026-W36 周复盘"
+  }
+}

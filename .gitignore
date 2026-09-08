@@ -19,3 +19,10 @@ node_modules/
 *.tmp
 *.bak
 __pycache__/
+
+# SkillOpt bench 产物
+bench/reports/*
+!bench/reports/.gitkeep
+_generated_splits/
+__pycache__/
+*.pyc

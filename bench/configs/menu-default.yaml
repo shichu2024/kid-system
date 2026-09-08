@@ -1,0 +1,30 @@
+# bench/configs/menu-default.yaml
+# Config for SkillOpt eval of the kid-menu skill (v1.2: pure eval, no training).
+# Consumed by bench/run_eval.py (standalone) or skillopt-train (registered).
+#
+# Run:
+#   python bench/run_eval.py --skill menu --split val
+
+env: kidsys_menu
+
+data:
+  data_root: bench/cases/menu/
+  split_mode: ratio            # single items.json → auto-split
+  split_ratio: "3:1:1"         # train:val:test
+  split_seed: 42
+  task_type: menu
+
+model:
+  backend: chat                # chat backend (set SKILLOPT_BACKEND in .env)
+  max_completion_tokens: 4096
+
+train:
+  epochs: 0                    # v1.2: no optimizer — eval harness only
+  batchsize: 8
+
+gate:
+  enabled: false               # v1.2: pure evaluation, no regression gate
+
+output:
+  out_dir: bench/reports/
+  deploy_skill: false          # NEVER auto-deploy; human review only

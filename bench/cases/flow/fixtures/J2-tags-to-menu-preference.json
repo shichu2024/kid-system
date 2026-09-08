@@ -1,0 +1,36 @@
+{
+  "fixture_id": "J2-tags-to-menu-preference",
+  "upstream_skill": "journal",
+  "upstream_product": {
+    "path": "00_profiles/maomao/tags.md",
+    "frontmatter": {},
+    "content": "# 标签\n\n## 饮食偏好\n- **喜欢** 西兰花（近30天出现8次，接受度 高）`updated: 2026-09-05`\n- **拒绝** 胡萝卜（近30天出现3次，接受度 低，稳定标签）`updated: 2026-09-08`\n\n## 能力观察\n- 精细动作：会自己用叉子进食（2026-09-01 首次）\n\n## 兴趣点\n- 喜欢帮厨类过家家（选择倾向 4/6 次）"
+  },
+  "context_files": [
+    {
+      "path": "00_profiles/maomao/profile.md",
+      "frontmatter": {
+        "child_id": "maomao",
+        "name": "毛毛",
+        "birthdate": "2024-07-12",
+        "age_months": 26,
+        "allergies": ["虾"],
+        "diet_restrictions": [],
+        "chronic_conditions": []
+      },
+      "content": "## 基本情况\n2 岁 2 个月男孩。对虾过敏（皮试确诊），无其他禁忌。"
+    }
+  ],
+  "expected_downstream": {
+    "skill": "menu",
+    "produce_path": "02_plans/2026-09-09.md",
+    "produce_frontmatter_contains": {
+      "plan_type": "daily",
+      "health_mode": "normal"
+    },
+    "consume_fields": ["tags", "allergies", "birthdate"],
+    "produce_content_contains": ["西兰花"],
+    "produce_content_excludes": ["虾"],
+    "preference_rule": "喜欢西兰花加分可入菜单；胡萝卜为强排斥稳定标签——避开，至多少量尝试并附替换方案；虾为过敏原绝对排除（含替换方案）"
+  }
+}

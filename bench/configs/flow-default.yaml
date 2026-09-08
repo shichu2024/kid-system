@@ -1,0 +1,36 @@
+# bench/configs/flow-default.yaml
+# Config for end-to-end flow tests (cross-skill transitions, e.g.
+# journal → plan, journal → profile). Flow is NOT a single skill: each
+# case's ``expected.flow_downstream_check.skill`` decides the system
+# prompt (see bench/kidsys/rollout.py SKILL_PATHS).
+# ALL flow cases are held-out test (no train/val); used as a
+# system-level regression probe.
+#
+# Run:
+#   python bench/run_eval.py --skill flow --split test
+
+env: kidsys_flow
+
+data:
+  data_root: bench/cases/flow/
+  split_mode: ratio
+  split_ratio: "1:1:1000"      # effectively all cases → test (skillopt requires
+                               # positive ratio parts; int-truncation sends every
+                               # case to the test bucket for suites < 1000)
+  split_seed: 42
+  task_type: flow
+
+model:
+  backend: chat
+  max_completion_tokens: 4096
+
+train:
+  epochs: 0                    # no training; pure eval
+  batchsize: 8
+
+gate:
+  enabled: false               # v1.2: pure evaluation
+
+output:
+  out_dir: bench/reports/
+  deploy_skill: false

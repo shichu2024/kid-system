@@ -1,0 +1,174 @@
+[
+  {
+    "id": "J1-journal-to-tags-sediment",
+    "dimension": "flow",
+    "source_type": "flow",
+    "skill": "journal",
+    "input": "[fixture-based] 上游：2026-09-08 日志产物（01_journal/2026-09/2026-09-08.md，frontmatter health_status=healthy，正文含饮食「第 3 次拒绝胡萝卜、喜欢西兰花」；fixture 内联 context：tags.md 已有胡萝卜拒绝 2 次「观察中」）\n下游：运行 kid-journal，检查 tags.md 标签沉淀（本次第 3 次拒绝 → 升级稳定标签）。\n[context] 娃 2 岁 2 个月，之前这个月 3 号和 5 号晚饭都把胡萝卜挑出来不吃，档案标签里还记着「观察中」。今天西兰花吃得很香。\n家长：「记一下今天的吃饭情况：晚饭又把胡萝卜挑出来了，一叉子都不肯尝，加上前两次都三回了；西兰花倒是喜欢，自己主动夹了好几朵。其他都正常。」",
+    "user_choice": null,
+    "expected": {
+      "should_write_file": true,
+      "path_glob": "00_profiles/*/tags.md",
+      "frontmatter": {},
+      "frontmatter_forbidden": [],
+      "content_contains": ["胡萝卜", "西兰花"],
+      "content_excludes": [],
+      "feedback_contains": ["稳定"],
+      "flow_upstream_file": "bench/cases/flow/fixtures/J1-journal-reject-sediment.json",
+      "flow_downstream_check": {
+        "skill": "journal",
+        "consume_field": "health_status",
+        "produce_field": "tags",
+        "_content_contains": ["胡萝卜"],
+        "_evidence": "近30天出现3次",
+        "_rule": "食物接受度 N≥3 升级稳定标签；既有条目只更新计数与日期，不删除"
+      }
+    },
+    "category": "flow",
+    "references": ["kid-journal §3 步骤 4 标签沉淀 + §5 输出契约", "DESIGN §4.2 动态标签"],
+    "notes": "J1 日志→标签：第 3 次拒绝达到 N≥3 阈值，胡萝卜应从「观察中」升级为稳定标签并带计数证据；tags.md 三节只增不删"
+  },
+  {
+    "id": "J2-tags-to-menu-preference",
+    "dimension": "flow",
+    "source_type": "flow",
+    "skill": "menu",
+    "input": "[fixture-based] 上游：tags.md（喜欢西兰花×8 次稳定标签 / 拒绝胡萝卜稳定标签）+ 档案（26 月龄、虾过敏）\n下游：运行 kid-menu 生成明日菜单，检查偏好联动与过敏排除。\n[context] 娃 2 岁 2 个月，对虾过敏，最近一直特别爱吃西兰花，胡萝卜是死活不吃的那种。\n家长：「给我出一份明天（9 月 9 号）的菜单吧，娃爱吃啥你们应该有数。」",
+    "user_choice": null,
+    "expected": {
+      "should_write_file": true,
+      "path_glob": "02_plans/2026-09-09.md",
+      "frontmatter": {"plan_type": "^daily$", "health_mode": "^normal$"},
+      "frontmatter_forbidden": [],
+      "content_contains": ["西兰花"],
+      "content_excludes": ["虾", "虾仁"],
+      "feedback_contains": [],
+      "flow_upstream_file": "bench/cases/flow/fixtures/J2-tags-to-menu-preference.json",
+      "flow_downstream_check": {
+        "skill": "menu",
+        "consume_field": "tags",
+        "produce_field": "menu",
+        "_content_contains": ["西兰花"],
+        "_content_excludes": ["虾"],
+        "_rule": "likes 加分（西兰花可入菜单）、强排斥稳定标签避开（胡萝卜不入或至多少量尝试+替换方案）；过敏原绝对排除且替换方案同样零出现"
+      }
+    },
+    "category": "flow",
+    "references": ["kid-menu §3 步骤 1 上下文加载 + 步骤 3 偏好加权", "DESIGN §6.1 指令优先级"],
+    "notes": "J2 标签→菜单：偏好标签被菜单正确消费；content_excludes 选虾（过敏原，合规输出绝不可能出现，含替换方案）；胡萝卜不做硬排除（允许「少量尝试」策略）"
+  },
+  {
+    "id": "J3-journal-ill-to-menu-care",
+    "dimension": "flow",
+    "source_type": "flow",
+    "skill": "menu",
+    "input": "[fixture-based] 上游：昨日日志 01_journal/2026-09/2026-09-07.md（frontmatter health_status=ill、illness_notes=发烧38.2℃ 伴腹泻）\n下游：运行 kid-menu 生成今日菜单，检查护理模式触发与清淡菜。\n[context] 娃 2 岁 2 个月，昨天下午开始发烧 38 度 2，还拉肚子，昨晚精神一般，今天在家休息还没完全退烧。\n家长：「娃还病着，今天的三餐两点怎么安排？」",
+    "user_choice": null,
+    "expected": {
+      "should_write_file": true,
+      "path_glob": "02_plans/2026-09-08.md",
+      "frontmatter": {"health_mode": "^care$"},
+      "frontmatter_forbidden": [],
+      "content_contains": ["护理"],
+      "content_excludes": ["炸鸡", "辣子鸡", "虾仁"],
+      "feedback_contains": [],
+      "flow_upstream_file": "bench/cases/flow/fixtures/J3-journal-ill-to-menu-care.json",
+      "flow_downstream_check": {
+        "skill": "menu",
+        "consume_field": "health_status",
+        "produce_field": "health_mode",
+        "_frontmatter": {"health_mode": "^care$"},
+        "_content_contains": ["护理"],
+        "_content_excludes": ["炸鸡", "辣子鸡"],
+        "_rule": "最近日志 health_status=ill → 强制 mode=light（粥/面条/蒸蛋/蔬菜泥等易消化），菜单标注护理模式说明；忌油炸/辛辣"
+      }
+    },
+    "category": "flow",
+    "references": ["kid-menu ⚠ 硬约束 4 护理模式 + §3 步骤 1 健康模式", "DESIGN §6.2/§6.6"],
+    "notes": "J3 生病日志→菜单护理模式：health_mode=care 是零容忍断言；content_excludes 选油炸/辛辣类菜品名（清淡模式下绝不可能出现）"
+  },
+  {
+    "id": "J4-rules-to-menu-filter",
+    "dimension": "flow",
+    "source_type": "flow",
+    "skill": "menu",
+    "input": "[fixture-based] 上游：规则库 03_rules/rules.md（R004 active diet_restriction「全家不吃猪肉，含火腿、午餐肉、肉肠」，2026-09-01 家长注入）\n下游：运行 kid-menu 生成 9 月 10 日菜单，检查规则过滤。\n[context] 娃 2 岁 2 个月，身体好好的，家里从 9 月初开始就不吃猪肉了，这个之前定过规矩。\n家长：「出一份 10 号的菜单。」",
+    "user_choice": null,
+    "expected": {
+      "should_write_file": true,
+      "path_glob": "02_plans/2026-09-10.md",
+      "frontmatter": {"plan_type": "^daily$"},
+      "frontmatter_forbidden": [],
+      "content_contains": [],
+      "content_excludes": ["猪肉", "红烧肉", "午餐肉", "肉肠"],
+      "feedback_contains": [],
+      "flow_upstream_file": "bench/cases/flow/fixtures/J4-rules-pork-to-menu-filter.json",
+      "flow_downstream_check": {
+        "skill": "menu",
+        "consume_field": "rules",
+        "produce_field": "menu",
+        "_content_excludes": ["猪肉", "红烧肉", "午餐肉", "肉肠"],
+        "_rule": "active diet_restriction 条目在安全滤网第 3 步命中 → 猪肉及猪肉制品（含替换方案）直接弃用，蛋白源改从牛/鸡/鱼/豆制品选取"
+      }
+    },
+    "category": "flow",
+    "references": ["kid-menu ⚠ 硬约束 1 安全滤网 + §3 步骤 1 规则库", "kid-rules §3 步骤 4 生效说明", "DESIGN §6.3"],
+    "notes": "J4 规则→菜单：饮食禁忌规则在菜单（含每菜替换方案）中零出现；content_excludes 全部为猪肉制品，合规输出绝不可能出现"
+  },
+  {
+    "id": "J5-journal-series-to-review-warning",
+    "dimension": "flow",
+    "source_type": "flow",
+    "skill": "review",
+    "input": "[fixture-based] 上游：连续 3 天日志摘要（01_journal/2026-09/2026-09-04 至 09-06：食量偏少 / 睡眠质量差 / 烦躁哭闹，mood_summary=fussy）\n下游：运行 kid-review 生成本周复盘，检查连续 3 天异常预警。\n[context] 娃 2 岁 2 个月，最近几天吃饭没胃口、晚上睡不踏实、白天还特别闹，这个礼拜都是这样。\n家长：「帮我复盘一下这周的情况。」",
+    "user_choice": null,
+    "expected": {
+      "should_write_file": true,
+      "path_glob": "04_reviews/weekly/*.md",
+      "frontmatter": {"period": "^weekly$"},
+      "frontmatter_forbidden": [],
+      "content_contains": ["预警", "连续"],
+      "content_excludes": [],
+      "feedback_contains": [],
+      "flow_upstream_file": "bench/cases/flow/fixtures/J5-journal-series-to-review-warning.json",
+      "flow_downstream_check": {
+        "skill": "review",
+        "consume_field": "journal_entries",
+        "produce_field": "warning",
+        "_content_contains": ["预警", "连续"],
+        "_rule": "饮食量偏少/睡眠质量差/情绪烦躁 连续 ≥3 天 → 预警条目置顶 + 护理调整建议 + 就医指征提示；统计数字仅来自周期内日志，可溯源"
+      }
+    },
+    "category": "flow",
+    "references": ["kid-review ⚠ 硬约束 2 异常预警 + §3 步骤 4 预警扫描", "DESIGN §6.6"],
+    "notes": "J5 日志序列→复盘预警：三维度均连续 3 天异常，预警必须置顶且含日期范围与就医指征；content_contains 按任务要求覆盖「预警」+「连续」"
+  },
+  {
+    "id": "J6-review-advice-to-rules",
+    "dimension": "flow",
+    "source_type": "flow",
+    "skill": "rules",
+    "input": "[fixture-based] 上游：2026-W36 周复盘（04_reviews/weekly/2026-W36.md，优化建议含「每周食材多样性不足，建议固定每周 2 次深海鱼」带 ☐ 转化为规则标记；规则库现有最大编号 R005）\n下游：家长确认转化 → 运行 kid-rules 注入，检查 rules.md 新条目。\n[context] 娃 2 岁 2 个月，上周复盘说家里一周吃的食材种类有点少。\n家长：「上周复盘里说的那个每周吃两次深海鱼的建议挺好的，就按这个定成家里的规矩吧。」",
+    "user_choice": "confirm_convert_advice_1",
+    "expected": {
+      "should_write_file": true,
+      "path_glob": "03_rules/rules.md",
+      "frontmatter": {},
+      "frontmatter_forbidden": [],
+      "content_contains": ["深海鱼", "R006", "复盘"],
+      "content_excludes": [],
+      "feedback_contains": ["menu"],
+      "flow_upstream_file": "bench/cases/flow/fixtures/J6-review-advice-to-rules.json",
+      "flow_downstream_check": {
+        "skill": "rules",
+        "consume_field": "advice",
+        "produce_field": "rule",
+        "_content_contains": ["深海鱼", "R006", "复盘"],
+        "_rule": "复盘建议经家长确认 → 走完整校验（安全/冲突，不因来源是系统建议豁免）→ 写入 R006（R005 递增）、type=feeding、scope=[menu]、status=active，source 标注来自复盘；注入后输出影响模块与生效说明"
+      }
+    },
+    "category": "flow",
+    "references": ["kid-review ⚠ 硬约束 5 建议可转化 + §3 步骤 6", "kid-rules §1 触发 + §3 步骤 3", "DESIGN §6.2 闭环收口"],
+    "notes": "J6 复盘建议→规则：闭环最后一环；fixture 固定规则库现状使 rule_id=R006 确定性可断言；source 必须体现复盘来源（断言「复盘」出现）"
+  }
+]

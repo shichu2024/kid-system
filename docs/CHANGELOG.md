@@ -2,6 +2,15 @@
 
 本项目的所有显著变更记录于此。格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [1.2.0] - 2026-09-08
+
+### Added · SkillOpt 行为评测体系
+- `bench/kidsys/` 四件套：DataLoader / EnvAdapter / rollout（chat 后端单轮 + fixture 内联 + skill 路由）/ scoring（routing/frontmatter/behavior/flow，hard=合取 soft=均值）
+- golden cases：menu 22（安全滤网/分龄/护理/查重/降级/结构）+ journal 16（就医红线/异常识别/不编造/标签沉淀/触发）+ flow 6（J1-J6 闭环端到端，零容忍）+ unseen 8（泛化探针）
+- 入口三件套：`run_eval.py` / `run_unseen_eval.py` / `repro_case.py`；configs 按 split 策略区分（3:1:1 vs 0:0:N）
+- `.github/workflows/skillopt.yml`：nightly 非阻塞（schema 静态校验 + aggregate sanity 零 LLM + 可选真实评测 + artifact 30 天）
+- `docs/dev/v1.2-skillopt-integration.md` 设计文档；铁律 deploy_skill: false
+
 ## [1.1.0] - 2026-09-08
 
 ### Added · knowledge/ 精选方法论知识层（zh + en）

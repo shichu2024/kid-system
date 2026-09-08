@@ -1,0 +1,39 @@
+{
+  "fixture_id": "J4-rules-pork-to-menu-filter",
+  "upstream_skill": "rules",
+  "upstream_product": {
+    "path": "03_rules/rules.md",
+    "frontmatter": {},
+    "content": "# 家庭规则库\n\n- rule_id: R001\n  type: feeding\n  scope: [menu]\n  priority: 1\n  status: active\n  source: 家长注入 2026-08-20「吃饭时不看动画片」\n  content: 进餐时间不提供屏幕，专心吃饭\n\n- rule_id: R004\n  type: diet_restriction\n  scope: [menu]\n  priority: 2\n  status: active\n  source: 家长注入 2026-09-01「家里不吃猪肉」\n  content: 全家不吃猪肉，所有餐次不使用猪肉及猪肉制品（含火腿、午餐肉、肉肠）\n"
+  },
+  "context_files": [
+    {
+      "path": "00_profiles/maomao/profile.md",
+      "frontmatter": {
+        "child_id": "maomao",
+        "name": "毛毛",
+        "birthdate": "2024-07-12",
+        "age_months": 26,
+        "allergies": ["虾"],
+        "diet_restrictions": [],
+        "chronic_conditions": []
+      },
+      "content": "## 基本情况\n2 岁 2 个月男孩。对虾过敏，无其他禁忌，近期健康。"
+    },
+    {
+      "path": "00_profiles/maomao/tags.md",
+      "frontmatter": {},
+      "content": "# 标签\n\n## 饮食偏好\n- **喜欢** 西兰花（近30天出现8次，接受度 高）`updated: 2026-09-05`\n\n## 能力观察\n（暂无）\n\n## 兴趣点\n（暂无）"
+    }
+  ],
+  "expected_downstream": {
+    "skill": "menu",
+    "produce_path": "02_plans/2026-09-10.md",
+    "produce_frontmatter_contains": {
+      "plan_type": "daily"
+    },
+    "consume_fields": ["rule_id", "type", "scope", "status"],
+    "produce_content_excludes": ["猪肉", "红烧肉", "午餐肉", "肉肠"],
+    "filter_rule": "R004 active diet_restriction + scope=menu → 猪肉及猪肉制品在菜单与替换方案中零出现，蛋白源改从牛/鸡/鱼/豆制品选取"
+  }
+}

@@ -1,0 +1,3 @@
+skillopt>=0.2.0,<0.3.0    # text-space skill optimizer (Microsoft, MIT) — consumed as a library
+pyyaml>=6.0               # config parsing
+jsonschema>=4.0           # optional: bench/cases/_schema.json validation
