@@ -1,0 +1,458 @@
+{
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-09-08",
+    "source": "Dietary Guidelines for Chinese Residents 2022 - Infant & Young Child Feeding Guidelines (《中国居民膳食指南2022 · 婴幼儿喂养指南》), supplemented by WHO infant and young child feeding recommendations",
+    "disclaimer": "All gram amounts and frequencies are reference values, provided for information only; individual variation — follow medical advice. This file is not medical advice.",
+    "safety_notes": [
+      "Honey and honey products are FORBIDDEN under 1 year of age (infant botulism risk)",
+      "No salt, sugar, or any seasonings in complementary food under 1 year",
+      "For children under 3, the choking-hazard food list is governed by references/safety-rules.json: no whole nuts, jelly cups, whole grapes/cherry tomatoes (must be quartered), etc.",
+      "Introduce only one new food at a time; watch for 2-3 days before adding the next"
+    ]
+  },
+  "stages": [
+    {
+      "age_band": "6-8m",
+      "stage_name": "Swallowing stage",
+      "characteristics": "Just starting complementary foods, spoon-fed; the tongue moves food backward and swallows it whole; begin with iron-rich puréed foods and gradually adapt to spoon feeding.",
+      "texture": "Smooth purée (fine, no lumps, about the consistency of yogurt)",
+      "feeding_frequency": "1-2 complementary meals per day + breast milk/formula 600-800 ml",
+      "single_meal_amount": "Start with 1-2 spoons, gradually increase to half a small bowl (approx. 25-50 g)",
+      "introduction_order": ["Iron-fortified infant cereal", "Vegetable purée", "Fruit purée", "Meat purée", "Egg yolk"],
+      "recipes": [
+        {
+          "name": "Iron-fortified infant cereal (first food of choice)",
+          "iron_rich": true,
+          "ingredients": ["Iron-fortified infant cereal 10-15 g", "Warm water or breast milk/formula 40-60 ml"],
+          "method_steps": [
+            "Put cereal in a sterilized bowl; add liquid first, then powder",
+            "Stir in one direction until smooth and lump-free (slightly thinner than yogurt)",
+            "Cool to near body temperature (does not feel hot on the wrist) and feed with a soft spoon"
+          ],
+          "tips": "Start with 1-2 spoons and watch for 2-3 days; gradually thicken to yogurt consistency. Never feed cereal from a bottle.",
+          "importance": "high"
+        },
+        {
+          "name": "High-iron beef purée",
+          "iron_rich": true,
+          "ingredients": ["Beef tenderloin 20-30 g", "1 small slice of ginger (for odor removal, remove before feeding)", "Warm water as needed"],
+          "method_steps": [
+            "Trim sinew, cut beef into small pieces, boil with ginger in cold water for 15-20 minutes until fully cooked",
+            "Blend the beef with a little cooking broth into a fine purée",
+            "Pass through a fine sieve for extra smoothness; cool to warm before feeding"
+          ],
+          "tips": "Can be mixed with infant cereal; extra purée can be frozen in cubes for up to 2 weeks; never re-freeze after thawing.",
+          "importance": "high"
+        },
+        {
+          "name": "Pork liver & vegetable purée (1-2x per week)",
+          "iron_rich": true,
+          "ingredients": ["Fresh pork liver 10-15 g", "Pumpkin or carrot 20 g"],
+          "method_steps": [
+            "Rinse liver, soak 20 minutes to remove blood, trim membranes",
+            "Steam liver and vegetables separately until tender (liver approx. 15 minutes)",
+            "Mash together into a fine purée and thin with warm water"
+          ],
+          "tips": "Liver is high in vitamin A: no more than 1-2 times per week, 5-10 g each (reference value), to avoid excess.",
+          "importance": "high"
+        },
+        {
+          "name": "Broccoli & potato purée",
+          "iron_rich": false,
+          "ingredients": ["Broccoli florets 15 g", "Potato 25 g"],
+          "method_steps": [
+            "Soak broccoli in salt water for 10 minutes, rinse well under running water; peel and cube potato",
+            "Steam together for 15 minutes until very soft",
+            "Mash into a fine purée, pass through a sieve, and adjust with warm water until silky"
+          ],
+          "tips": "Broccoli can retain pesticide residue — soak and rinse thoroughly; the texture should cling to the spoon without sliding off quickly.",
+          "importance": "medium"
+        },
+        {
+          "name": "Apple purée (raw-scraped or steamed)",
+          "iron_rich": false,
+          "ingredients": ["1/4 apple (approx. 30 g)"],
+          "method_steps": [
+            "Wash and peel the apple; scrape the flesh directly with a stainless-steel spoon (raw)",
+            "Or peel, cube, and steam for 5 minutes, then mash (gentler, good for sensitive tummies)"
+          ],
+          "tips": "Choose a low-sweetness apple for the first tries; clean gums and mouth after feeding.",
+          "importance": "medium"
+        },
+        {
+          "name": "Egg yolk purée (try at 7-8 months)",
+          "iron_rich": true,
+          "ingredients": ["1 egg (use 1/4-1/2 yolk)", "Breast milk/formula or warm water 10-15 ml"],
+          "method_steps": [
+            "Boil egg from cold water for 8-10 minutes until fully cooked",
+            "Take the yolk and start with 1/4, mash finely",
+            "Mix with milk or warm water into a paste and feed"
+          ],
+          "tips": "Egg is a common allergen: start with a small amount on its own and watch 2-3 days; egg white generally not advised under 1y (reference value; recent evidence is more permissive — follow medical advice).",
+          "importance": "high"
+        }
+      ],
+      "iron_focus": true,
+      "allergy_watch": "Introduce only one new food at a time and watch for 2-3 days; if rash, vomiting, diarrhea, or redness around the mouth appears, stop immediately and consult a doctor"
+    },
+    {
+      "age_band": "9-11m",
+      "stage_name": "Munching stage",
+      "characteristics": "Can mash soft foods with gums and tongue; chewing motions emerge; appetite and variety expand noticeably; finger foods can be introduced.",
+      "texture": "Minced/finely-ground texture with small soft lumps (approx. 1-2 mm); soft finger foods can be added",
+      "feeding_frequency": "2-3 complementary meals per day + breast milk/formula 600-700 ml",
+      "single_meal_amount": "About 1/2-2/3 bowl per meal (approx. 50-100 g, reference value)",
+      "introduction_order": ["Thick congee/soft noodles", "Finely minced vegetables", "Minced meat/fish purée (deboned)", "Whole egg (yolk progressing to whole egg)", "Tofu", "Finger foods (soft-steamed veggie sticks, banana strips)"],
+      "recipes": [
+        {
+          "name": "Tomato & minced pork soft noodles",
+          "iron_rich": true,
+          "ingredients": ["Infant noodles 25-30 g", "Pork tenderloin, minced 20 g", "Tomato 30 g (peeled, deseeded, finely chopped)", "Chopped leafy greens 10 g"],
+          "method_steps": [
+            "Score a cross on the tomato top, blanch to peel, deseed, and mince",
+            "Bring a little water to boil, add minced pork and break apart; simmer 5 minutes",
+            "Add noodles and cook until soft (approx. 8 minutes), then add tomato and greens for 2 more minutes",
+            "Cut into 1-2 cm pieces with baby-food scissors; cool and serve"
+          ],
+          "tips": "No salt; the vitamin C in tomato enhances iron absorption from the pork. Cut noodles short with scissors.",
+          "importance": "high"
+        },
+        {
+          "name": "Chicken & shiitake congee",
+          "iron_rich": false,
+          "ingredients": ["Rice 20 g", "Chicken breast 20 g", "1 fresh shiitake (approx. 10 g, finely minced)", "Minced carrot 10 g"],
+          "method_steps": [
+            "Rinse rice, add 8 parts water, bring to boil then simmer 25 minutes",
+            "Mince chicken breast; mince shiitake and carrot",
+            "When congee is soft, add all ingredients and cook 8-10 more minutes",
+            "Lightly mash while keeping small soft lumps"
+          ],
+          "tips": "Keeping small lumps practices munching; if there is a family history of mushroom allergy, try a small amount first.",
+          "importance": "medium"
+        },
+        {
+          "name": "Salmon & vegetable soft patties",
+          "iron_rich": false,
+          "ingredients": ["Salmon 20 g (skinless, deboned)", "Mashed potato 30 g", "Minced broccoli 10 g", "Half an egg yolk"],
+          "method_steps": [
+            "Steam salmon, flake and check carefully for bones; mix with mashed potato, broccoli, and yolk",
+            "Shape into small patties (approx. 3 cm across, 0.8 cm thick)",
+            "Cook in a non-stick pan over low heat, no oil or a thin wipe of oil, 2-3 minutes per side until fully cooked"
+          ],
+          "tips": "Fish is a common allergen — first exposure on its own with observation; patties must be fully cooked inside. Also a great finger food.",
+          "importance": "high"
+        },
+        {
+          "name": "Steamed egg custard with liver (whole-egg transition)",
+          "iron_rich": true,
+          "ingredients": ["1 egg", "Minced chicken liver 10 g", "Warm water 80 ml (approx. 1.5x the egg volume)"],
+          "method_steps": [
+            "Soak liver to remove blood, steam, then mince finely",
+            "Beat egg with warm water, strain to remove foam",
+            "Stir in liver, cover with pierced plastic wrap, steam over medium-low heat 10 minutes after water boils",
+            "Rest 2 minutes off heat; cool to warm before serving"
+          ],
+          "tips": "Only combine after the child tolerates whole egg and liver separately; the surface must show no runny egg when done.",
+          "importance": "high"
+        },
+        {
+          "name": "Banana-oat soft cookies (no sugar, no salt)",
+          "iron_rich": false,
+          "ingredients": ["1 ripe banana (approx. 80 g)", "Instant rolled oats 30 g", "1 egg yolk (already tolerated)"],
+          "method_steps": [
+            "Mash banana; mix with oats and yolk into a thick batter",
+            "Preheat oven to 180°C; line a tray and drop small flat rounds",
+            "Bake 12-15 minutes until edges are dry; cool until soft and chewy"
+          ],
+          "tips": "No added sugar — sweetness comes from the banana; oats contain gluten, not for gluten-allergic children. Soft-chew texture is easy to grip.",
+          "importance": "medium"
+        },
+        {
+          "name": "Tofu & seasonal vegetable thick soup",
+          "iron_rich": false,
+          "ingredients": ["Silken tofu 30 g", "Minced bok choy leaves 15 g", "Minced carrot 10 g", "Minced shiitake 5 g", "Starch slurry 5 ml"],
+          "method_steps": [
+            "Blanch tofu 1 minute to remove the bean smell; mash into small crumbles",
+            "Simmer minced vegetables in 150 ml water for 5 minutes",
+            "Add tofu and cook 3 more minutes; thicken with starch slurry",
+            "Cool to warm and serve"
+          ],
+          "tips": "Soy is a common allergen — first tofu exposure small and on its own; the silky texture helps swallowing practice.",
+          "importance": "medium"
+        }
+      ],
+      "iron_focus": true,
+      "allergy_watch": "New foods still one at a time with 2-3 day observation; fish, soy, and whole egg are the key allergens to watch at this stage"
+    },
+    {
+      "age_band": "12-17m",
+      "stage_name": "Chewing stage",
+      "characteristics": "More primary teeth; can bite and largely chew soft small pieces; can eat soft versions of most family foods; self-feeding is encouraged.",
+      "texture": "Small pieces/thin slices (approx. 0.5-1 cm), softness close to adult noodles, egg custard, or soft rice",
+      "feeding_frequency": "3 meals + 2 snacks per day; breast milk/formula or milk 400-600 ml",
+      "single_meal_amount": "About 2/3-1 bowl per meal (approx. 100-150 g, reference value)",
+      "introduction_order": ["Soft rice/mini dumplings/soft noodles", "Small pieces of chicken, lean pork or beef", "Whole-egg dishes", "Yogurt/cheese", "Veggie stick finger foods", "Small pieces of soft fruit (peeled, pitted)"],
+      "recipes": [
+        {
+          "name": "Minced beef & eggplant soft rice",
+          "iron_rich": true,
+          "ingredients": ["Minced beef 25 g", "Eggplant 30 g (peeled, small dice)", "Soft cooked rice 50 g", "Tomato 20 g"],
+          "method_steps": [
+            "Peel eggplant and cut into 0.5 cm dice; peel and chop tomato",
+            "Add a little water to a pot, brown-beef crumbles, add eggplant and tomato, simmer covered 10 minutes until very soft",
+            "Stir in the soft rice and simmer 2 more minutes",
+            "Cool to warm; let the child self-feed with a spoon if willing"
+          ],
+          "tips": "Eggplant must be peeled and cooked through until meltingly soft; no salt — tomato's natural sweet-tang seasons the dish.",
+          "importance": "high"
+        },
+        {
+          "name": "Shrimp & pork mini wontons",
+          "iron_rich": true,
+          "ingredients": ["Wonton wrappers 6-8 (cut to quarter size)", "Minced lean pork 30 g", "Fresh shrimp 15 g (minced)", "Minced greens 15 g"],
+          "method_steps": [
+            "Mix pork, shrimp, and greens into the filling (no salt; 2 ml sesame oil is fine)",
+            "Wrap mini wontons with smaller-cut wrappers; pinch edges tightly",
+            "Boil water, drop wontons; cook 2 minutes after they float",
+            "Serve with a little broth; wontons can be cut into small segments"
+          ],
+          "tips": "Shrimp is a high-allergen shellfish — the child must tolerate shrimp alone first; freeze uncooked extras and use within 1 week (reference value).",
+          "importance": "high"
+        },
+        {
+          "name": "Vegetable & egg soft pancake",
+          "iron_rich": false,
+          "ingredients": ["1 egg", "Flour 30 g", "Grated zucchini 20 g", "Grated carrot 10 g", "Water 40 ml"],
+          "method_steps": [
+            "Mix everything into a pourable thick batter",
+            "Lightly oil a non-stick pan over low heat; pour a spoonful into a small round",
+            "Flip when the bottom sets; about 2 minutes per side until fully cooked",
+            "Cut into strips for easy gripping"
+          ],
+          "tips": "Pancakes must be fully cooked and soft; strips also train self-feeding.",
+          "importance": "medium"
+        },
+        {
+          "name": "Creamy pumpkin & chicken risotto",
+          "iron_rich": false,
+          "ingredients": ["Soft rice 50 g", "Chicken breast dice 20 g", "Pumpkin dice 30 g", "Formula or whole milk 50 ml"],
+          "method_steps": [
+            "Steam pumpkin and mash; cut chicken into 0.5 cm dice",
+            "Simmer chicken dice in a little water 5 minutes until cooked",
+            "Add rice, pumpkin mash, and milk; braise over low heat 3 minutes until creamy",
+            "Cool to warm and serve"
+          ],
+          "tips": "Small amounts of whole milk in cooking may be tried after age 1; for cow's-milk-protein allergy continue breast milk or extensively hydrolyzed formula (follow medical advice).",
+          "importance": "medium"
+        },
+        {
+          "name": "Tomato & basa fish soup noodles",
+          "iron_rich": false,
+          "ingredients": ["Basa fillet 25 g (deboned)", "Infant noodles 30 g", "Tomato 30 g", "Baby bok choy 15 g"],
+          "method_steps": [
+            "Peel and chop tomato; cut basa into small dice and check each piece for bones by hand",
+            "Cook tomato with a little water into a soup base; add fish dice, simmer 5 minutes",
+            "Add noodles until soft; add chopped bok choy for 1 more minute",
+            "Cut into small segments and cool"
+          ],
+          "tips": "Even 'boneless' fillets must be checked piece by piece; tender fish suits the chewing-stage transition.",
+          "importance": "high"
+        },
+        {
+          "name": "Two-tone steamed cake (chicken & potato)",
+          "iron_rich": false,
+          "ingredients": ["Chicken breast 40 g", "Potato 40 g", "Carrot 15 g", "1 egg white or yolk (already tolerated)", "Starch 5 g"],
+          "method_steps": [
+            "Blend all ingredients into a fine purée; pour into a thinly oiled mold",
+            "Smooth the top, cover with pierced plastic wrap",
+            "Steam over medium-low heat 20 minutes after water boils; rest 5 minutes off heat",
+            "Cool, then cut into small strips or cubes"
+          ],
+          "tips": "Batch and freeze in cubes for up to 2 weeks (reference value); reheat thoroughly to warm-through before serving.",
+          "importance": "medium"
+        }
+      ],
+      "iron_focus": true,
+      "allergy_watch": "Introduce high-allergen foods one by one (shrimp, egg white, milk); whole grapes and cherry tomatoes must still be quartered; whole nuts still forbidden (see references/safety-rules.json)"
+    },
+    {
+      "age_band": "18-23m",
+      "stage_name": "Self-feeding stage",
+      "characteristics": "Strong drive to self-feed; practicing spoon and fork; can eat most family foods, still slightly softer in texture; joins family meals at the table.",
+      "texture": "Normal-softness small pieces (approx. 1-1.5 cm), mixed-texture foods that require chewing",
+      "feeding_frequency": "3 meals + 2 snacks per day; milk 400-500 ml",
+      "single_meal_amount": "About 1 bowl per meal (approx. 150-200 g, reference value, child-size bowl)",
+      "introduction_order": ["Family soft rice/steamed buns (small pieces)", "Stir-fries (low oil, no-salt version)", "Mixed fried rice/braised rice", "Whole milk/yogurt/cheese", "Mixed-texture salad-style sides", "Mini burger patties/meatballs"],
+      "recipes": [
+        {
+          "name": "Rainbow fried rice",
+          "iron_rich": true,
+          "ingredients": ["Soft rice 60 g", "Pork tenderloin small dice 20 g", "Half an egg", "Peas & corn 15 g", "Carrot dice 10 g", "Cooking oil 3 ml"],
+          "method_steps": [
+            "Pre-steam vegetable dice until 80% done; toss meat dice in a little starch",
+            "Scramble the egg in a lightly oiled pan and set aside; stir-fry meat dice until color changes",
+            "Add vegetables and rice, stir-fry 2 minutes; fold the egg back in",
+            "No salt; 2-3 drops of light soy sauce is acceptable (for 1-2y, salt/soy kept to a minimum, reference value)"
+          ],
+          "tips": "Whole peas are a choking risk — steam thoroughly and halve them; colorful ingredients boost eating interest.",
+          "importance": "high"
+        },
+        {
+          "name": "Mini lion's head meatballs with greens",
+          "iron_rich": true,
+          "ingredients": ["Minced pork (blend of fatty and lean) 40 g", "Tofu 15 g", "2 hearts of baby bok choy", "Starch 5 g", "Chopped scallion, a little"],
+          "method_steps": [
+            "Mix minced pork with crumbled tofu and starch; stir in one direction until springy",
+            "Shape into 3 cm mini meatballs; set in boiling water, then simmer 25 minutes on low",
+            "Add greens hearts and cook 3 more minutes",
+            "Serve with broth; halve the meatballs before serving"
+          ],
+          "tips": "Long braising makes the meat tender and chewable; meatballs are dense — remind the child to take small bites and chew well.",
+          "importance": "high"
+        },
+        {
+          "name": "Cheese & vegetable baked eggs",
+          "iron_rich": false,
+          "ingredients": ["2 eggs", "Milk 30 ml", "Small broccoli florets 15 g", "Thin carrot slices 10 g", "Shredded baby cheese 10 g"],
+          "method_steps": [
+            "Blanch and chop vegetables; beat eggs with milk",
+            "Layer vegetables in an oven-safe bowl, pour in egg mix, top with cheese",
+            "Bake at 180°C for 12-15 minutes until fully set",
+            "Cut into small pieces and cool"
+          ],
+          "tips": "Milk and cheese are both cow's-milk-protein allergens — swap to formula and skip cheese if not yet tolerated; egg must be fully set.",
+          "importance": "medium"
+        },
+        {
+          "name": "Chicken & veggie dumplings (freezer-friendly)",
+          "iron_rich": false,
+          "ingredients": ["Dumpling wrappers 8", "Minced chicken 30 g", "Minced napa cabbage 20 g", "Minced shiitake 10 g", "Sesame oil 2 ml"],
+          "method_steps": [
+            "Mix filling ingredients until springy",
+            "Wrap small dumplings, pinching edges tightly shut",
+            "Boil from boiling water, adding cold water twice, until surely cooked",
+            "Thin wrapper, soft filling; serve with a little no-salt vegetable broth"
+          ],
+          "tips": "Batch-freeze uncooked (2-4 weeks, reference value) and boil straight from frozen; check every wrapper seal before cooking.",
+          "importance": "medium"
+        },
+        {
+          "name": "Chinese yam & pork rib soup + soft rice",
+          "iron_rich": false,
+          "ingredients": ["2 small pork ribs (approx. 40 g)", "Chinese yam 40 g", "Carrot 20 g", "Soft rice 60 g", "1 slice of ginger"],
+          "method_steps": [
+            "Blanch ribs from cold water to remove foam; replace water, add ginger, simmer 40 minutes",
+            "Add yam and carrot in roll-cut chunks; simmer 15 more minutes until powdery-soft",
+            "Shred meat off the bones; mix meat, vegetables, and a little broth into the soft rice"
+          ],
+          "tips": "Always shred rib meat and remove bones; yam sap can irritate skin — wear gloves when handling. No salt in the soup.",
+          "importance": "medium"
+        },
+        {
+          "name": "Avocado & banana open tart",
+          "iron_rich": false,
+          "ingredients": ["1/4 avocado (approx. 30 g)", "1/2 banana", "1 slice soft toast or steamed bun"],
+          "method_steps": [
+            "Steam the bun slice or lightly toast the bread (trim hard crusts)",
+            "Mash avocado and spread on the slice",
+            "Cut banana into 0.5 cm thin slices and layer on top"
+          ],
+          "tips": "No-cook snack ready in 5 minutes; keep banana slices thin to prevent slipping; open avocado just before eating to avoid browning.",
+          "importance": "medium"
+        }
+      ],
+      "iron_focus": false,
+      "allergy_watch": "A caregiver must supervise the entire meal during self-feeding; no eating while running or playing; choking-risk re-cutting rules still apply (see references/safety-rules.json)"
+    },
+    {
+      "age_band": "24-36m",
+      "stage_name": "Family-meal transition stage",
+      "characteristics": "Eats mostly the same food as the family (child version of family meals: less salt, less sugar, slightly softer); a key window for building lifelong eating habits.",
+      "texture": "Normal family-food texture (on the softer side); large hard pieces still need re-cutting",
+      "feeding_frequency": "3 meals + 2 snacks per day; milk 350-500 ml",
+      "single_meal_amount": "About 1-1.5 bowls per meal (approx. 200-250 g, reference value)",
+      "introduction_order": ["Family stir-fries (child-seasoned version)", "Mixed-grain rice/tuber staples", "Whole small fish (deboned)/seafood 2-3x weekly", "Cold dishes (no honey, safe texture)", "Mushroom braises", "Small amounts of ground nuts (ground, never whole)"],
+      "recipes": [
+        {
+          "name": "Tomato beef brisket pot",
+          "iron_rich": true,
+          "ingredients": ["Beef brisket 40 g", "Tomato 50 g", "Potato 30 g", "Onion 10 g", "Cooking oil 3 ml"],
+          "method_steps": [
+            "Cut brisket into 1 cm cubes and blanch; peel and quarter tomatoes",
+            "Sauté onion and tomato in a little oil until saucy; add brisket and stir-fry",
+            "Add hot water to cover; simmer 60-70 minutes until brisket is spoon-soft",
+            "Add potato for the last 20 minutes; finish with 2 ml light soy sauce (total salt <1 g, reference value)"
+          ],
+          "tips": "Tomato's vitamin C boosts iron absorption from beef — a classic iron-boosting pairing; beef must be tender enough to crush with chopsticks.",
+          "importance": "high"
+        },
+        {
+          "name": "Steamed sea bass (family-sharing dish)",
+          "iron_rich": false,
+          "ingredients": ["1 section of sea bass (approx. 50 g)", "Shredded scallion & ginger", "Steamed-fish soy sauce 2 ml (minimal or none on the child's portion)", "Cooking oil 2 ml"],
+          "method_steps": [
+            "Place fish on a plate with scallion-ginger; steam over high heat 8-10 minutes from boiling water",
+            "Discard the fishy liquid; replace with fresh scallion shreds",
+            "Drizzle hot oil over the scallions; add only a minimal drop of soy sauce (or none) to the child's portion"
+          ],
+          "tips": "Parents must check every piece for bones by hand before serving; belly meat is safest. A quality DHA source; serve fish/shellfish 2-3x weekly.",
+          "importance": "high"
+        },
+        {
+          "name": "Mixed-grain rice balls + seasonal veg",
+          "iron_rich": false,
+          "ingredients": ["Rice 40 g", "Millet 10 g", "Hulled oats 5 g", "Broccoli 20 g", "Carrot 15 g", "Ground sesame 2 g"],
+          "method_steps": [
+            "Soak mixed grains 30 minutes; cook with rice into slightly soft mixed-grain rice",
+            "Blanch broccoli and carrot, chop finely, and fold into the rice",
+            "With damp hands, shape rice into triangles about half the size of the child's fist",
+            "Roll the outside in a little ground sesame"
+          ],
+          "tips": "Fun shapes boost appetite; give sesame only ground (anti-choking); keep mixed grains under 1/3 of the total (reference value) for easy digestion.",
+          "importance": "medium"
+        },
+        {
+          "name": "Braised baby cabbage & tofu pot",
+          "iron_rich": false,
+          "ingredients": ["Firm tofu 40 g", "Baby cabbage 40 g", "Diced century egg 5 g (optional, may omit)", "Defatted stock 150 ml", "Starch 3 g"],
+          "method_steps": [
+            "Cut tofu into 1 cm cubes; blanch to remove the bean smell",
+            "Bring stock to boil; add cabbage sections 3 minutes; add tofu 3 more minutes",
+            "Thicken lightly with starch slurry until the sauce coats a spoon"
+          ],
+          "tips": "Century egg is a high-sodium processed food — omit for children; tofu is calcium-rich and pairs well with dairy for calcium intake.",
+          "importance": "medium"
+        },
+        {
+          "name": "Shiitake chicken braised rice (one-pot)",
+          "iron_rich": false,
+          "ingredients": ["Diced chicken thigh 35 g", "Rice 50 g", "Fresh shiitake 15 g", "Peas 10 g", "Carrot dice 10 g", "Light soy sauce 2 ml"],
+          "method_steps": [
+            "Cut chicken thigh into 1 cm dice; marinate 10 minutes with 2 ml soy sauce and starch",
+            "Rinse rice, add usual water, and lay chicken and vegetables on top",
+            "Cook on the rice cooker's normal mode; rest 10 minutes after it clicks",
+            "Fluff and serve; press the child's portion slightly softer"
+          ],
+          "tips": "A quick one-pot weeknight meal; pre-steam peas until half-done so they finish powdery-soft, never firm.",
+          "importance": "medium"
+        },
+        {
+          "name": "Calcium-boost shrimp & seaweed egg-drop soup",
+          "iron_rich": false,
+          "ingredients": ["Dried low-salt shrimp 3 g (soak 10 minutes to remove salt)", "Salt-free seaweed 2 g", "1 egg", "Sesame oil 1 ml", "Chopped scallion, a little"],
+          "method_steps": [
+            "Soak shrimp, changing water twice, to remove excess sodium",
+            "Boil 400 ml water; add shrimp and cook 2 minutes",
+            "Drizzle in beaten egg to form flowers; off heat, add seaweed and scallion",
+            "Finish with sesame oil; no salt"
+          ],
+          "tips": "Choose low-sodium dried shrimp and soak thoroughly; omit shrimp (seaweed-egg only) for shellfish allergy.",
+          "importance": "medium"
+        }
+      ],
+      "iron_focus": false,
+      "allergy_watch": "At shared family meals, check adult dishes for hidden risks: alcohol-containing dishes, honey-based items (e.g., honey chicken — cautious before 3y and absolutely forbidden under 1y), whole-nut garnishes; the choking-hazard list continues until well past age 3 (see references/safety-rules.json)"
+    }
+  ]
+}

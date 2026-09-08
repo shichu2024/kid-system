@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "updated": "2026-09-08",
+    "description": "kid-system 知识检索索引：常见育儿问题关键词（中英双语）到 references/ 知识文件与章节的映射，对应 docs/DESIGN.md §7。技能检索知识时先命中 keywords，再读取 resource 的 section 定位内容。level 含义：general=通用知识（不分龄）；age_specific=分龄内容（须结合儿童月龄取对应年龄段行/阶段）；safety=安全红线（生成方案时强制过滤）。",
+    "usage": "keywords 支持中英文混合匹配；resource 为本仓库 references/ 下的相对路径；section 指向文件内章节或数据节点（如 stages[] 中 age_band=6-8m）。"
+  },
+  "entries": [
+    {
+      "keywords": ["辅食", "添加辅食", "初添", "6月龄", "solid food", "weaning"],
+      "resource": "references/feeding-stages.json",
+      "section": "stages[age_band=6-8m 吞咽期]",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["添加顺序", "辅食顺序", "高铁米粉", "菜泥", "果泥", "introduction order", "first foods"],
+      "resource": "references/feeding-stages.json",
+      "section": "stages[].introduction_order",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["辅食进阶", "颗粒感", "手指食物", "自主进食", "finger food", "9-11m"],
+      "resource": "references/feeding-stages.json",
+      "section": "stages[age_band=9-11m 蠕嚼期]",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["幼儿餐", "幼儿餐", "36月", "正餐", "family food", "12-36m"],
+      "resource": "references/feeding-stages.json",
+      "section": "stages[age_band=12-36m]",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["补铁", "贫血", "含铁食物", "红肉", "iron", "anemia"],
+      "resource": "references/nutrition-standards.md",
+      "section": "微量营养素表（铁）",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["补钙", "奶量", "维生素D", "钙", "calcium", "vitamin D"],
+      "resource": "references/nutrition-standards.md",
+      "section": "微量营养素表（钙/维生素D）+ 分龄奶量",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["挑食", "不爱吃菜", "拒绝食物", "picky eating", "food refusal"],
+      "resource": "references/nutrition-standards.md",
+      "section": "食物种类克数表（同类替换与多样性）",
+      "level": "general"
+    },
+    {
+      "keywords": ["厌食", "食欲差", "吃得少", "进食量", "poor appetite"],
+      "resource": "references/feeding-stages.json",
+      "section": "stages[].frequency + amount（分龄频次与单餐量基准）",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["食量", "克数", "每天吃多少", "谷薯", "蔬菜", "蛋白质", "portions", "servings"],
+      "resource": "references/nutrition-standards.md",
+      "section": "食物种类克数表",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["过敏", "食物过敏", "过敏原替换", "交叉污染", "allergy", "allergen"],
+      "resource": "references/safety-rules.json",
+      "section": "categories[过敏与窒息风险]",
+      "level": "safety"
+    },
+    {
+      "keywords": ["夜醒", "频繁夜醒", "夜奶", "night waking", "night feeding"],
+      "resource": "references/sleep-guide.json",
+      "section": "bands[]（分月龄夜眠时长与夜奶建议）",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["睡眠倒退", "四月倒退", "并觉", "sleep regression", "nap transition"],
+      "resource": "references/sleep-guide.json",
+      "section": "bands[].day_naps（并觉期识别与应对）",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["清醒窗口", "小睡安排", "作息", "wake window", "nap schedule"],
+      "resource": "references/sleep-guide.json",
+      "section": "bands[].wake_windows",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["睡眠训练", "自主入睡", "睡眠总时长", "sleep training", "self soothing"],
+      "resource": "references/sleep-guide.json",
+      "section": "bands[]（夜+日总时长基准与入睡引导）",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["大运动", "抬头", "翻身", "独坐", "爬", "走", "运动落后", "gross motor", "milestone delay"],
+      "resource": "references/milestones.json",
+      "section": "domains.gross_motor.stages[]",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["语言发育", "语言迟缓", "说话晚", "词汇量", "不开口", "language delay", "late talker"],
+      "resource": "references/milestones.json",
+      "section": "domains.language.stages[]（含 red_flags）",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["精细动作", "抓握", "捏", "涂鸦", "剪刀", "fine motor"],
+      "resource": "references/milestones.json",
+      "section": "domains.fine_motor.stages[]",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["专注力", "认知", "社交认知", "指令理解", "attention span", "cognitive"],
+      "resource": "references/milestones.json",
+      "section": "domains.social_cognitive.stages[]",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["分离焦虑", "认生", "黏人", "separation anxiety"],
+      "resource": "references/milestones.json",
+      "section": "domains.social_cognitive.stages[]（依恋与分离应对）",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["发脾气", "发脾气哭闹", "temper tantrum", "情绪崩溃", "打人", "咬人", "攻击行为", "temper tantrum", "biting"],
+      "resource": "references/milestones.json",
+      "section": "domains.social_cognitive.stages[]（情绪与行为引导）",
+      "level": "general"
+    },
+    {
+      "keywords": ["屏幕时间", "看手机", "看电视", "电子产品", "screen time"],
+      "resource": "references/games-library.json",
+      "section": "games[domains 含认知/语言]（替代屏幕的亲子游戏）",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["发烧饮食", "生病吃什么的", "清淡饮食", "病中喂养", "fever diet", "sick feeding"],
+      "resource": "references/nutrition-standards.md",
+      "section": "生病期饮食调整（清淡易消化与补水）",
+      "level": "general"
+    },
+    {
+      "keywords": ["腹泻", "腹泻饮食", "口服补液", "diarrhea", "ORS"],
+      "resource": "references/safety-rules.json",
+      "section": "categories[就医红线]（腹泻脱水指征）",
+      "level": "safety"
+    },
+    {
+      "keywords": ["便秘", "大便干", "膳食纤维", "constipation", "fiber"],
+      "resource": "references/nutrition-standards.md",
+      "section": "食物种类克数表（高纤维食材与水分摄入）",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["窒息", "卡喉", "整颗坚果", "果冻", "葡萄", "choking hazard"],
+      "resource": "references/safety-rules.json",
+      "section": "categories[过敏与窒息风险].rules（3 岁以下禁项与切分要求）",
+      "level": "safety"
+    },
+    {
+      "keywords": ["居家安全", "摔倒", "烫伤", "插座", "抽屉锁", "home safety", "childproofing"],
+      "resource": "references/safety-rules.json",
+      "section": "categories[居家安全]",
+      "level": "safety"
+    },
+    {
+      "keywords": ["就医指征", "什么时候去医院", "急诊", "红线症状", "when to see a doctor", "emergency"],
+      "resource": "references/safety-rules.json",
+      "section": "categories[就医红线]",
+      "level": "safety"
+    },
+    {
+      "keywords": ["疫苗", "接种", "疫苗后护理", "vaccine", "immunization"],
+      "resource": "references/safety-rules.json",
+      "section": "categories[就医红线]（接种后反应观察与就医指征）",
+      "level": "general"
+    },
+    {
+      "keywords": ["室内游戏", "在家玩什么", "亲子游戏", "indoor games", "toddler activities"],
+      "resource": "references/games-library.json",
+      "section": "games[scene=indoor]",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["户外游戏", "出去玩的", "大运动游戏", "outdoor games"],
+      "resource": "references/games-library.json",
+      "section": "games[scene=outdoor]",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["雨天游戏", "停电玩什么", "小空间游戏", "rainy day games"],
+      "resource": "references/games-library.json",
+      "section": "games[scene=indoor，duration_min<=15]",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["车程游戏", "旅行游戏", "排队游戏", "无道具游戏", "car games", "travel activities"],
+      "resource": "references/games-library.json",
+      "section": "games[props 为空或纯随身道具]",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["学习计划", "早教活动", "学习游戏", "learning plan", "early learning"],
+      "resource": "references/games-library.json",
+      "section": "games[domains 交叉 milestones.json 认知/语言域]",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["绘本", "亲子阅读", "讲故事", "选书", "picture books", "reading"],
+      "resource": "references/milestones.json",
+      "section": "domains.language.stages[]（分龄阅读互动方式）",
+      "level": "age_specific"
+    },
+    {
+      "keywords": ["习惯培养", "刷牙", "收拾玩具", "如厕训练", "habit building", "potty training"],
+      "resource": "references/milestones.json",
+      "section": "domains.social_cognitive.stages[]（自理与习惯里程碑）",
+      "level": "age_specific"
+    }
+  ]
+}
