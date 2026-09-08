@@ -1,0 +1,6 @@
+# kid-system 全局配置（docs/DESIGN.md §3.1）
+language: zh
+active_child: tangtang
+children: [tangtang]
+initialized_at: 2026-08-30
+skill_version: v1.0.0

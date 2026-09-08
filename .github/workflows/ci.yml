@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate JSON files
+        run: |
+          set -e
+          fail=0
+          while IFS= read -r f; do
+            node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" || { echo "FAIL: $f"; fail=1; }
+          done < <(find references -name '*.json')
+          exit $fail
+
+      - name: Validate JSON Schemas (draft-07 self-check)
+        run: |
+          node -e "
+          const fs = require('fs');
+          for (const f of ['references/profile-schema.json', 'references/journal-schema.json']) {
+            const s = JSON.parse(fs.readFileSync(f, 'utf8'));
+            if (!s.\$schema || !/draft-07/.test(s.\$schema)) throw new Error(f + ' 缺少 draft-07 \$schema 声明');
+            console.log('SCHEMA OK:', f);
+          }"
+
+      - name: Check skills registry consistency
+        run: |
+          node -e "
+          const fs = require('fs');
+          const mp = JSON.parse(fs.readFileSync('.claude-plugin/marketplace.json', 'utf8'));
+          const missing = [];
+          for (const s of mp.skills) {
+            if (!fs.existsSync('skills/' + s.name + '/SKILL.md')) missing.push(s.name);
+          }
+          if (missing.length) { console.error('SKILL.md 缺失:', missing); process.exit(1); }
+          console.log('Skills registry OK:', mp.skills.length, 'skills');"
+
+      - name: Check frontmatter (demo-vault)
+        run: node scripts/check-frontmatter.mjs examples/demo-vault
+
+      - name: Check links
+        run: node scripts/check-links.mjs docs skills references examples templates
+
+      - name: Demo-vault placeholder check
+        run: |
+          if grep -r '{{' examples/ --include='*.md'; then
+            echo "examples/ 中不允许残留 {{...}} 占位符"; exit 1
+          fi
+          echo "Placeholder check OK"

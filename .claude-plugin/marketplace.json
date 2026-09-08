@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "kid-system",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "育儿实践成长系统 — 面向 0-12 岁儿童家长的全链路科学育儿技能包：个性化档案 → 规则注入 → 每日日志 → 菜单/学习/游戏方案 → 复盘迭代。Parenting practice & growth system for children aged 0-12.",
   "owner": {
     "name": "shichu2024",
@@ -61,8 +61,8 @@
     { "name": "kid-review", "path": "skills/kid-review/" }
   ],
   "phases": {
-    "v0.1": { "codename": "skeleton", "status": "in-progress" },
-    "v1.0": { "codename": "release", "status": "planned" }
+    "v0.1": { "codename": "skeleton", "status": "released" },
+    "v1.0": { "codename": "release", "status": "released" }
   },
   "install": {
     "one_liner": "npx skills add shichu2024/kid-system",
