@@ -55,6 +55,8 @@
 - **数据层（vault）**：档案、日志、方案、规则、复盘——闭环的全部状态
 - **知识层（references）**：分龄权威数据，静态只读，所有推荐的事实依据
 
+**技能目录自包含（v1.3.3）**：仓库根的 `templates/` `references/` `knowledge/` 是唯一编辑源；各技能**声明的依赖资产**（含 en 变体）由 `scripts/sync-skill-assets.mjs` 捆绑进 `skills/<name>/`（CI `--check` 强制无漂移），保证 per-skill 安装器只拷贝 `skills/<name>/` 时技能仍完整可用，运行时资产路径相对本技能目录解析。
+
 ---
 
 ## 3. 用户数据 vault 结构

@@ -12,6 +12,7 @@ source_of_truth:
   - docs/DESIGN.md §3（vault 结构）
   - docs/DESIGN.md §4.1（档案数据模型）
   - docs/SKILLS_SPEC.md §1
+  - 本技能目录捆绑资产：templates/{zh,en}/（8×2）· references/profile-schema.json（路径相对本技能目录解析）
 ---
 
 # kid-init
@@ -24,7 +25,7 @@ source_of_truth:
 2. **不采集敏感信息**：禁止询问/写入真实姓名、照片、住址、身份证号等；儿童标识只用**昵称**
 3. **过敏必答**：步骤 ② 健康禁忌中「过敏史」必须得到明确回答（可以是「无」），不得留空或跳过
 4. **档案写盘前确认**：`profile.md` 写入前必须向家长完整展示档案内容并获得确认
-5. **模板源实测清点（v1.3）**：铺设前先清点**技能包**模板源 `templates/{zh,en}/`（各 8 个：dish/daily-menu/game/learning-plan/journal/weekly-review/monthly-report/milestone-timeline）。**源目录缺失或数量 ≠ 8 → 输出 ⚠⚠ 阻断级告警并停止铺设**，明确提示「技能包安装不完整，请重新安装完整技能包」——**严禁按记忆现场编造模板 / schema / references / knowledge 替代**（走样副本会污染安全数据依据）。铺设后对 `99_system/templates/{zh,en}/` 再次 `ls` 实测清点
+5. **模板源实测清点（v1.3）**：铺设前先清点**本技能目录**下模板源 `templates/{zh,en}/`（各 8 个：dish/daily-menu/game/learning-plan/journal/weekly-review/monthly-report/milestone-timeline）。**源目录缺失或数量 ≠ 8 → 输出 ⚠⚠ 阻断级告警并停止铺设**，明确提示「技能包安装不完整，请重新安装完整技能包」——**严禁按记忆现场编造模板 / schema / references / knowledge 替代**（走样副本会污染安全数据依据）。铺设后对 `99_system/templates/{zh,en}/` 再次 `ls` 实测清点
 6. **知识不进 vault（v1.3）**：`references/` 与 `knowledge/` 由各技能运行时**直接从技能包读取**，**严禁复制进 vault**（避免随技能包升级出现过期失真的「双真相源」，尤其 safety-rules 的就医红线）。`99_system/` 下只允许 config + templates
 7. **系统文件总数清点（v1.3）**：init 产出的系统文件 = 模板 **16**（8×2）+ `kid.config.yaml` **1** + `.kid-initialized` **1** = **18 个**；多出任何 references/knowledge 文件即违规
 8. **frontmatter 合规**：`profile.md` 必须符合 `references/profile-schema.json`（required: child_id, nickname, birthdate, gender, allergies, created, updated）

@@ -14,7 +14,9 @@ source_of_truth:
   - docs/SKILLS_SPEC.md §9
   - references/milestones.json · references/safety-rules.json · references/sleep-guide.json
   - templates/{zh,en}/weekly-review.md · monthly-report.md · milestone-timeline.md
+  - 上述 templates/references/knowledge 为本技能目录捆绑副本（路径相对本技能目录解析；仓库根为唯一编辑源，scripts/sync-skill-assets.mjs 同步）
 ---
+
 
 # kid-review
 

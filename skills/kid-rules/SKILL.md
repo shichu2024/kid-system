@@ -14,7 +14,9 @@ source_of_truth:
   - docs/DESIGN.md §4.5（规则库模型）· §6.1（指令优先级）
   - docs/SKILLS_SPEC.md §3
   - references/journal-schema.json（rule $defs）
+  - 上述 templates/references/knowledge 为本技能目录捆绑副本（路径相对本技能目录解析；仓库根为唯一编辑源，scripts/sync-skill-assets.mjs 同步）
 ---
+
 
 # kid-rules
 

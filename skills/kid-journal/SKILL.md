@@ -14,7 +14,9 @@ source_of_truth:
   - docs/SKILLS_SPEC.md §4
   - references/journal-schema.json（journal $defs）
   - templates/{zh,en}/journal.md
+  - 上述 templates/references/knowledge 为本技能目录捆绑副本（路径相对本技能目录解析；仓库根为唯一编辑源，scripts/sync-skill-assets.mjs 同步）
 ---
+
 
 # kid-journal
 

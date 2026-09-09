@@ -1,0 +1,801 @@
+{
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-09-08",
+    "language": "en",
+    "source": "WHO Motor Development Milestones · Capital Institute of Pediatrics Children's Neuropsychological Scale (reference) · Chinese Pediatric Society Developmental Scales · AAP/CDC Milestones (reference)",
+    "usage": "Used by kid-review for milestone tracking and kid-journal for ability observation. Milestones represent median expectations for most children; individual variation of ±2 months is within normal range.",
+    "red_flag_disclaimer": "If any red flag (developmental warning sign) appears, please schedule a pediatric developmental assessment promptly. This system does not provide diagnosis.",
+    "universal_red_flags": [
+      "Loss of previously mastered skills at any age (e.g., stops saying words once spoken, stops walking) — seek medical evaluation immediately",
+      "At any age: complete absence of eye contact, no smiling at people, persistent lack of response to name",
+      "At any age: marked asymmetry between left/right limbs or abnormal muscle tone (excessively stiff or floppy)"
+    ]
+  },
+  "domains": {
+    "gross_motor": {
+      "label": "Gross Motor",
+      "stages": [
+        {
+          "age_months": 3,
+          "age_label": "3 months",
+          "items": [
+            "Lifts head 90 degrees in prone position, raises chest supported on forearms",
+            "Holds head briefly steady when held upright",
+            "Alternately kicks all four limbs supine, movements becoming coordinated"
+          ],
+          "red_flags": [
+            "Cannot lift head at all in prone position at 3 months",
+            "Head persistently lags severely backward when pulled to sit",
+            "Limbs stiff in a scissor pattern or whole body floppy"
+          ]
+        },
+        {
+          "age_months": 6,
+          "age_label": "6 months",
+          "items": [
+            "Rolls both ways (prone to supine and back)",
+            "Sits leaning forward on forearms or briefly sits unsupported",
+            "Legs briefly bear weight when held standing"
+          ],
+          "red_flags": [
+            "No rolling and no forearm-supported chest raise at 6 months",
+            "Head lags markedly and persistently when pulled to sit"
+          ]
+        },
+        {
+          "age_months": 8,
+          "age_label": "8 months",
+          "items": [
+            "Sits steadily, can turn head without toppling",
+            "Belly crawls or moves backward/forward by inching",
+            "Leans forward to reach toys while sitting and returns upright"
+          ],
+          "red_flags": [
+            "Cannot sit unsupported at 8 months"
+          ]
+        },
+        {
+          "age_months": 10,
+          "age_label": "10 months",
+          "items": [
+            "Crawls on hands and knees",
+            "Pulls to stand against furniture or using a person",
+            "Cruises sideways along furniture"
+          ],
+          "red_flags": [
+            "No means of self-mobility at 10 months (no crawling, rolling, or scooting)"
+          ]
+        },
+        {
+          "age_months": 12,
+          "age_label": "12 months",
+          "items": [
+            "Stands alone momentarily",
+            "Walks holding one hand or takes 1-2 independent steps",
+            "Lowers from supported standing to sitting independently"
+          ],
+          "red_flags": [
+            "Cannot pull to stand at 12 months"
+          ]
+        },
+        {
+          "age_months": 15,
+          "age_label": "15 months",
+          "items": [
+            "Walks independently with few falls",
+            "Squats to pick up a toy and stands back up",
+            "Climbs stairs on hands and knees"
+          ],
+          "red_flags": [
+            "Cannot stand alone at 15 months"
+          ]
+        },
+        {
+          "age_months": 18,
+          "age_label": "18 months",
+          "items": [
+            "Walks steadily, can walk backward while pulling a toy",
+            "Begins to run (stiff posture is normal)",
+            "Throws a ball with arm overhead"
+          ],
+          "red_flags": [
+            "Not walking independently at 18 months",
+            "Persistent toe-walking or markedly abnormal gait"
+          ]
+        },
+        {
+          "age_months": 24,
+          "age_label": "24 months",
+          "items": [
+            "Runs steadily, can maneuver around obstacles",
+            "Jumps in place with both feet (attempting or mastered)",
+            "Climbs stairs one step at a time holding a rail",
+            "Kicks a stationary ball"
+          ],
+          "red_flags": [
+            "Unsteady walking with frequent falls at 2 years",
+            "Cannot run or climb stairs with support"
+          ]
+        },
+        {
+          "age_months": 36,
+          "age_label": "36 months",
+          "items": [
+            "Jumps in place with both feet, jumps from the last step",
+            "Stands on one foot for 1-2 seconds",
+            "Climbs stairs alternating feet, one step at a time",
+            "Pedals a tricycle"
+          ],
+          "red_flags": [
+            "Cannot run, falls frequently, or cannot climb stairs at 3 years"
+          ]
+        },
+        {
+          "age_months": 48,
+          "age_label": "4 years",
+          "items": [
+            "Hops on one foot several times",
+            "Descends stairs alternating feet one step at a time",
+            "Catches a large bounced or thrown ball",
+            "Standing long jump with both feet"
+          ],
+          "red_flags": [
+            "Gross motor skills markedly clumsier than peers, unable to join group physical games at 4 years"
+          ]
+        },
+        {
+          "age_months": 60,
+          "age_label": "5 years",
+          "items": [
+            "Balances on one foot for 8-10 seconds",
+            "Beginning to learn to jump rope",
+            "Walks on a low balance beam",
+            "Runs, jumps, and dodges moving objects skillfully"
+          ],
+          "red_flags": [
+            "Cannot hop on one foot; gross motor markedly behind peers at 5 years"
+          ]
+        },
+        {
+          "age_months": 72,
+          "age_label": "6 years",
+          "items": [
+            "Consecutive rope jumping",
+            "Learning to ride a two-wheel bicycle (may transition from training wheels)",
+            "Rhythmically bounces and passes/catches a ball",
+            "Can breathe while swimming if lessons started"
+          ],
+          "red_flags": [
+            "Still unable to combine basic skills of running, jumping, and one-foot standing at 6 years"
+          ]
+        },
+        {
+          "age_months": 96,
+          "age_label": "8 years",
+          "items": [
+            "Masters basic skills of 1-2 rule-based ball sports",
+            "Can learn coordination sports such as swimming, skating, dance",
+            "Strength, speed, and endurance develop in balance; refined motor control"
+          ],
+          "red_flags": [
+            "Markedly poor coordination and strong avoidance of physical activity at 8 years (consider developmental coordination disorder assessment)"
+          ]
+        },
+        {
+          "age_months": 120,
+          "age_label": "10 years",
+          "items": [
+            "Participates in team sports with simple tactical cooperation",
+            "Fine and gross motor skills near-adolescent proficiency; fast skill acquisition",
+            "Balance, reaction, and coordination approaching adolescent level"
+          ],
+          "red_flags": [
+            "Still unable to master any sport skill common among peers at 10 years"
+          ]
+        },
+        {
+          "age_months": 144,
+          "age_label": "12 years",
+          "items": [
+            "Pubertal growth spurt begins (usually earlier in girls than boys)",
+            "Rapid growth in strength and speed; can sustain systematic training",
+            "Complex sport combinations (ball tactics, swim strokes, apparatus) near adult beginner level"
+          ],
+          "red_flags": [
+            "Declining motor ability, asymmetric limp, or persistent pain"
+          ]
+        }
+      ]
+    },
+    "fine_motor": {
+      "label": "Fine Motor",
+      "stages": [
+        {
+          "age_months": 3,
+          "age_label": "3 months",
+          "items": [
+            "Hands open naturally, no longer fisted persistently",
+            "Looks at own hands (emerging hand-eye coordination)",
+            "Grasps a rattle placed in hand (whole-hand grasp) and holds briefly"
+          ],
+          "red_flags": [
+            "Hands persistently fisted and cannot open at 3 months"
+          ]
+        },
+        {
+          "age_months": 6,
+          "age_label": "6 months",
+          "items": [
+            "Reaches out and grasps objects voluntarily (whole-hand grasp)",
+            "Transfers object from one hand to the other",
+            "Grasps feet and brings them to mouth"
+          ],
+          "red_flags": [
+            "Does not reach for objects at 6 months",
+            "Fixed hand preference appearing at this stage (too-early handedness)"
+          ]
+        },
+        {
+          "age_months": 8,
+          "age_label": "8 months",
+          "items": [
+            "Radial-palm grasp (thumb participates)",
+            "Holds an object in each hand and bangs them together",
+            "Tears paper, pulls at fabric to explore"
+          ],
+          "red_flags": [
+            "Cannot hold an object in each hand simultaneously at 8 months"
+          ]
+        },
+        {
+          "age_months": 10,
+          "age_label": "10 months",
+          "items": [
+            "Picks up small items with neat thumb-index pincer grasp",
+            "Deliberately drops and throws objects to observe results",
+            "Puts objects into a container"
+          ],
+          "red_flags": [
+            "Cannot pick up small items with thumb-finger pinch at 10 months"
+          ]
+        },
+        {
+          "age_months": 12,
+          "age_label": "12 months",
+          "items": [
+            "Refined pincer grasp for tiny objects",
+            "Places blocks into a cup",
+            "Scribbles with whole-hand crayon grip",
+            "Closes a book (turns several pages at once)"
+          ],
+          "red_flags": [
+            "No pincer grasp, does not place objects at 12 months"
+          ]
+        },
+        {
+          "age_months": 15,
+          "age_label": "15 months",
+          "items": [
+            "Stacks 2 blocks",
+            "Spontaneous scribbling",
+            "Attempts to use a spoon (spilling is normal)"
+          ],
+          "red_flags": [
+            "No interest at all in grasping and container play at 15 months"
+          ]
+        },
+        {
+          "age_months": 18,
+          "age_label": "18 months",
+          "items": [
+            "Stacks 3-4 blocks",
+            "Partially self-feeds with a spoon",
+            "Turns doorknobs, opens large jar lids"
+          ],
+          "red_flags": [
+            "Cannot stack 2 blocks or use a spoon at 18 months"
+          ]
+        },
+        {
+          "age_months": 24,
+          "age_label": "24 months",
+          "items": [
+            "Stacks 6 blocks",
+            "Imitates drawing vertical lines and circular scribbles",
+            "Turns book pages one at a time",
+            "Screws and unscrews lids"
+          ],
+          "red_flags": [
+            "Cannot stack 4 blocks, never scribbles at 2 years"
+          ]
+        },
+        {
+          "age_months": 36,
+          "age_label": "36 months",
+          "items": [
+            "Imitates drawing a circle",
+            "Stacks 8 or more blocks",
+            "Threads large beads onto a string",
+            "Draws a person with head and rudimentary limbs (~3.5 years)"
+          ],
+          "red_flags": [
+            "Cannot stack 6 blocks or imitate drawing lines at 3 years"
+          ]
+        },
+        {
+          "age_months": 48,
+          "age_label": "4 years",
+          "items": [
+            "Imitates drawing a cross",
+            "Draws a person with 2-4 recognizable parts",
+            "Cuts along a straight line with safety scissors",
+            "Fastens large buttons independently"
+          ],
+          "red_flags": [
+            "Cannot hold a crayon to scribble or build a block tower at 4 years"
+          ]
+        },
+        {
+          "age_months": 60,
+          "age_label": "5 years",
+          "items": [
+            "Imitates drawing a triangle",
+            "Writes some simple characters/letters or a rudimentary own name",
+            "Draws a person with 6 or more parts",
+            "Learning to tie shoelaces; manages buttons and zippers"
+          ],
+          "red_flags": [
+            "Drawings still contain no recognizable shapes at 5 years"
+          ]
+        },
+        {
+          "age_months": 72,
+          "age_label": "6 years",
+          "items": [
+            "Writes letters, numerals, and simple characters",
+            "Cuts out simple shapes with scissors",
+            "Uses chopsticks and fork/spoon proficiently"
+          ],
+          "red_flags": [
+            "Cannot write any recognizable letters/numerals at 6 years"
+          ]
+        },
+        {
+          "age_months": 96,
+          "age_label": "8 years",
+          "items": [
+            "Fluent handwriting with gradually consistent size",
+            "Completes fine crafts such as origami and model assembly",
+            "Keyboard typing, instrument practice (if started)"
+          ],
+          "red_flags": [
+            "Handwriting persistently illegible with strong writing avoidance at 8 years (consider developmental coordination / dysgraphia assessment)"
+          ]
+        },
+        {
+          "age_months": 120,
+          "age_label": "10 years",
+          "items": [
+            "Fine craft skills stable and mature (knitting, woodwork, typing)",
+            "Writing speed and quality near the upper childhood range",
+            "Specialized skills (instruments, drawing) can deepen"
+          ],
+          "red_flags": [
+            "Writing still extremely slow and messy with clear learning difficulties at 10 years (assessment recommended)"
+          ]
+        },
+        {
+          "age_months": 144,
+          "age_label": "12 years",
+          "items": [
+            "Fine motor skills approaching adult level",
+            "Completes complex combined crafts and lab operations",
+            "Personalized fluent handwriting; proficient with stationery and tools"
+          ],
+          "red_flags": [
+            "Marked regression in acquired writing or manipulation skills"
+          ]
+        }
+      ]
+    },
+    "language": {
+      "label": "Language",
+      "stages": [
+        {
+          "age_months": 3,
+          "age_label": "3 months",
+          "items": [
+            "Coos with vowel sounds",
+            "Turns head toward voices and rattling sounds",
+            "Cries begin to differentiate (hunger/boredom/discomfort)"
+          ],
+          "red_flags": [
+            "No reaction to sound at all at 3 months",
+            "Never coos"
+          ]
+        },
+        {
+          "age_months": 6,
+          "age_label": "6 months",
+          "items": [
+            "Babbles repeated consonant syllables (baba/mama, non-referential)",
+            "Laughs out loud",
+            "Clear emotional response to tone (stern vs. happy)"
+          ],
+          "red_flags": [
+            "No big laughs, no consonant syllables at 6 months"
+          ]
+        },
+        {
+          "age_months": 8,
+          "age_label": "8 months",
+          "items": [
+            "Responds to own name (turns head/pauses)",
+            "Understands 'no' with tone and pauses action",
+            "Expresses needs by reaching and vocalizing"
+          ],
+          "red_flags": [
+            "No response to own name at 8 months",
+            "No reaction to familiar daily words (e.g., 'milk')"
+          ]
+        },
+        {
+          "age_months": 10,
+          "age_label": "10 months",
+          "items": [
+            "mama/baba becoming referential",
+            "Waves bye-bye, claps hands on request",
+            "Understands common daily phrases and acts on them"
+          ],
+          "red_flags": [
+            "No communicative gestures at all (pointing/waving/nodding) at 10 months"
+          ]
+        },
+        {
+          "age_months": 12,
+          "age_label": "12 months",
+          "items": [
+            "Says 'mama'/'dada' meaningfully",
+            "Uses 1-2 words (milk, give, up)",
+            "Follows simple one-step commands ('give the ball to mommy')",
+            "Points with index finger to share interest or request"
+          ],
+          "red_flags": [
+            "No pointing to share, no response to name, no words at 12 months"
+          ]
+        },
+        {
+          "age_months": 15,
+          "age_label": "15 months",
+          "items": [
+            "Says 3-5 words",
+            "Shakes head for 'no'",
+            "Points to common objects in books/pictures"
+          ],
+          "red_flags": [
+            "Still no meaningful words at 15 months"
+          ]
+        },
+        {
+          "age_months": 18,
+          "age_label": "18 months",
+          "items": [
+            "Vocabulary of 10-20 words",
+            "Says 'no' to express will",
+            "Points to 3 or more body parts",
+            "Understands and follows one-step daily instructions"
+          ],
+          "red_flags": [
+            "Vocabulary limited to mama/dada, does not point to objects at 18 months"
+          ]
+        },
+        {
+          "age_months": 24,
+          "age_label": "24 months",
+          "items": [
+            "Two-word phrases ('mommy hold', 'want milk')",
+            "Vocabulary over 50 words",
+            "Speech ~50% intelligible to strangers",
+            "Asks 'What's this?'"
+          ],
+          "red_flags": [
+            "No two-word phrases at 24 months",
+            "Only echoes others' speech without spontaneous communication"
+          ]
+        },
+        {
+          "age_months": 36,
+          "age_label": "36 months",
+          "items": [
+            "Speaks 3-4 word sentences",
+            "Speech 75%+ intelligible to strangers",
+            "Uses pronouns 'I' and 'you'",
+            "Endlessly asks 'why'; states own name and age"
+          ],
+          "red_flags": [
+            "Speech completely unintelligible to strangers at 3 years",
+            "Cannot express needs in short sentences"
+          ]
+        },
+        {
+          "age_months": 48,
+          "age_label": "4 years",
+          "items": [
+            "Tells simple stories or the day's events",
+            "Speech 90%+ intelligible to strangers",
+            "Recognizes a few letters or simple characters",
+            "Sings complete songs, recites 4+ line nursery rhymes"
+          ],
+          "red_flags": [
+            "Confusing sentence structure, largely unintelligible at 4 years"
+          ]
+        },
+        {
+          "age_months": 60,
+          "age_label": "5 years",
+          "items": [
+            "Mostly complete grammar, fluent sentences",
+            "Retells main plot of a story",
+            "Print-awareness phase; reads common characters/sight words",
+            "Counts to 10+ and counts objects one-to-one"
+          ],
+          "red_flags": [
+            "Still only short phrases, disorganized narration at 5 years"
+          ]
+        },
+        {
+          "age_months": 72,
+          "age_label": "6 years",
+          "items": [
+            "Begins independent reading (decoding/beginner readers)",
+            "Describes events in sequence",
+            "Vocabulary of thousands; understands time words (yesterday/tomorrow/next week)"
+          ],
+          "red_flags": [
+            "Marked difficulty with letter/character recognition and sound memory at 6 years (possible early dyslexia signs)"
+          ]
+        },
+        {
+          "age_months": 96,
+          "age_label": "8 years",
+          "items": [
+            "Reads chapter books fluently and retells content",
+            "Writes paragraphs expressing opinions",
+            "Understands metaphors, jokes, and multiple-meaning words"
+          ],
+          "red_flags": [
+            "Persistent skipping of words/lines in reading, painful avoidance of reading at 8 years (dyslexia assessment recommended)"
+          ]
+        },
+        {
+          "age_months": 120,
+          "age_label": "10 years",
+          "items": [
+            "Reads and understands complex narrative and expository texts",
+            "Writes multi-paragraph texts with basic structure",
+            "Argues points coherently; joins debate-style discussion"
+          ],
+          "red_flags": [
+            "Huge gap between reading/writing level and oral ability at 10 years (assessment recommended)"
+          ]
+        },
+        {
+          "age_months": 144,
+          "age_label": "12 years",
+          "items": [
+            "Understands abstract language (irony, inference, argument)",
+            "Produces argumentative writing",
+            "Can systematically learn foreign languages"
+          ],
+          "red_flags": [
+            "Marked regression in language/literacy with attention or mood problems (assessment recommended)"
+          ]
+        }
+      ]
+    },
+    "social_cognitive": {
+      "label": "Social-Cognitive",
+      "stages": [
+        {
+          "age_months": 3,
+          "age_label": "3 months",
+          "items": [
+            "Social smile (smiles at people, not spontaneous sleep smiles)",
+            "Gazes at faces for long periods, prefers eyes",
+            "Responds to playful interaction with sounds and waving limbs"
+          ],
+          "red_flags": [
+            "No social smile at 3 months",
+            "Complete lack of interest in faces"
+          ]
+        },
+        {
+          "age_months": 6,
+          "age_label": "6 months",
+          "items": [
+            "Excited by mirror image, pats mirror",
+            "Imitates tongue protrusion, mouth opening and other expressions",
+            "Looks down for dropped objects (emerging object permanence)",
+            "Stranger awareness begins (gradually evident 6-9 months)"
+          ],
+          "red_flags": [
+            "No interest in mirror or faces at 6 months",
+            "No response to interactive games (proto peek-a-boo)"
+          ]
+        },
+        {
+          "age_months": 8,
+          "age_label": "8 months",
+          "items": [
+            "Searches for fully hidden toys (object permanence developing)",
+            "Enjoys peek-a-boo and anticipates the reveal",
+            "Separation anxiety appears (normal attachment behavior)"
+          ],
+          "red_flags": [
+            "No differential reaction to caregivers vs. strangers combined with no interest in hiding games at 8 months (observe holistically)"
+          ]
+        },
+        {
+          "age_months": 10,
+          "age_label": "10 months",
+          "items": [
+            "Imitates social gestures like clapping and waving",
+            "Uses objects functionally (brushes hair with comb, drinks from cup)",
+            "Repeatedly empties containers to explore cause and effect"
+          ],
+          "red_flags": [
+            "Imitates no actions at 10 months",
+            "No functional object exploration (only bangs/bites/throws)"
+          ]
+        },
+        {
+          "age_months": 12,
+          "age_label": "12 months",
+          "items": [
+            "Joint attention: points plus eye contact to share interest",
+            "Shows or points to you before requesting help",
+            "Functional toy play (pushes car, stacks tower, presses buttons)"
+          ],
+          "red_flags": [
+            "No pointing to share interest, no joint attention at 12 months",
+            "Little eye contact, does not seek engagement"
+          ]
+        },
+        {
+          "age_months": 15,
+          "age_label": "15 months",
+          "items": [
+            "Emerging pretend play (feeds doll with spoon)",
+            "Imitates household chores (sweeping, wiping)",
+            "Clear willingness to self-feed with spoon"
+          ],
+          "red_flags": [
+            "No signs of pretend play at 15 months",
+            "Lack of eye contact and shared enjoyment"
+          ]
+        },
+        {
+          "age_months": 18,
+          "age_label": "18 months",
+          "items": [
+            "Points to distant desired objects to express needs",
+            "Parallel play (plays beside peers, not yet cooperatively)",
+            "Emerging self-awareness (says 'mine', recognizes self in mirror)",
+            "Helps with simple tasks (hands over items)"
+          ],
+          "red_flags": [
+            "No pretend play, no eye contact at 18 months",
+            "Persistent avoidance of interaction and being addressed"
+          ]
+        },
+        {
+          "age_months": 24,
+          "age_label": "24 months",
+          "items": [
+            "Rich pretend play (pretend cooking, phone calls)",
+            "Imitates adults' gross actions and daily routines",
+            "Attends to peers; simple interactions emerge",
+            "Strong self-awareness and possessiveness; 'no' phase"
+          ],
+          "red_flags": [
+            "No pretend play at 24 months; only repetitive object manipulation",
+            "No interaction or eye contact with anyone; does not follow instructions"
+          ]
+        },
+        {
+          "age_months": 36,
+          "age_label": "36 months",
+          "items": [
+            "Turn-taking games, emerging rule awareness",
+            "Role-play imagination games (doctor, cook)",
+            "Shows empathy (comforts a crying peer)",
+            "Knows own gender, names family relationships"
+          ],
+          "red_flags": [
+            "No imaginative play at 3 years",
+            "No interest in peers; no turn-taking interaction at all"
+          ]
+        },
+        {
+          "age_months": 48,
+          "age_label": "4 years",
+          "items": [
+            "Cooperative play toward shared goals with peers",
+            "Tells invented stories, assigns roles in play",
+            "Understands and follows simple game rules",
+            "Names emotions: happy/angry/sad"
+          ],
+          "red_flags": [
+            "Cannot understand any rules or join group games at 4 years"
+          ]
+        },
+        {
+          "age_months": 60,
+          "age_label": "5 years",
+          "items": [
+            "Has 1-2 stable friends; 'best friend' concept",
+            "Follows game rules; copes with simple winning/losing",
+            "Emerging perspective-taking ('he is sad')",
+            "Tidies own toys and belongings"
+          ],
+          "red_flags": [
+            "Cannot form friendships at all; persistently rejected by peers at 5 years (monitor closely)"
+          ]
+        },
+        {
+          "age_months": 72,
+          "age_label": "6 years",
+          "items": [
+            "Understands others may hold different views and feelings",
+            "Managing winning/losing emotions (learning, still needs adult guidance)",
+            "Adapts to group activities and classroom routines",
+            "Emerging executive function: two-step instructions, delayed gratification"
+          ],
+          "red_flags": [
+            "Cannot follow classroom routines at all; frequent uncontrolled social conflicts at 6 years"
+          ]
+        },
+        {
+          "age_months": 96,
+          "age_label": "8 years",
+          "items": [
+            "Executive function: plans simple tasks, completes homework in steps (with reminders)",
+            "Stable friendships and peer groups",
+            "Understands fairness, rules, and right vs. wrong logically",
+            "Time concepts established (clock time, durations)"
+          ],
+          "red_flags": [
+            "No friendships at all, persistent social avoidance or bullying at 8 years (assessment and intervention recommended)"
+          ]
+        },
+        {
+          "age_months": 120,
+          "age_label": "10 years",
+          "items": [
+            "Peer relationships central to emotional life; values belonging",
+            "Team collaboration and division of labor",
+            "Logical thinking: concrete causality, classification, simple reasoning",
+            "Self-evaluation forms; cares about grades and recognition"
+          ],
+          "red_flags": [
+            "Persistent peer difficulties with low mood and school refusal at 10 years (professional assessment recommended)"
+          ]
+        },
+        {
+          "age_months": 144,
+          "age_label": "12 years",
+          "items": [
+            "Abstract and hypothetical reasoning (Piaget formal operational stage begins)",
+            "Strong peer identification; values group norms",
+            "Identity exploration; critical thinking about authority",
+            "Executive function near adult: multitasking, long-range planning"
+          ],
+          "red_flags": [
+            "Persistent low mood, complete social withdrawal, cliff-drop grades in adolescence (psychological assessment recommended)"
+          ]
+        }
+      ]
+    }
+  }
+}

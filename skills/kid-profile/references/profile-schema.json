@@ -1,0 +1,167 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "references/profile-schema.json",
+  "title": "儿童档案 frontmatter（00_profiles/<child-id>/profile.md）",
+  "description": "儿童档案五维度 frontmatter 的 JSON Schema（draft-07），对应 docs/DESIGN.md §4.1。维度：基础身份 / 健康禁忌（绝对过滤项，优先级最高）/ 发展状态 / 偏好习惯 / 家庭条件，另含元字段。age_months 为派生只读字段，每次读写时按当前日期重算，禁止手工固定。",
+  "type": "object",
+  "properties": {
+    "child_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "儿童唯一标识：昵称拼音或 kebab-case，与 kid.config.yaml.children 对应"
+    },
+    "nickname": {
+      "type": "string",
+      "description": "昵称（家长日常称呼）"
+    },
+    "birthdate": {
+      "type": "string",
+      "format": "date",
+      "description": "出生日期 YYYY-MM-DD，月龄计算基准"
+    },
+    "age_months": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 144,
+      "readOnly": true,
+      "description": "月龄（派生只读）：由 birthdate 与当前日期计算，0-144 覆盖 0-12 岁，不可手工写死"
+    },
+    "gender": {
+      "$ref": "#/$defs/gender"
+    },
+    "personality": {
+      "type": "string",
+      "description": "性格粗描述（如：慢热、活跃、敏感）"
+    },
+    "allergies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "过敏清单。绝对过滤项：menu/games 生成时命中的食材/菜品直接排除（含交叉污染提示），不可为空项时须显式写空数组"
+    },
+    "diet_restrictions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "饮食禁忌（如：素食家庭、不吃牛肉），与过敏同属最高优先级过滤项"
+    },
+    "chronic_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "慢性/长期健康状况（如：乳糖不耐受、哮喘）"
+    },
+    "medical_notes": {
+      "type": "string",
+      "description": "医疗备注：用药、就医史、医生嘱咐等自由文本"
+    },
+    "motor_level": {
+      "type": "string",
+      "description": "大运动发展水平：粗粒度自评 + 里程碑对照（对照 references/milestones.json 大运动域）"
+    },
+    "language_level": {
+      "type": "string",
+      "description": "语言发展水平：粗粒度自评 + 里程碑对照（对照 references/milestones.json 语言域）"
+    },
+    "cognitive_level": {
+      "type": "string",
+      "description": "认知/社交发展水平：粗粒度自评 + 里程碑对照（对照 references/milestones.json 社交认知域）"
+    },
+    "routine": {
+      "type": "string",
+      "description": "作息概况：起床/午睡/夜间入睡等关键时间点描述（对照 references/sleep-guide.json）"
+    },
+    "food_likes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "喜欢吃的食物，部分由日志自动沉淀至 tags.md"
+    },
+    "food_dislikes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "拒绝/不喜欢的食物，部分由日志自动沉淀"
+    },
+    "interests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "兴趣点（如：工程车、拼图），驱动游戏与学习推荐"
+    },
+    "skills_mastered": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "已掌握技能（如：积木垒高 10 块），作为学习难度基线"
+    },
+    "habits_target": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "正在培养的目标习惯（如：自主进食、睡前刷牙）"
+    },
+    "parent_time_daily_min": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "家长每日可投入亲子陪伴时间（分钟），方案可落地性约束"
+    },
+    "family_diet_style": {
+      "type": "string",
+      "description": "家庭饮食风格（如：清淡中餐、少油少盐）"
+    },
+    "activity_spaces": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "可用活动空间（如：客厅地垫、小区花园），游戏推荐的场景约束"
+    },
+    "pantry_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "常备食材范围，菜单生成时的备料约束"
+    },
+    "created": {
+      "type": "string",
+      "format": "date",
+      "description": "档案创建日期 YYYY-MM-DD"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date",
+      "description": "档案最近更新日期 YYYY-MM-DD"
+    }
+  },
+  "required": [
+    "child_id",
+    "nickname",
+    "birthdate",
+    "gender",
+    "allergies",
+    "created",
+    "updated"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female",
+        "undisclosed"
+      ],
+      "description": "性别：male 男 / female 女 / undisclosed 未披露"
+    }
+  }
+}

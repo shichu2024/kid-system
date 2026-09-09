@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-09-08",
+    "language": "en",
+    "source": "Chinese Pediatric Society child-care guidance · AAP (American Academy of Pediatrics) · WHO Child Injury Prevention (reference)",
+    "usage": "Enforced by the safety filter (§6.3) during menu/games generation; emergency_red_lines are referenced by kid-journal/kid-review anomaly alerting (§6.6).",
+    "disclaimer": "This rule library provides home care and safety tips only and cannot replace professional medical advice. When any emergency_red_line condition is matched, advise seeking immediate medical care."
+  },
+  "emergency_red_lines": [
+    {
+      "condition": "Fever >= 38 degrees C (axillary) in an infant under 3 months",
+      "action": "Seek immediate medical care (emergency/pediatrics); do not give antipyretics on your own",
+      "severity": "critical"
+    },
+    {
+      "condition": "Listlessness, lethargy, hard to wake, or vacant unresponsive gaze",
+      "action": "Seek immediate medical care",
+      "severity": "critical"
+    },
+    {
+      "condition": "Breathing difficulty, rapid breathing, nasal flaring, chest retractions, or blue lips/face",
+      "action": "Call emergency services and seek medical care",
+      "severity": "critical"
+    },
+    {
+      "condition": "Seizure/convulsion (eyes rolling up, stiff or rhythmically jerking limbs, loss of consciousness)",
+      "action": "Place child on their side to prevent aspiration, record duration; seek care immediately after the episode; call emergency services if it lasts over 5 minutes",
+      "severity": "critical"
+    },
+    {
+      "condition": "Signs of dehydration: no tears when crying, dry lips, sunken fontanelle, markedly reduced urine (no wet diaper for 6-8 h in infants)",
+      "action": "Seek care promptly; give small frequent amounts of oral rehydration solution en route",
+      "severity": "critical"
+    },
+    {
+      "condition": "Persistent vomiting (>= 3 episodes in 24 h) or projectile vomiting",
+      "action": "Seek immediate medical care",
+      "severity": "critical"
+    },
+    {
+      "condition": "Anterior fontanelle markedly bulging and tense (remains full/bulging when calm and upright)",
+      "action": "Seek immediate medical care",
+      "severity": "critical"
+    },
+    {
+      "condition": "Persistent high fever: >= 39 degrees C for more than 24 h, or any fever over 3 days without improvement",
+      "action": "See a doctor within 24 h; return promptly if fever persists 3 days",
+      "severity": "high"
+    },
+    {
+      "condition": "Pale, mottled, or marbled skin, or petechiae/bruising that does not blanch on pressure",
+      "action": "Seek immediate medical care",
+      "severity": "critical"
+    },
+    {
+      "condition": "Suspected ingestion of medicine/cleaner/poison, or choking/aspiration on a foreign object (persistent coughing, stridor, color change)",
+      "action": "Call emergency services immediately; for choking perform age-appropriate back blows and chest thrusts (Heimlich for children); do not blindly sweep the throat; bring the product packaging to the hospital",
+      "severity": "critical"
+    },
+    {
+      "condition": "Loss of consciousness, or vomiting, drowsiness, unsteady gait, or unequal pupils after head injury",
+      "action": "Call emergency services and seek care; avoid shaking the head during transport",
+      "severity": "critical"
+    },
+    {
+      "condition": "Severe abdominal pain lasting over 2 h with refusal to be touched, or bloody/black/current-jelly stools",
+      "action": "Seek immediate medical care (beware intussusception and other acute abdomen)",
+      "severity": "critical"
+    },
+    {
+      "condition": "Markedly reduced urine or no urination for 12+ h, with eyelid swelling or tea-colored urine",
+      "action": "See a doctor within 24 h",
+      "severity": "high"
+    },
+    {
+      "condition": "Loss of previously mastered skills at any age (stops walking, loses words)",
+      "action": "Arrange a developmental/pediatric neurology assessment promptly",
+      "severity": "high"
+    }
+  ],
+  "choking_hazards": {
+    "under_3_years_forbidden": [
+      "Whole nuts (peanuts, sunflower seeds, cashews, etc.)",
+      "Jelly cups (especially mini-cup jelly; not for toddlers in any form)",
+      "Whole grapes and cherry tomatoes",
+      "Popcorn",
+      "Hard candy and chewing gum",
+      "Whole pitted/stoned dates; large chunks of fruit with pits",
+      "Round sausage slices, large marshmallows, sticky rice cakes/mochi"
+    ],
+    "preparation": [
+      "Cut grapes and cherry tomatoes into quarters",
+      "Remove all bones and fine fishbones from fish",
+      "Cut meat into small pieces (<=1.5 cm) or strips/mince",
+      "Grind nuts; grate apples or cut into thin slices",
+      "Pit dates and cut into strips; cut round foods (carrots, banana) lengthwise, never into round coin slices",
+      "Children eat seated upright with an adult present; no feeding while running, jumping, laughing, or lying down"
+    ]
+  },
+  "medication": {
+    "principles": [
+      "No self-medication for children: before any medicine (including OTC drugs, traditional remedies, supplements), follow a doctor's advice or read the pediatric dosing table carefully and calculate by weight",
+      "Aspirin is prohibited in children (Reye syndrome risk); for fever use acetaminophen (>= 2-3 months) or ibuprofen (>= 6 months), with intervals and doses per label/doctor",
+      "No antibiotic misuse: antibiotics are ineffective against viral colds, require a prescription and full course; never stop early or save leftovers",
+      "Giving reduced adult doses to children is dangerous and prohibited",
+      "Never stack antipyretics (different brand names may both be acetaminophen); avoid compound cold medicines containing the same ingredient while dosing fever medicine",
+      "Store medicines, vitamins, and cleaners in a locked cabinet out of children's reach; keep original packaging and dosing devices; dispose of expired medicines",
+      "Do not mix medicine into a full bottle of milk or trick children with 'candy'"
+    ]
+  },
+  "home_safety": [
+    {
+      "room": "Bedroom",
+      "risks": [
+        "Crib bar spacing > 6 cm (head entrapment)",
+        "Blind/curtain cords (strangulation)",
+        "Soft bedding and bumpers in crib (suffocation)",
+        "Wardrobe/bookshelf tip-over"
+      ],
+      "preventions": [
+        "Crib bar spacing <= 6 cm (standard 2.5-6 cm)",
+        "Tie curtain cords high (>1.2 m) or replace with cordless styles",
+        "For the first year, crib holds only the baby and a fitted sheet; use sleep sacks instead of blankets",
+        "Anchor tall furniture to the wall with anti-tip brackets; add child locks to drawers"
+      ]
+    },
+    {
+      "room": "Living room",
+      "risks": [
+        "Fingers inserted into outlets",
+        "Head impact on table corners and edges",
+        "Small parts swallowed (button batteries, coins, magnetic balls)",
+        "Cables pulled, toppling appliances"
+      ],
+      "preventions": [
+        "Outlet covers; prefer outlets with built-in shutters for unused positions",
+        "Corner guards on tables; keep heavy objects away from table edges (against pull-down)",
+        "Store button batteries, magnetic balls, coins, and pins out of reach; button battery ingestion is an emergency requiring immediate care",
+        "Route cables along walls; place appliances against the wall"
+      ]
+    },
+    {
+      "room": "Kitchen",
+      "risks": [
+        "Scalds from hot soup, water, and oil",
+        "Knives, scissors, glassware",
+        "Accidental ingestion of detergent/disinfectant",
+        "Gas knobs turned by child"
+      ],
+      "preventions": [
+        "Turn pot handles inward; keep hot drinks on the inner side of counters; no tablecloths (pull-over hazard)",
+        "Lock knives in a drawer; sweep and discard broken glass immediately",
+        "Keep cleaners in original packaging (never in drink bottles) in a locked cabinet; never mix bleach with toilet cleaner (chlorine gas)",
+        "Close the gas valve after use; knob guards; install a gas alarm"
+      ]
+    },
+    {
+      "room": "Bathroom",
+      "risks": [
+        "Drowning (as little as 5 cm of water can drown an infant)",
+        "Slips and falls",
+        "Bath water too hot (scalds)",
+        "Razors and cosmetics misused/ingested"
+      ],
+      "preventions": [
+        "Never leave an infant/toddler unattended in a tub or bucket — not even to answer the phone; empty buckets and basins after use",
+        "Non-slip mats in bathroom; anti-slip stickers in tub",
+        "Run cold water first, then hot; confirm 37-38 degrees C with a thermometer; water heater set <= 49 degrees C",
+        "Lock away razors, medicines, and cosmetics; toilet seat lock"
+      ]
+    },
+    {
+      "room": "Balcony/Stairs/Windows",
+      "risks": [
+        "Falls from windows and balcony railings",
+        "Stair falls",
+        "Head entrapment or passage between railings"
+      ],
+      "preventions": [
+        "Window limiters (opening <= 10 cm) or safety netting; no climbable furniture/boxes near windows",
+        "Balcony railing spacing <= 11 cm, height >= 1.1 m; nothing stacked to climb; child lock on balcony door",
+        "Safety gates at top and bottom of stairs; avoid horizontal climbable rails"
+      ]
+    },
+    {
+      "room": "Whole home (general)",
+      "risks": [
+        "Playing with lighters and matches",
+        "Pet bites and scratches",
+        "Child left alone at home / in a car"
+      ],
+      "preventions": [
+        "Keep matches and lighters out of reach; install smoke alarms and test every 6 months",
+        "Never leave children alone with pets; teach not to disturb feeding/sleeping animals; wash bites with soap and water and seek care for rabies evaluation",
+        "Never leave a child alone at home or in a car under any circumstance (a locked car can become fatal within minutes)"
+      ]
+    }
+  ],
+  "screen_time": {
+    "under_18m": "Avoid screens (video calls excepted); babies under 18 months need live human interaction; avoid background TV",
+    "18-24m": "If introduced: high-quality content only, co-viewed and narrated by a caregiver, < 1 h/day split into short sessions",
+    "2-5y": "< 1 h/day; preview content; co-view and connect to real life; no screens 1 h before meals and bedtime",
+    "6-12y": "Agree on daily limits and content together (family media plan); must not harm sleep (screens off 1 h before bed), physical activity (>= 60 min moderate-to-vigorous daily), or homework; screens out of bedroom and mealtimes; mind content ratings and online safety"
+  }
+}

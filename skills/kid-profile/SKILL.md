@@ -11,6 +11,7 @@ applies_to: 00_profiles/<child-id>/profile.md · 99_system/kid.config.yaml
 source_of_truth:
   - docs/DESIGN.md §4.1（档案数据模型）
   - docs/SKILLS_SPEC.md §2
+  - 本技能目录捆绑资产：references/profile-schema.json（路径相对本技能目录解析）
 ---
 
 # kid-profile

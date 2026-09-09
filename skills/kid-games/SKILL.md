@@ -15,7 +15,9 @@ source_of_truth:
   - references/games-library.json · references/safety-rules.json
   - knowledge/quick-rescue-games.md（狼狈场景 5 分钟救场游戏）
   - templates/{zh,en}/game.md
+  - 上述 templates/references/knowledge 为本技能目录捆绑副本（路径相对本技能目录解析；仓库根为唯一编辑源，scripts/sync-skill-assets.mjs 同步）
 ---
+
 
 # kid-games
 

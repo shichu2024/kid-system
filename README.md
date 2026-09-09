@@ -55,6 +55,19 @@ npx skills add shichu2024/kid-system
 git clone https://github.com/shichu2024/kid-system.git ~/.claude/skills/kid-system/
 ```
 
+#### 安装完整性验证（v1.3.3+）
+
+每个技能目录应自包含（模板 + 数据依据随技能分发），安装后请抽查：
+
+```bash
+# 以 kid-init 为例（路径按安装方式调整，如 ~/.agents/skills/kid-init/）
+ls <技能目录>/templates/zh/        # 应有 8 个模板
+ls <技能目录>/templates/en/        # 应有 8 个模板
+ls <技能目录>/references/          # 应有 profile-schema.json
+```
+
+若目录下**只有 SKILL.md**，说明安装不完整（v1.3.2 及更早版本经 `npx skills add` 安装有此缺陷）——请升级到 **v1.3.3+** 后重新安装；「初始化档案」也会在铺设前实测清点并自动阻断。
+
 ### 使用
 
 1. 在一个空目录（建议专用的育儿数据目录）中启动 Claude Code

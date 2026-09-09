@@ -1,0 +1,962 @@
+{
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-09-08",
+    "domains_enum": ["gross_motor", "fine_motor", "language", "cognition", "social_emotional"],
+    "scene_enum": ["indoor", "outdoor", "travel", "waiting", "kitchen_time", "bedtime"],
+    "age_range_enum": ["6-12m", "12-24m", "2-3y", "3-6y", "6-12y"],
+    "notes": "All props are common household items; professional equipment is prohibited. Small-part props are forbidden for under-3s (enforced by the safety filter). English mirror of references/games-library.json."
+  },
+  "games": [
+    {
+      "id": "G001",
+      "name": "Peek-a-boo",
+      "domains": ["cognition", "social_emotional"],
+      "age_range": "6-12m",
+      "scene": "indoor",
+      "duration_min": 5,
+      "props": ["muslin scarf"],
+      "prep_min": 1,
+      "steps": [
+        "Parent covers their own face with the scarf and asks, 'Where is Mommy?'",
+        "Pull the scarf away with a big smile and an exaggerated 'Here I am!'",
+        "After 3-4 rounds, drape the scarf lightly over the baby's head and encourage the baby to pull it off",
+        "Cheer and clap the moment the baby pulls it off: 'You found me!'"
+      ],
+      "goal": "Object permanence + parent-child bonding and emotional exchange",
+      "safety": "Never cover mouth or nose for more than a few seconds; keep one hand on the scarf corner at all times; use a thin breathable scarf",
+      "extensions": "For older babies, hide behind a door or sofa side for them to find; hide a toy under the scarf for the baby to uncover"
+    },
+    {
+      "id": "G002",
+      "name": "Cardboard Crawl Tunnel",
+      "domains": ["gross_motor"],
+      "age_range": "6-12m",
+      "scene": "indoor",
+      "duration_min": 10,
+      "props": ["large cardboard box (both ends open)", "cushions"],
+      "prep_min": 3,
+      "steps": [
+        "Open both ends of the box and place it on a play mat to form a tunnel",
+        "Sit at the exit and call the baby's name or shake a sound-making toy",
+        "As the baby crawls in, peek through the exit: 'Wow, I see you!'",
+        "After 3-5 rounds, prop a cushion under the entrance to add a gentle incline"
+      ],
+      "goal": "Four-limb coordination, core strength, spatial awareness",
+      "safety": "Tape seams face outward to avoid scratches; tunnel no longer than 1.5x baby's body length; parent guards the exit at all times",
+      "extensions": "Line the tunnel with different fabrics (fleece blanket/towel) for tactile variety; place a surprise toy at the exit"
+    },
+    {
+      "id": "G003",
+      "name": "Grab-and-Drop Basket",
+      "domains": ["fine_motor"],
+      "age_range": "6-12m",
+      "scene": "kitchen_time",
+      "duration_min": 8,
+      "props": ["small plastic basket", "wooden spoon", "silicone spoon", "small bowl"],
+      "prep_min": 1,
+      "steps": [
+        "Seat the baby in the high chair and place the basket with 3-4 safe kitchen items on the tray",
+        "Demonstrate dropping the wooden spoon into the basket, saying 'In it goes'",
+        "Encourage the baby to grab an item and drop it in; praise each success",
+        "Level up: have the baby take items out and hand them to you"
+      ],
+      "goal": "Grasp-and-release control, hand-eye coordination, container concept",
+      "safety": "All items larger than 4cm to prevent choking; no sharp edges or breakable parts; baby always within sight",
+      "extensions": "Swap in items of different weights and textures (plastic cup/silicone bowl); add 'give one to Mommy' hand-over practice"
+    },
+    {
+      "id": "G004",
+      "name": "Babble Echo Conversation",
+      "domains": ["language"],
+      "age_range": "6-12m",
+      "scene": "bedtime",
+      "duration_min": 6,
+      "props": ["none (or a comfort plush)"],
+      "prep_min": 0,
+      "steps": [
+        "During quiet pre-sleep time, lie face to face or hold the baby",
+        "Echo back any babble the baby makes with the same sounds",
+        "Pause 2-3 seconds and wait for the baby to vocalize again, forming a turn-taking dialogue",
+        "Close with a soft summary: 'You said so much today'"
+      ],
+      "goal": "Sound imitation, turn-taking awareness, parent-child attachment",
+      "safety": "Keep the room quiet with soft lighting; never force interaction when the baby is fussy or sleepy",
+      "extensions": "Add simple reduplicated words (mama/dada/baa-baa); repeat the game in front of a mirror during the day"
+    },
+    {
+      "id": "G005",
+      "name": "Water Sensory Bag",
+      "domains": ["cognition"],
+      "age_range": "6-12m",
+      "scene": "waiting",
+      "duration_min": 7,
+      "props": ["resealable freezer bag", "water", "a few colorful bottle caps"],
+      "prep_min": 3,
+      "steps": [
+        "Fill the bag halfway with water, add 3-4 colorful caps, squeeze out air and double-seal",
+        "Lay the bag flat in front of the baby for patting and pressing",
+        "Guide the baby's finger to push a cap toward one corner: 'The cap is sliding away!'",
+        "Name the colors as you play: 'red cap, yellow cap'"
+      ],
+      "goal": "Cause-and-effect cognition, tactile input, early color perception",
+      "safety": "Caps stay sealed inside the bag; reinforce the zip with tape; remove immediately if leaking; never leave unattended",
+      "extensions": "Use lukewarm vs. cooler bags to introduce temperature words; add a strip of bubble wrap for sound feedback"
+    },
+    {
+      "id": "G006",
+      "name": "Magic Tissue-Pull Box",
+      "domains": ["fine_motor"],
+      "age_range": "6-12m",
+      "scene": "indoor",
+      "duration_min": 8,
+      "props": ["empty tissue box or wipe box", "several cloth handkerchiefs"],
+      "prep_min": 2,
+      "steps": [
+        "Stuff the handkerchiefs one by one into the box, leaving one corner peeking out",
+        "Demonstrate pulling one out with a surprised face: 'Wow — out it comes!'",
+        "Let the baby grab a corner and pull; cheer for every handkerchief extracted",
+        "Level up: tie a loose knot in a handkerchief to add pulling resistance"
+      ],
+      "goal": "Grip strength, bimanual coordination, cause-and-effect experience",
+      "safety": "Use whole cloth squares, not paper tissues (no paper scraps to mouth); put cloths away afterward to prevent entanglement; box opening edges must be smooth",
+      "extensions": "Tie a large bell (over 4cm) to one corner for sound; use cloths of different textures"
+    },
+    {
+      "id": "G007",
+      "name": "Cushion Mountain Climb",
+      "domains": ["gross_motor"],
+      "age_range": "6-12m",
+      "scene": "indoor",
+      "duration_min": 10,
+      "props": ["3-4 sofa cushions", "play mat"],
+      "prep_min": 2,
+      "steps": [
+        "Stack cushions on the play mat into a 20-30cm hill",
+        "Place a favorite toy on the summit",
+        "Encourage the baby to crawl up on all fours to grab the toy",
+        "Celebrate with a hug; next round, place the toy a bit farther away"
+      ],
+      "goal": "Advanced crawling, limb strength, weight-shift control",
+      "safety": "Play mat underneath to cushion falls; hill no higher than baby's sitting height; parent guards from behind against face-plants",
+      "extensions": "Set up two hills with a gap to practice stepping over; parent lies on the mat as a 'human hill'"
+    },
+    {
+      "id": "G008",
+      "name": "Finger-Play for the Road",
+      "domains": ["language"],
+      "age_range": "6-12m",
+      "scene": "travel",
+      "duration_min": 6,
+      "props": ["none (parent's hands)"],
+      "prep_min": 0,
+      "steps": [
+        "When the baby in the car seat can see you, raise both hands",
+        "Chant a finger play with actions: 'This is Daddy's thumb, Daddy drives the car, beep beep beep'",
+        "Tickle the baby's palm or sole lightly at each sound effect for giggles",
+        "Repeat slowly, emphasizing the rhyming ends"
+      ],
+      "goal": "Speech rhythm input, onomatopoeia imitation, calming in the car",
+      "safety": "Performed by a non-driving adult only; never block the driver's view; stop and protect the baby before sudden braking",
+      "extensions": "Swap in slow songs with hand shadows; let the baby grab a parent's finger for a 'pinky promise' interaction"
+    },
+    {
+      "id": "G009",
+      "name": "Friend in the Mirror",
+      "domains": ["social_emotional"],
+      "age_range": "6-12m",
+      "scene": "indoor",
+      "duration_min": 6,
+      "props": ["secure wall mirror or phone front camera"],
+      "prep_min": 1,
+      "steps": [
+        "Hold the baby about 50cm in front of the mirror",
+        "Point at the reflection and ask 'Who is that?', pause, then answer 'It's baby!'",
+        "Make exaggerated faces — smile, surprise, pout — and wait for imitation",
+        "Point and name: 'This is baby's nose, this is Mommy's nose'"
+      ],
+      "goal": "Emerging self-recognition, emotion recognition, social referencing",
+      "safety": "Mirror must be securely fixed and crack-free; parent holds the baby with one arm to prevent lunging forward; avoid harsh glare",
+      "extensions": "Put on a hat or scarf in front of the mirror and watch the reaction; two parents in frame for 'find the family member'"
+    },
+    {
+      "id": "G010",
+      "name": "Bubble Chase Crawl",
+      "domains": ["gross_motor"],
+      "age_range": "6-12m",
+      "scene": "outdoor",
+      "duration_min": 10,
+      "props": ["bubble solution (DIY: water + dish soap + a little sugar)"],
+      "prep_min": 2,
+      "steps": [
+        "Blow a few bubbles over the grass or play mat",
+        "Point them out: 'The bubbles are floating away — go catch them!'",
+        "Encourage the baby to crawl toward drifting bubbles and pop them with a hand",
+        "Clap and count each pop: 'One, two, three!'"
+      ],
+      "goal": "Hand-eye coordination in motion, crawling motivation, visual tracking",
+      "safety": "Keep bubble solution away from eyes and mouth; choose flat ground without puddles; sun hat; do not let the child hold the bubble bottle",
+      "extensions": "For older babies, switch to walking after bubbles; use wind direction to make landing spots predictable"
+    },
+    {
+      "id": "G011",
+      "name": "Cup Stacking Tower",
+      "domains": ["fine_motor"],
+      "age_range": "12-24m",
+      "scene": "kitchen_time",
+      "duration_min": 10,
+      "props": ["6-10 paper or plastic cups"],
+      "prep_min": 1,
+      "steps": [
+        "Seat the baby in the high chair; demonstrate stacking two cups beside them",
+        "Hand over cups one by one, saying 'Higher and higher —'",
+        "Gasp with amazement past 4 layers, then count the cups together",
+        "Finish with the 'demolition': shout '3, 2, 1, down!' and topple it for a rebuild"
+      ],
+      "goal": "Precise placement control, hand-eye coordination, early number sense",
+      "safety": "Choose soft-rimmed cups to avoid cuts; cup opening wider than 4cm; pick up fallen cups promptly to prevent slipping",
+      "extensions": "Draw color dots on cups for color matching; build upside-down cup pyramids"
+    },
+    {
+      "id": "G012",
+      "name": "Push-Box Walker",
+      "domains": ["gross_motor"],
+      "age_range": "12-24m",
+      "scene": "indoor",
+      "duration_min": 12,
+      "props": ["sturdy cardboard or storage box (weighted with books)"],
+      "prep_min": 2,
+      "steps": [
+        "Load the box so it pushes steadily without sliding away",
+        "Clear a 3-4 meter straight runway in the living room",
+        "Have the child stand holding the box; back away slowly in front, calling 'Here we go!'",
+        "Place a plush at the finish line; arriving and 'delivering' it counts as a win"
+      ],
+      "goal": "Transition to independent walking, balance and leg strength",
+      "safety": "Box height at chest level and tip-resistant; runway cleared with corner guards on tables; parent alongside at all times",
+      "extensions": "Add curves and 'delivery stops'; place a toy mid-route requiring a squat-and-pickup"
+    },
+    {
+      "id": "G013",
+      "name": "Point-and-Name Story Time",
+      "domains": ["language"],
+      "age_range": "12-24m",
+      "scene": "bedtime",
+      "duration_min": 8,
+      "props": ["board book or cloth book"],
+      "prep_min": 0,
+      "steps": [
+        "Cuddle up with the book; point out 1-2 items per page",
+        "Ask 'Where is the kitty?' and wait for the child to point",
+        "Confirm and expand: 'Yes, the kitty — the meow-meow kitty'",
+        "Close the book and recap: 'Today we met the elephant and the kitty'"
+      ],
+      "goal": "Vocabulary comprehension, pointing response, reading habit formation",
+      "safety": "Choose rounded-corner board books; no long reading in dim light; stop as soon as the child rubs their eyes",
+      "extensions": "Shift to 'parent points, child says' expression mode; match book items to real objects at home"
+    },
+    {
+      "id": "G014",
+      "name": "Sock Matching Master",
+      "domains": ["cognition"],
+      "age_range": "12-24m",
+      "scene": "indoor",
+      "duration_min": 8,
+      "props": ["5-6 pairs of clean socks in clearly different colors"],
+      "prep_min": 1,
+      "steps": [
+        "Lay out 4-5 single socks on the mat and hold another one",
+        "Hold it up and ask, 'Where is its friend?'",
+        "If the child grabs any sock, compare: 'Same color? Let's look again'",
+        "High-five on a match, then roll pairs into 'sock balls' for storage"
+      ],
+      "goal": "Color and pattern matching, one-to-one correspondence, self-care seed",
+      "safety": "Put socks away after the game to prevent mouth/nose stuffing; pick socks without detachable decorations",
+      "extensions": "Level up to size ordering; mix in gloves and handkerchiefs for 'which one is not a sock'"
+    },
+    {
+      "id": "G015",
+      "name": "Two-Cup Pouring Station",
+      "domains": ["fine_motor"],
+      "age_range": "12-24m",
+      "scene": "kitchen_time",
+      "duration_min": 12,
+      "props": ["two plastic cups", "waterproof bib", "tray"],
+      "prep_min": 2,
+      "steps": [
+        "Set two cups on the tray; fill one a third with lukewarm water",
+        "Demonstrate tilting to pour, stressing 'slowly —'",
+        "Let the child hold the cup with both hands and try; spills land on the tray, no problem",
+        "On success, guide pouring back and forth for repeated practice"
+      ],
+      "goal": "Wrist control, bimanual teamwork, volume perception",
+      "safety": "Lukewarm water only, never hot; old towels on the floor against slipping; plastic cups only, no glass; wipe spills immediately",
+      "extensions": "Switch to dry beans or quinoa (with constant supervision against tasting under 24m); use a narrow-neck bottle to raise difficulty"
+    },
+    {
+      "id": "G016",
+      "name": "Animal Walk Parade",
+      "domains": ["gross_motor"],
+      "age_range": "12-24m",
+      "scene": "outdoor",
+      "duration_min": 10,
+      "props": ["none"],
+      "prep_min": 0,
+      "steps": [
+        "Announce on the grass: 'Let's walk like animals!'",
+        "Demonstrate a waddling duck while quacking; invite the child to follow",
+        "Take turns imitating: bunny hops, elephant trunk swing, sideways crab walk",
+        "Finish with 'animal commands': call an animal name and the child instantly switches moves"
+      ],
+      "goal": "Gait variety, balance, imitation and auditory reaction",
+      "safety": "Choose flat grass; parent holds hands for jumping moves; avoid slippery mud and gravel",
+      "extensions": "Add speed words (walk slowly / run fast); hold an 'animal race' to see who reaches the tree first"
+    },
+    {
+      "id": "G017",
+      "name": "Hidden Treasure Cups",
+      "domains": ["cognition"],
+      "age_range": "12-24m",
+      "scene": "indoor",
+      "duration_min": 8,
+      "props": ["small toy", "3 paper cups"],
+      "prep_min": 1,
+      "steps": [
+        "While the child watches, hide the toy under one of the cups",
+        "Slowly swap cup positions once or twice",
+        "Ask 'Where is the toy hiding?' and let the child lift a cup",
+        "Cheer on finds; after 3 wins in a row, add more swaps or cups"
+      ],
+      "goal": "Advanced object permanence, working memory, visual tracking",
+      "safety": "Toy larger than 4cm with no small parts; leave a finger gap when setting cups down to avoid pinches; table corners protected",
+      "extensions": "Hide objects in obvious spots indoors with 'hot/cold' hints; let the child hide and parent seek to practice role reversal"
+    },
+    {
+      "id": "G018",
+      "name": "Kick the Big Ball",
+      "domains": ["gross_motor"],
+      "age_range": "12-24m",
+      "scene": "outdoor",
+      "duration_min": 10,
+      "props": ["large beach ball or soft ball", "two jackets (as goalposts)"],
+      "prep_min": 2,
+      "steps": [
+        "Set the jackets one meter apart as a goal",
+        "Place the ball in front of the child and demonstrate kicking toward it",
+        "Encourage a step-up-and-kick; cheer and count every goal",
+        "Gradually narrow the goal or step back to raise the challenge"
+      ],
+      "goal": "Single-leg standing balance, eye-foot coordination, goal awareness",
+      "safety": "Use a big light soft ball; open area free of people and obstacles; closed shoes; never kick toward people",
+      "extensions": "Switch to throwing into the goal for upper-body practice; parent plays gentle goalkeeper for interaction"
+    },
+    {
+      "id": "G019",
+      "name": "Face Imitation Show",
+      "domains": ["social_emotional"],
+      "age_range": "12-24m",
+      "scene": "waiting",
+      "duration_min": 5,
+      "props": ["none (phone selfie camera for instant replay optional)"],
+      "prep_min": 0,
+      "steps": [
+        "Sit face to face while waiting in line",
+        "Parent makes exaggerated faces: big laugh, frown, surprised 'wow', grumpy pout",
+        "After each face ask, 'What's Mommy feeling?' and wait for imitation",
+        "Name emotions with simple words: 'happy', 'angry', 'surprised'"
+      ],
+      "goal": "Emotion recognition and naming, facial muscle control, waiting-period soothing",
+      "safety": "Do not linger on negative faces like 'crying' or 'scared'; switch to funny faces if the child gets uneasy",
+      "extensions": "Level up to 'parent says the word, child performs'; match faces on picture-book characters"
+    },
+    {
+      "id": "G020",
+      "name": "Road-Trip Song Relay",
+      "domains": ["language"],
+      "age_range": "12-24m",
+      "scene": "travel",
+      "duration_min": 10,
+      "props": ["none"],
+      "prep_min": 0,
+      "steps": [
+        "Play or sing a familiar nursery rhyme in the car",
+        "Pause at keywords and wait for the child to fill in the word",
+        "Accept any approximate sound, then restate the correct version and continue",
+        "Rotate 2-3 songs and note the child's favorite"
+      ],
+      "goal": "Word retrieval, sense of rhythm, song memory",
+      "safety": "Run by the adult in the back seat; moderate volume that does not affect driving; pause for rest if the child is fussy",
+      "extensions": "Rewrite lyrics with the child's name; add clapping patterns at double and half speed"
+    },
+    {
+      "id": "G021",
+      "name": "Tape Hopscotch",
+      "domains": ["gross_motor"],
+      "age_range": "2-3y",
+      "scene": "indoor",
+      "duration_min": 15,
+      "props": ["painter's tape"],
+      "prep_min": 5,
+      "steps": [
+        "Tape 3-4 connected squares on the floor",
+        "Demonstrate a two-foot jump into the first square shouting 'One!', then the next",
+        "Have the child jump through, landing steady before the next square",
+        "Level up: jump on command ('jump to the red square'), single-foot hops (32m+)"
+      ],
+      "goal": "Two-foot jump power, landing balance, number sequence",
+      "safety": "Press tape edges flat to prevent tripping; grip socks or bare feet, no slippers; move furniture for runway space",
+      "extensions": "Tape a maze route to walk within a time limit; place action cards in squares (squat once / spin around) to draw and perform"
+    },
+    {
+      "id": "G022",
+      "name": "Sock-Ball Bowling",
+      "domains": ["gross_motor", "fine_motor"],
+      "age_range": "2-3y",
+      "scene": "indoor",
+      "duration_min": 15,
+      "props": ["1 sock ball (rolled socks)", "6 empty plastic bottles"],
+      "prep_min": 3,
+      "steps": [
+        "Fill bottles about one-fifth with water and set them in a triangle",
+        "Mark a throwing line with tape two meters away",
+        "Demonstrate an underhand toss at the pins, shouting 'Down —!'",
+        "Take turns, count the pins knocked down, and re-rack together"
+      ],
+      "goal": "Throwing force and direction control, counting practice, turn-taking rules",
+      "safety": "Plastic bottles only, no glass; no people or breakables in the throwing lane; watch footing when retrieving the ball",
+      "extensions": "Move the line farther; switch to overhand throws; write numbers on bottles and add scores for early addition"
+    },
+    {
+      "id": "G023",
+      "name": "Little Kitchen Helper",
+      "domains": ["fine_motor", "social_emotional"],
+      "age_range": "2-3y",
+      "scene": "kitchen_time",
+      "duration_min": 15,
+      "props": ["leafy greens", "big bowl", "basin of clean water"],
+      "prep_min": 2,
+      "steps": [
+        "Put an apron on the child and assign the job: 'Today you are in charge of washing the veggies'",
+        "Demonstrate tearing lettuce into large pieces and rinsing them in the basin",
+        "As the child tears and washes, narrate: 'One piece, two pieces... rinse the bubbles off'",
+        "At dinner announce formally: 'This dish was made with our helper's help!'"
+      ],
+      "goal": "Finger strength, sense of task completion, chores participation and responsibility",
+      "safety": "Keep away from stove, knives and hot water; work surface height safe from reaching hazards; separate raw and washed; wash hands after",
+      "extensions": "Level up to shelling peas or cracking eggs (parent holds the bowl); after meals the child wipes their own small table"
+    },
+    {
+      "id": "G024",
+      "name": "Color Treasure Hunt",
+      "domains": ["cognition"],
+      "age_range": "2-3y",
+      "scene": "outdoor",
+      "duration_min": 15,
+      "props": ["small basket", "hand-drawn color reference cards"],
+      "prep_min": 2,
+      "steps": [
+        "Show a color card and announce the mission: 'Find 3 red things'",
+        "Hunt around the neighborhood: red flowers, a red bike, a red door plaque",
+        "Repeat and confirm each find: 'This is red — well spotted!'",
+        "Switch colors after completing one; spread out the haul at home and count it"
+      ],
+      "goal": "Color generalization, observational search, categorization",
+      "safety": "Do not pick up sharp, dirty or unknown berries; stay within one arm's reach of the caregiver; keep away from driveways and water",
+      "extensions": "Switch to shapes (round/square); restrict to 'leaves only' for a nature collection book"
+    },
+    {
+      "id": "G025",
+      "name": "Picture-Story Making",
+      "domains": ["language"],
+      "age_range": "2-3y",
+      "scene": "bedtime",
+      "duration_min": 10,
+      "props": ["wordless picture book or 3-4 picture cards"],
+      "prep_min": 1,
+      "steps": [
+        "Open a page and ask, 'What is happening in the picture?'",
+        "Expand any words the child says into a full sentence: 'Yes, the bear is — chasing a butterfly!'",
+        "Probe details: 'Why is the bear chasing it?' 'What happens next?'",
+        "Weave the child's contributions into a mini story credited to them: 'The story by...'"
+      ],
+      "goal": "Narrative expression, imagination and inference, sentence expansion",
+      "safety": "Soft adequate lighting; keep under 10 minutes to protect sleep readiness; if the child gets overexcited, parent narrates instead",
+      "extensions": "Act the story out with plush toys; 'serialize' it the next night with a sequel"
+    },
+    {
+      "id": "G026",
+      "name": "Feed and Care for Baby Doll",
+      "domains": ["social_emotional"],
+      "age_range": "2-3y",
+      "scene": "indoor",
+      "duration_min": 15,
+      "props": ["doll or plush", "small bowl and spoon", "small blanket"],
+      "prep_min": 1,
+      "steps": [
+        "Set the scene: 'The dolly is hungry and sleepy — let's take care of her'",
+        "Guide pretend feeding with the small spoon, adding sound effects: 'Yum — so tasty'",
+        "After feeding, pat the back, tuck the blanket, whisper a lullaby with a finger to lips: 'Shh'",
+        "Wrap up with a review: 'You took such good care of the dolly, just like Mommy takes care of you'"
+      ],
+      "goal": "Empathy and caregiving behavior, role immersion, daily-routine memory",
+      "safety": "All props larger than 4cm against choking; no real food; never actually cover the doll's mouth and nose during the lullaby demo",
+      "extensions": "Add a 'dolly is sick' scenario with pretend temperature checks; introduce queuing at the pretend doctor for role rotation"
+    },
+    {
+      "id": "G027",
+      "name": "Fruit Cutting Fun",
+      "domains": ["fine_motor"],
+      "age_range": "2-3y",
+      "scene": "kitchen_time",
+      "duration_min": 10,
+      "props": ["banana", "child-safe plastic knife", "cutting board"],
+      "prep_min": 1,
+      "steps": [
+        "Peel the banana onto the board; demonstrate pressing the safe knife gently to slice while holding with the other hand",
+        "Hand-over-hand for 1-2 slices, then let the child try independently",
+        "Count while cutting: 'One slice, two slices... five in total!'",
+        "Plate the slices for the family to share and thank the little chef"
+      ],
+      "goal": "Bimanual division of labor, pressure control, counting in action",
+      "safety": "Blunt plastic knife only; parent stays at the same side without leaving; damp cloth under the board to prevent slipping; put the knife away right after",
+      "extensions": "Try softer avocado/strawberry; level up to spreading jam on bread with a butter knife"
+    },
+    {
+      "id": "G028",
+      "name": "Size Line-Up",
+      "domains": ["cognition"],
+      "age_range": "2-3y",
+      "scene": "waiting",
+      "duration_min": 6,
+      "props": ["3-5 caps or toy cars of different sizes (keep in the bag)"],
+      "prep_min": 0,
+      "steps": [
+        "Set the items out on a small table or your lap while waiting",
+        "Ask: 'Which is the biggest? Which is the smallest?' and let the child point",
+        "Guide ordering from big to small, chanting 'big, smaller, smallest'",
+        "Shuffle and reorder in reverse, or stack them vertically into a 'tower' to verify the order"
+      ],
+      "goal": "Size comparison and seriation, visual discrimination, waiting-time focus",
+      "safety": "Items larger than 4cm against choking; do not play with shared public objects; pack up to avoid tripping others",
+      "extensions": "Switch to ordering by length (straw segments); introduce 'the one in the middle' for ordinal positions"
+    },
+    {
+      "id": "G029",
+      "name": "Great Sound Guess",
+      "domains": ["cognition", "language"],
+      "age_range": "2-3y",
+      "scene": "travel",
+      "duration_min": 8,
+      "props": ["none (mouth and hands)"],
+      "prep_min": 0,
+      "steps": [
+        "Announce in the car: 'Guess what this sound is?'",
+        "Parent makes sounds: claps, tongue clicks, cat meows, car 'beep beep'",
+        "After the child guesses, swap roles — child makes sounds, parent guesses, deliberately wrong for laughs",
+        "Level up: two sounds in a row — 'Which came first, which came second?'"
+      ],
+      "goal": "Auditory discrimination and memory, word retrieval, sequence memory",
+      "safety": "Played with the back-seat adult; no startling noises that distract driving; wind down when the child gets drowsy",
+      "extensions": "Improvise with real sounds outside (horns/rain/radio); replay recordings and guess 'whose voice is in the family'"
+    },
+    {
+      "id": "G030",
+      "name": "Carrying Bag Champion",
+      "domains": ["gross_motor"],
+      "age_range": "2-3y",
+      "scene": "outdoor",
+      "duration_min": 12,
+      "props": ["small cloth bag or bucket", "5 scattered small toys or beanbags"],
+      "prep_min": 2,
+      "steps": [
+        "Set a 'home base' at each end of the grass; put the bucket at one end",
+        "Scatter 5 beanbags across the middle section",
+        "The child sets off with the bag and picks up the beanbags one by one",
+        "Carry them back and pour into the bucket; cheer when all are delivered, then race the clock for another round"
+      ],
+      "goal": "Loaded-walking balance, squat-to-grasp combination, task persistence",
+      "safety": "Keep the load light (under 500g total); flat ground without holes; route within parent's sight; hydrate and rest as needed",
+      "extensions": "Walk balancing a beanbag on the head; hop on one foot to each beanbag before picking up; carry only the color called out"
+    },
+    {
+      "id": "G031",
+      "name": "Indoor Obstacle Course",
+      "domains": ["gross_motor"],
+      "age_range": "3-6y",
+      "scene": "indoor",
+      "duration_min": 20,
+      "props": ["cushions", "2 chairs", "tape", "blanket", "spoon + ping-pong ball"],
+      "prep_min": 8,
+      "steps": [
+        "Design four stations: (1) crawl through the blanket 'bridge' between two chairs (2) three two-foot jumps on cushions (3) walk the tape 'balance beam' (4) carry a ping-pong ball on a spoon to the finish",
+        "Demonstrate a full run and time it",
+        "The child runs station by station with retries allowed; parent acts as 'commentator'",
+        "Chase a personal best, or take turns racing the parents"
+      ],
+      "goal": "Motor planning, body control, rule-following and frustration tolerance",
+      "safety": "Chairs stable and non-wobbling with mats along the route; pick up dropped ping-pong balls immediately to avoid slipping; rest spots between stations; no countdown-pressure stations",
+      "extensions": "Let the child design a fifth station; blindfold walk on the tape guided by parent voice commands (trust practice)"
+    },
+    {
+      "id": "G032",
+      "name": "Paper-Cutting Workshop",
+      "domains": ["fine_motor"],
+      "age_range": "3-6y",
+      "scene": "indoor",
+      "duration_min": 20,
+      "props": ["child-safe round-tip scissors", "colored paper", "pen"],
+      "prep_min": 2,
+      "steps": [
+        "Demonstrate correct scissor grip: thumb in one hole, index and middle in the other",
+        "Start with straight lines: draw thick lines and cut along them into strips",
+        "Move on to curves and zigzags to cut 'grass' and 'waves'",
+        "Fold paper, cut notches, unfold into window flowers and display on the glass"
+      ],
+      "goal": "Scissor bimanual mechanics, cutting along lines, symmetry concept",
+      "safety": "Child-safe round-tip scissors only; cut seated and never walk with scissors; clear scraps promptly; scissors returned to parents after use",
+      "extensions": "Cut symmetric hearts for a greeting card; challenge a hanging spiral paper snake"
+    },
+    {
+      "id": "G033",
+      "name": "Word Chain Road Trip",
+      "domains": ["language"],
+      "age_range": "3-6y",
+      "scene": "travel",
+      "duration_min": 10,
+      "props": ["none"],
+      "prep_min": 0,
+      "steps": [
+        "Explain the rule: the next word starts with the last sound of the previous word, e.g. 'cat — tea — ice'",
+        "Relax the rule for younger kids: rhyming links also count; adults judge flexibly",
+        "Take turns; whoever gets stuck performs a mini show (a song or an animal sound)",
+        "Play 3 rounds, record the longest chain of the trip, and beat it next ride"
+      ],
+      "goal": "Word retrieval speed, phonological awareness, turn-taking and memory",
+      "safety": "Played with the non-driving adult; do not compete with navigation audio; pause if the banter gets heated",
+      "extensions": "Theme-restricted chains (animals/food only); switch to antonyms or same-category rapid fire"
+    },
+    {
+      "id": "G034",
+      "name": "Sock Puppet Theater",
+      "domains": ["language", "social_emotional"],
+      "age_range": "3-6y",
+      "scene": "indoor",
+      "duration_min": 20,
+      "props": ["2-3 old socks", "markers", "yarn/buttons (sewn by parent)"],
+      "prep_min": 10,
+      "steps": [
+        "Decorate old socks into characters together: draw eyes, sew ears, give each a name",
+        "Drape a bed sheet over the sofa back as a stage curtain",
+        "Parent opens with a short scene: 'Bunny lost her carrot — who will help?'",
+        "Invite the child's puppet to continue the ending; the whole family takes the stage"
+      ],
+      "goal": "Narrative creation, dialogue turn-taking, emotional expression and rehearsed conflict resolution",
+      "safety": "Buttons and small decorations must be sewn tight or drawn instead; clear the stage area against tripping; keep plots free of scary elements",
+      "extensions": "Record the 'show' and replay to review lines; script a 'problem play' from the child's real day to discuss solutions"
+    },
+    {
+      "id": "G035",
+      "name": "Baking Little Mathematician",
+      "domains": ["cognition"],
+      "age_range": "3-6y",
+      "scene": "kitchen_time",
+      "duration_min": 30,
+      "props": ["flour", "measuring spoons and cups", "eggs", "banana", "oven"],
+      "prep_min": 5,
+      "steps": [
+        "Pick a simple recipe (banana muffins); the child reads out the ingredient list",
+        "Measure with spoons while counting: '2 spoons of sugar — 1, 2'; compare big/medium/small cup marks",
+        "Mash bananas and stir the batter, observing how wet and dry mixtures change",
+        "Set the oven timer and wonder 'how long is 25 minutes'; split the batch evenly when done — how many each"
+      ],
+      "goal": "Number-quantity mapping, fair-sharing fractions, sequential execution and waiting",
+      "safety": "Oven and hot pans handled by parents within a marked zone; no tasting raw batter with egg; wash hands after; swap allergens per the child profile",
+      "extensions": "Shape dough into letters/numbers and bake crisp; double the recipe for multiplication (school age); guess-then-weigh with a kitchen scale"
+    },
+    {
+      "id": "G036",
+      "name": "Cooperative Ball Transport",
+      "domains": ["social_emotional", "gross_motor"],
+      "age_range": "3-6y",
+      "scene": "outdoor",
+      "duration_min": 15,
+      "props": ["1 soft ball", "towel or 2 pieces of cardboard"],
+      "prep_min": 2,
+      "steps": [
+        "Rule: two people each hold one end of a towel and carry the ball together to a basket 10 meters away — no hands on the ball",
+        "Do a slow parent-child trial run and discuss 'how do we keep the ball on'",
+        "Start the real challenge; if the ball drops, return to the start",
+        "Level up after success: S-curve around obstacles, or 3 balls in a row against the clock"
+      ],
+      "goal": "Cooperative communication, pace synchronization, frustration tolerance and shared goals",
+      "safety": "Flat ground, yield to pedestrians; watch for other runners when retrieving the ball; hydrate and wear hats in hot weather",
+      "extensions": "Three-person, two-board relay; switch to carrying soaked sponges and compare water at the finish"
+    },
+    {
+      "id": "G037",
+      "name": "Silent Sound Detective",
+      "domains": ["cognition"],
+      "age_range": "3-6y",
+      "scene": "waiting",
+      "duration_min": 8,
+      "props": ["keys/coins/cup — any nearby sound-makers"],
+      "prep_min": 0,
+      "steps": [
+        "Announce the '30-second silence' challenge: eyes closed or heads down, ears only",
+        "Parent makes soft sounds from different spots in the waiting area (jiggling keys, finger snaps)",
+        "The child opens their eyes and points out the direction and the object",
+        "Swap roles: parent closes eyes while the child makes gentle sounds to test the parent"
+      ],
+      "goal": "Auditory attention and orientation, environmental sound discrimination, self-control (staying quiet)",
+      "safety": "Choose a quiet waiting area without disturbing others; parent holds hands when eyes are closed; no audio sources pressed to ears",
+      "extensions": "Checklist bingo of ambient sounds (announcements/footsteps/ringtones); advanced: 'how many kinds of sounds in 30 seconds'"
+    },
+    {
+      "id": "G038",
+      "name": "Number Long-Jump Open",
+      "domains": ["gross_motor", "cognition"],
+      "age_range": "3-6y",
+      "scene": "outdoor",
+      "duration_min": 15,
+      "props": ["chalk"],
+      "prep_min": 3,
+      "steps": [
+        "Draw a take-off line and numbered squares 1-8 ahead (30cm spacing, increasing)",
+        "Standing long jump — the landing square is your score",
+        "Add up 3 jumps for a total; parents play by the same rules",
+        "Log today's personal best and challenge the record next time"
+      ],
+      "goal": "Standing long-jump power and landing cushioning, cumulative addition, goal tracking",
+      "safety": "Dry flat ground or grass; sports shoes; demonstrate bent-knee landings to protect knees; stop when tired (max 10 jumps per set)",
+      "extensions": "Single-leg version; 'backward jump minus points' variant to practice subtraction; estimate 'how far I'll reach' before each jump, then verify"
+    },
+    {
+      "id": "G039",
+      "name": "Bedtime Story Chain",
+      "domains": ["language"],
+      "age_range": "3-6y",
+      "scene": "bedtime",
+      "duration_min": 12,
+      "props": ["none (a small night light optional)"],
+      "prep_min": 0,
+      "steps": [
+        "Dim to a night light and lie down; parent opens: 'Once upon a time, a kitten wanted to see the stars in daylight...'",
+        "Stop after two sentences: 'What happened next? Your turn'",
+        "Accept whatever the child offers and nudge along with questions: 'So what did the kitten do?'",
+        "Bring the plot to a calm close: 'The kitten fell asleep — let's sleep too'"
+      ],
+      "goal": "Improvised narrative, listening and continuity, language fluency",
+      "safety": "No monsters or scary-dark elements; gradually lower your voice toward sleep; if the child gets wired, parent solo-narrates the ending",
+      "extensions": "Keep one 'serial hero' with nightly sequels; on weekends draw the week's story as a four-panel comic"
+    },
+    {
+      "id": "G040",
+      "name": "Shadow Tag",
+      "domains": ["gross_motor"],
+      "age_range": "3-6y",
+      "scene": "outdoor",
+      "duration_min": 15,
+      "props": ["none (needs sunshine)"],
+      "prep_min": 0,
+      "steps": [
+        "In a sunny open space, observe together: 'Where are the shadows? Do they move?'",
+        "Rules: stomp only on the other person's shadow while protecting your own",
+        "One-minute chases; after 3 tags, swap the runner",
+        "Overtime rule: shadows 'hiding' in tree shade count as a safe zone"
+      ],
+      "goal": "Cutting runs and quick stops, space and light-shadow cognition, reaction speed",
+      "safety": "Avoid midday sun (choose morning/late afternoon); open ground without stones or puddles; parent paces the chase to prevent overexertion",
+      "extensions": "Play at morning vs. evening to compare shadow length and direction; strike poses to 'paste' shadows on a wall for a shadow-puppet show"
+    },
+    {
+      "id": "G041",
+      "name": "Family Orienteering Hunt",
+      "domains": ["gross_motor", "cognition"],
+      "age_range": "6-12y",
+      "scene": "outdoor",
+      "duration_min": 40,
+      "props": ["hand-drawn park map", "sticky notes", "pencil", "timer (phone)"],
+      "prep_min": 15,
+      "steps": [
+        "Parent hides sticky-note 'control markers' at 4-5 spots in advance and draws a simple map",
+        "Hand over the map and first clue; the child plans the visiting order",
+        "Check in at each point by copying the word or answering the math puzzle on the note",
+        "Reunite at the finish to verify the punch record; score time plus accuracy; rotate who sets the course"
+      ],
+      "goal": "Map reading and sense of direction, route planning, endurance and execution",
+      "safety": "Markers in public areas within parental sight; no watersides, garages or dense woods; agree on a lost-meet point; cancel in bad weather",
+      "extensions": "Upgrade with a compass; switch to a glow-stick night hunt with parents alongside; child designs the course to stump the parents"
+    },
+    {
+      "id": "G042",
+      "name": "Paper Bridge Engineer",
+      "domains": ["cognition", "fine_motor"],
+      "age_range": "6-12y",
+      "scene": "indoor",
+      "duration_min": 40,
+      "props": ["several A4 sheets", "tape", "scissors", "coins or a small bag as weights", "two stacks of books (piers)"],
+      "prep_min": 3,
+      "steps": [
+        "Challenge: build a bridge spanning 20cm using only 2 A4 sheets — whoever holds the most weight wins",
+        "Sketch the design first: flat deck? corrugated folds? triangular truss?",
+        "Build within 15 minutes; the deck must be able to hold coins",
+        "Load coins one by one until collapse, record the count, discuss 'why do folds make it stronger', then iterate and rematch"
+      ],
+      "goal": "Structural engineering thinking, shape-strength relationships, iterative improvement and quantitative comparison",
+      "safety": "Scissor discipline; testing area away from eyes; sweep up coins after collapse to prevent slips; do not build on tall book stacks that may topple",
+      "extensions": "'Less paper, same load' challenge; upgrade to a paper tower height contest; look up photos of real truss bridges to compare"
+    },
+    {
+      "id": "G043",
+      "name": "Three-Minute Mini Debate",
+      "domains": ["language", "social_emotional"],
+      "age_range": "6-12y",
+      "scene": "waiting",
+      "duration_min": 10,
+      "props": ["phone timer", "topic slips of paper"],
+      "prep_min": 1,
+      "steps": [
+        "Draw a relatable topic: 'play first or homework first', 'cats vs dogs'",
+        "Rock-paper-scissors for sides — you may land the side you disagree with (more fun)",
+        "One minute of statements each plus two minutes of open crossfire; parent referees",
+        "Award 'the most convincing line' and discuss: which point from the other side was actually strong"
+      ],
+      "goal": "Organizing and voicing opinions, listening and rebuttal, perspective-taking and rules",
+      "safety": "Avoid topics touching raw family conflicts; pause if crossfire turns into quarrels; debrief 'critique the idea, not the person'",
+      "extensions": "Add a 3-minute 'fact-check window' to prep with sources; three-player 'carousel debate' version"
+    },
+    {
+      "id": "G044",
+      "name": "Kitchen Science Lab",
+      "domains": ["cognition"],
+      "age_range": "6-12y",
+      "scene": "kitchen_time",
+      "duration_min": 30,
+      "props": ["baking soda", "white vinegar", "food coloring", "clear cups", "plate", "oil", "honey"],
+      "prep_min": 5,
+      "steps": [
+        "Experiment 1 'volcano': 2 spoons of baking soda plus coloring on the plate; pour vinegar and watch it erupt",
+        "Predict first, verify later: write down 'what I think will happen', then compare with the result",
+        "Experiment 2 'density rainbow': pour honey, water, then oil into one cup and watch the layers",
+        "Summarize the principles: acid-base reaction makes gas / liquids of different densities; write a one-page lab report"
+      ],
+      "goal": "Hypothesis-verification scientific method, observation and recording, causal attribution",
+      "safety": "Parent supervises throughout; keep the reaction away from eyes and face; never taste any experiment material; clean surfaces and hands thoroughly afterwards",
+      "extensions": "Variable testing: compare eruption height vs. baking soda amount; add a 'float or sink prediction list' of household items; rigorous version weighs everything on a kitchen scale"
+    },
+    {
+      "id": "G045",
+      "name": "Long-Rope Team Jumping",
+      "domains": ["gross_motor", "social_emotional"],
+      "age_range": "6-12y",
+      "scene": "outdoor",
+      "duration_min": 25,
+      "props": ["1-2 long jump ropes (a chalk line can simulate one)"],
+      "prep_min": 2,
+      "steps": [
+        "Two parents (or one parent plus a tree) turn the rope; first watch the rhythm chanting '1-2-in'",
+        "The child learns to time entry by rope sound; first goal is 5 clean jumps",
+        "Level up to two jumpers together, then 8-figure run-throughs (in — jump — out — to the queue)",
+        "Team challenge: 20 unbroken jumps as a group, with chants to stay in sync"
+      ],
+      "goal": "Rhythm and timing, lower-limb endurance, team chemistry and a cheering culture",
+      "safety": "Flat ground free of gravel; exclusive rope zone to avoid tripping passers-by; sports shoes and snug clothing; build up gradually weekly to protect ankles — stop at any ankle pain",
+      "extensions": "Criss-cross and double-unders; family 'jump relay' of 10 each; weekly count leaderboard"
+    },
+    {
+      "id": "G046",
+      "name": "Back-Seat Navigator",
+      "domains": ["cognition"],
+      "age_range": "6-12y",
+      "scene": "travel",
+      "duration_min": 30,
+      "props": ["paper map / printed route", "pencil", "phone map (for verification)"],
+      "prep_min": 5,
+      "steps": [
+        "Before departure, show the full route and mark the start, the finish and 2-3 towns along the way",
+        "En route the navigator announces each upcoming turn (left/right) and highway exits",
+        "Check predictions against the phone navigation — being wrong is fine; review why",
+        "On arrival, trace the actual route in pencil and estimate 'how far did we go'"
+      ],
+      "goal": "Direction and route cognition, map-symbol understanding, sustained attention and responsibility",
+      "safety": "Navigation tips are for the accompanying adult only — the driver's decisions prevail; no quizzing while the driver is busy; stop map reading on bumpy roads against motion sickness",
+      "extensions": "Estimate 'how much longer' using distance and speed; let the navigator manage rest-stop decisions"
+    },
+    {
+      "id": "G047",
+      "name": "Ten-Minute Evening Journal",
+      "domains": ["language", "fine_motor"],
+      "age_range": "6-12y",
+      "scene": "bedtime",
+      "duration_min": 15,
+      "props": ["notebook", "colored pens/stickers", "night light"],
+      "prep_min": 0,
+      "steps": [
+        "Fixed bedtime ritual: write 'three lines for today' — happiest moment, one new thing learned, one wish for tomorrow",
+        "Younger grades can mix pinyin and drawings; parents take no dictation and do not write for them",
+        "Add a small illustration or stickers to decorate the day's page",
+        "At month's end, flip back to the first page and look together at 'me, one month ago'"
+      ],
+      "goal": "Written expression, self-review and emotional sorting, habit persistence",
+      "safety": "Soft non-glaring light (eye protection); close the notebook after 15 minutes — no late nights; respect privacy — never read and criticize entries without permission",
+      "extensions": "Write letters to future self, sealed quarterly; travel journal specials (ticket stubs + map clippings)"
+    },
+    {
+      "id": "G048",
+      "name": "Design Your Own Board Game",
+      "domains": ["cognition", "social_emotional"],
+      "age_range": "6-12y",
+      "scene": "indoor",
+      "duration_min": 45,
+      "props": ["stiff cardboard", "markers", "dice", "bottle-cap pieces", "ruler"],
+      "prep_min": 5,
+      "steps": [
+        "Kick-off: pick a theme (zoo adventure / school treasure hunt) and the win condition",
+        "Draw the board: a 20-30 space path with forward/backward/event squares, and write the event cards",
+        "Set the rules: starting resources per player and event resolution; condense into a one-page 'manual'",
+        "Family playtest — patch any loopholes you find, revise the rules, and play again"
+      ],
+      "goal": "Rule design and logical consistency, balance intuition, negotiation and iteration",
+      "safety": "Put scissors and rulers away after use; dice and caps over 4cm, stored safely if younger siblings are around; avoid harsh punishment mechanics that spark big conflicts",
+      "extensions": "Add a token economy (chores earn coins for privileges); record a 'release video' pitching the rules"
+    },
+    {
+      "id": "G049",
+      "name": "Twenty Questions",
+      "domains": ["language", "cognition"],
+      "age_range": "6-12y",
+      "scene": "travel",
+      "duration_min": 15,
+      "props": ["none"],
+      "prep_min": 0,
+      "steps": [
+        "The quizzer thinks of one thing (category limited first: animal / food / household object)",
+        "The guesser may ask up to 20 questions answerable only with yes or no",
+        "Teach questioning strategy: start with broad categories ('Is it an animal?') then narrow ('Does it live in water?')",
+        "Rotate quizzer over 3 rounds and track the 'fewest questions' record"
+      ],
+      "goal": "Classification and binary-split logic, questioning strategy, information compression",
+      "safety": "Played with the non-driving adult; drop disputed answers and move on; keep rounds light if motion sickness appears",
+      "extensions": "Theme editions (historical figures / book characters only); reverse mode: quizzer may only answer yes/no/maybe for extra difficulty"
+    },
+    {
+      "id": "G050",
+      "name": "Timed Chore Challenge",
+      "domains": ["social_emotional"],
+      "age_range": "6-12y",
+      "scene": "kitchen_time",
+      "duration_min": 20,
+      "props": ["timer", "handwritten chore task cards", "cloth/broom"],
+      "prep_min": 3,
+      "steps": [
+        "Write task cards into a bowl: wipe the table, set the table, toy-zone cleanup, water the plants, sweep 5 square meters",
+        "Draw a card and start the timer: 'Table-wiping mission — done within 10 minutes!'",
+        "Log the time on completion; compete against personal history, not family members' speed",
+        "Ten check-ins in a week earn a 'family privilege' (such as picking the weekend movie)"
+      ],
+      "goal": "Family responsibility sharing, task breakdown and time estimation, delayed gratification",
+      "safety": "No tasks involving knives or hot water; cleaning agents stored and used by parents; no climbing tasks; keep the vibe light, no pressure",
+      "extensions": "'Co-op deep clean' with the whole family racing zones for 30 minutes; let the child be 'chore manager' for a week — scheduling and inspecting"
+    }
+  ]
+}

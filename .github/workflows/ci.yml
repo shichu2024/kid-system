@@ -47,6 +47,9 @@ jobs:
           if (missing.length) { console.error('SKILL.md 缺失:', missing); process.exit(1); }
           console.log('Skills registry OK:', mp.skills.length, 'skills');"
 
+      - name: Check skill asset sync
+        run: node scripts/sync-skill-assets.mjs --check
+
       - name: Check frontmatter (demo-vault)
         run: node scripts/check-frontmatter.mjs examples/demo-vault
 

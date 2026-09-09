@@ -1,0 +1,272 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "references/journal-schema.json",
+  "title": "vault 日志/方案/复盘/规则 frontmatter（合一 schema）",
+  "description": "对应 docs/DESIGN.md §4.3-§4.6 的四类 frontmatter 的 JSON Schema（draft-07），通过 oneOf 区分：journal（每日日志 01_journal）、plan（每日方案 02_plans）、review（复盘报告 04_reviews）、rule（规则条目 03_rules/rules.md 条目块）。所有日期字段均为 YYYY-MM-DD（format: date）。字段名恒英文（DESIGN §6.7）。",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/journal"
+    },
+    {
+      "$ref": "#/$defs/plan"
+    },
+    {
+      "$ref": "#/$defs/review"
+    },
+    {
+      "$ref": "#/$defs/rule"
+    }
+  ],
+  "$defs": {
+    "journal": {
+      "title": "每日日志（01_journal/YYYY-MM/YYYY-MM-DD.md）",
+      "description": "五维日志 frontmatter；health_status=ill 当日所有方案自动进入护理模式（DESIGN §6.2/§6.6）",
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "日志日期 YYYY-MM-DD，与文件名一致"
+        },
+        "child_id": {
+          "type": "string",
+          "description": "关联儿童 ID（00_profiles/<child-id>）"
+        },
+        "health_status": {
+          "type": "string",
+          "enum": [
+            "healthy",
+            "ill",
+            "recovering"
+          ],
+          "description": "健康状态：healthy 健康 / ill 生病 / recovering 恢复中"
+        },
+        "illness_notes": {
+          "type": "string",
+          "description": "病情备注（症状、体温、用药），health_status 非 healthy 时填写"
+        },
+        "mood_summary": {
+          "type": "string",
+          "enum": [
+            "happy",
+            "calm",
+            "fussy",
+            "crying"
+          ],
+          "description": "情绪概览：happy 开心 / calm 平静 / fussy 烦躁 / crying 哭闹"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "当日标签（食物接受度/能力表现/兴趣点），用于沉淀至 tags.md"
+        }
+      },
+      "required": [
+        "date",
+        "child_id",
+        "health_status"
+      ],
+      "additionalProperties": false
+    },
+    "plan": {
+      "title": "每日方案（02_plans/YYYY-MM-DD.md）",
+      "description": "菜单/学习/游戏三节方案 frontmatter；生成时必须过安全滤网（DESIGN §6.3）",
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "方案日期 YYYY-MM-DD，与文件名一致"
+        },
+        "child_id": {
+          "type": "string",
+          "description": "关联儿童 ID"
+        },
+        "age_months_at_plan": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 144,
+          "description": "方案生成时的儿童月龄快照，保证分龄适配可追溯"
+        },
+        "plan_type": {
+          "type": "string",
+          "enum": [
+            "daily",
+            "weekly_batch"
+          ],
+          "description": "方案类型：daily 单日 / weekly_batch 批量 3-7 天"
+        },
+        "adjustments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/adjustment"
+          },
+          "description": "方案调整记录：指令 + 原因 + 日期"
+        },
+        "health_mode": {
+          "type": "string",
+          "enum": [
+            "normal",
+            "care"
+          ],
+          "description": "健康模式：normal 常规 / care 护理模式（菜单清淡易消化、暂停剧烈运动、学习减量）"
+        }
+      },
+      "required": [
+        "date",
+        "child_id",
+        "plan_type"
+      ],
+      "additionalProperties": false
+    },
+    "adjustment": {
+      "title": "方案调整记录",
+      "type": "object",
+      "properties": {
+        "instruction": {
+          "type": "string",
+          "description": "调整指令（如：午餐鱼类替换为鸡肉）"
+        },
+        "reason": {
+          "type": "string",
+          "description": "调整原因（如：家长规则 R001 / 过敏排除 / 护理模式）"
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "调整发生日期 YYYY-MM-DD"
+        }
+      },
+      "required": [
+        "instruction",
+        "reason",
+        "date"
+      ],
+      "additionalProperties": false
+    },
+    "review": {
+      "title": "复盘报告（04_reviews/weekly|monthly|custom）",
+      "description": "周期复盘 frontmatter；正文含数据统计 → 里程碑达成 → 异常预警 → 优化建议（可转规则）",
+      "type": "object",
+      "properties": {
+        "period": {
+          "type": "string",
+          "enum": [
+            "weekly",
+            "monthly",
+            "custom"
+          ],
+          "description": "复盘周期：weekly 周 / monthly 月 / custom 自定义区间"
+        },
+        "date_range": {
+          "$ref": "#/$defs/date_range"
+        },
+        "child_id": {
+          "type": "string",
+          "description": "关联儿童 ID"
+        },
+        "summary_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "复盘结论标签（如：饮食多样性良好、睡眠倒退预警）"
+        }
+      },
+      "required": [
+        "period",
+        "date_range",
+        "child_id",
+        "summary_tags"
+      ],
+      "additionalProperties": false
+    },
+    "date_range": {
+      "title": "日期区间",
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date",
+          "description": "起始日期 YYYY-MM-DD（含）"
+        },
+        "end": {
+          "type": "string",
+          "format": "date",
+          "description": "结束日期 YYYY-MM-DD（含）"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "additionalProperties": false
+    },
+    "rule": {
+      "title": "规则条目（03_rules/rules.md 条目块）",
+      "description": "家长规则 frontmatter；优先级数字越小越高，冲突项在 conflicts-log.md 记录裁决（DESIGN §4.5）",
+      "type": "object",
+      "properties": {
+        "rule_id": {
+          "type": "string",
+          "pattern": "^R[0-9]{3,}$",
+          "description": "规则编号，如 R001"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "diet_restriction",
+            "feeding",
+            "education",
+            "routine",
+            "general"
+          ],
+          "description": "规则类型：diet_restriction 饮食禁忌 / feeding 喂养要求 / education 教育要求 / routine 作息要求 / general 通用养育"
+        },
+        "scope": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "menu",
+              "learning",
+              "games",
+              "journal",
+              "review",
+              "all"
+            ]
+          },
+          "description": "生效范围：命中的技能在生成时强制遵守"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "disabled"
+          ],
+          "description": "状态：active 生效中 / disabled 已停用；仅 active 条目参与指令优先级"
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "优先级，数字越小越高"
+        },
+        "source": {
+          "type": "string",
+          "description": "来源说明（如：家长注入 2026-09-01「孩子海鲜过敏」）"
+        }
+      },
+      "required": [
+        "rule_id",
+        "type",
+        "scope",
+        "status",
+        "priority",
+        "source"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

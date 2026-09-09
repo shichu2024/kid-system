@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-09-08",
+    "language": "en",
+    "source": "AAP Safe Sleep Recommendations (2016) · AASM Duration Consensus (2016) · Chinese Pediatric Society children's sleep health guidance (reference)",
+    "usage": "Used by kid-journal for sleep record comparison and kid-plan for daily routine generation. Durations are recommended ranges; individual variation exists. Daytime alertness is the primary yardstick.",
+    "disclaimer": "Sleep guidance cannot replace professional medical advice. For persistent sleep problems, consult a pediatrician or pediatric sleep specialist."
+  },
+  "bands": [
+    {
+      "age_range": "0-3m",
+      "total_hours": "14-17",
+      "night_hours": "8-9 (in 2-4 segments)",
+      "day_naps": "4-6 naps/day, 30 min - 2 h each",
+      "wake_windows": "45-90 minutes",
+      "notes": "Back to sleep; same room, different bed (AAP recommends at least 6 months, ideally to 1 year); firm mattress with nothing in the crib (no pillows/blankets/stuffed toys); circadian rhythm not established; on-demand feeding; night wakings are normal"
+    },
+    {
+      "age_range": "4-6m",
+      "total_hours": "12-16",
+      "night_hours": "9-11 (longest stretch up to 5-6 h)",
+      "day_naps": "3 naps/day (morning/midday/early evening), 30 min - 2 h each",
+      "wake_windows": "1.5-2.5 hours",
+      "notes": "Circadian rhythm emerging; fix a consistent wake-up time; a fixed bedtime routine can be introduced from 4 months; sleep regression during rolling phase is normal; 1-2 night feeds still common"
+    },
+    {
+      "age_range": "7-9m",
+      "total_hours": "12-15",
+      "night_hours": "10-11 (6-8 h continuous stretches possible)",
+      "day_naps": "2-3 naps/day, 2.5-3.5 h total day sleep",
+      "wake_windows": "2-3 hours",
+      "notes": "Separation-anxiety sleep regression common at 8-10 months; third nap shortens and is dropped; night feeds can be gradually reduced after solids are established (follow pediatric guidance)"
+    },
+    {
+      "age_range": "10-12m",
+      "total_hours": "12-15",
+      "night_hours": "10-11 (most sleep through or wake once)",
+      "day_naps": "2 naps/day (morning + afternoon), 2-2.5 h total",
+      "wake_windows": "2.5-3.5 hours",
+      "notes": "Separation anxiety and standing practice can disrupt settling; keep the bedtime routine fixed 20-30 min before sleep; avoid overtiredness (the more tired, the harder to fall asleep)"
+    },
+    {
+      "age_range": "13-18m",
+      "total_hours": "11-14",
+      "night_hours": "10-11",
+      "day_naps": "2 naps at 13-15 months -> transitions to 1 midday nap (1.5-3 h) at 15-18 months",
+      "wake_windows": "3-4 hours (up to 5 hours during nap transition)",
+      "notes": "The 2-to-1 nap transition may bring nap refusal or earlier night wakings; observe 2-4 weeks before adjusting; fix the nap time (usually after 12:30-13:00)"
+    },
+    {
+      "age_range": "19-24m",
+      "total_hours": "11-14",
+      "night_hours": "10-11",
+      "day_naps": "1 nap/day, 1.5-2.5 h",
+      "wake_windows": "5-6 hours",
+      "notes": "Separation anxiety and growing autonomy can cause bedtime battles; offer limited choices ('blue or yellow pajamas?'); do not introduce new sleep associations (rocking/nursing to sleep)"
+    },
+    {
+      "age_range": "2-3y",
+      "total_hours": "11-14",
+      "night_hours": "10-11",
+      "day_naps": "1 nap/day, 1-1.5 h (around age 3 some children stop napping)",
+      "wake_windows": "6 hours (full day)",
+      "notes": "Common issues: bedtime refusal; night terrors (not nightmares, usually 1-3 h after sleep onset; do not force waking); bedtime preferably no later than 21:00"
+    },
+    {
+      "age_range": "3-6y",
+      "total_hours": "10-13",
+      "night_hours": "10-11",
+      "day_naps": "0-1 nap/day, <=1 h (avoid impacting night sleep)",
+      "wake_windows": "Full day",
+      "notes": "Nightmares increase with imagination development; no TV/tablet in the bedroom; >=3 h of daytime physical activity supports night sleep; limit fluids before bed during toilet training but do not force"
+    },
+    {
+      "age_range": "6-12y",
+      "total_hours": "9-12",
+      "night_hours": "9-11 (fixed bedtime guaranteeing duration before wake-up)",
+      "day_naps": "No nap needed (optional short nap <=30 min, not after 15:00)",
+      "wake_windows": "Full day",
+      "notes": "Keep schedule within +/-30 minutes; stop screens 1 h before bed; homework and activities must not eat into the sleep floor; insufficient sleep is linked to attention problems, obesity, and mood issues"
+    }
+  ],
+  "principles": [
+    "6-step bedtime routine (fixed order every night, ~20-30 min): bath -> massage -> pajamas -> milk/feed (before brushing teeth) -> story -> lights out",
+    "Fix the morning wake-up time (+/-30 min) — the first lever for stabilizing the whole day's rhythm",
+    "'Same room, different bed': baby sleeps in the parents' room in a separate bed for at least 6 months, ideally to 1 year (AAP)",
+    "Back to sleep until 1 year; firm mattress fitting the frame; nothing in the crib (pillows, thick quilts, stuffed toys, bumpers) — suffocation and SIDS risk",
+    "Place in bed drowsy but awake to build self-settling; reduce rocking/nursing-to-sleep dependence",
+    "Wake windows are more reliable than the clock: overtired children fall asleep harder",
+    "No screens 1 h before bed (blue light suppresses melatonin); dark, quiet bedroom at 20-24 degrees C",
+    "On brief night wakings, wait and observe 1-2 minutes before intervening — give the child a chance to resettle",
+    "For older children, sufficient daytime outdoor activity is the best predictor of night sleep quality",
+    "When shifting schedules, move bedtime by 15 minutes every 2-3 days, step by step; avoid large one-off changes"
+  ],
+  "methods": [
+    {
+      "name": "Ferber Method / Graduated Extinction",
+      "min_age_months": 5,
+      "steps": [
+        "Complete the fixed bedtime routine; place baby in bed drowsy but awake",
+        "Say goodnight and leave the room",
+        "Return to check on a planned interval schedule: first night ~3/5/10 minutes increasing; each stay <=1-2 minutes; soothe by voice and patting; do not pick up, do not feed",
+        "Every 1-2 nights, lengthen all intervals (e.g., 5/10/15 -> 10/15/20 minutes)",
+        "Apply the same interval scheme to habitual night wakings",
+        "Sleep latency and night wakings usually shorten markedly within 1-2 weeks; keep daytime schedule and routine unchanged throughout"
+      ],
+      "caution": "Consult your pediatrician before starting; not suitable for premature or low-birth-weight infants, those with vomiting/aspiration risk, recent illness, or vaccine reactions; crying may intensify initially (extinction burst) — caregiver consistency is essential and all family members must follow the same plan; if no improvement after 2 weeks, stop and seek medical evaluation"
+    },
+    {
+      "name": "Chair Method (Camping Out)",
+      "min_age_months": 6,
+      "steps": [
+        "Complete the bedtime routine; place baby in bed awake; parent sits on a chair beside the bed until asleep",
+        "Every 2-3 nights, move the chair farther away (bedside -> middle of room -> doorway -> outside door)",
+        "Quiet soothing or soft humming allowed; no picking up, no play interaction",
+        "Once the chair is outside the door, switch to voice-only soothing for 3-5 nights",
+        "The child eventually falls asleep independently; the whole process usually takes 2-3 weeks"
+      ],
+      "caution": "Consult your pediatrician before starting; not suitable for premature or low-birth-weight infants; long timeline — quitting midway or inconsistency is the biggest pitfall (intermittent reinforcement strengthens crying); change only one variable at a time (chair position); follow the timetable strictly"
+    },
+    {
+      "name": "Schedule Adjustment",
+      "min_age_months": 0,
+      "steps": [
+        "Keep a sleep log for 7 consecutive days (bedtime/sleep onset/night wakings/wake-up/naps)",
+        "Compare with the age-appropriate band in this file to locate the problem: wake windows too long (overtired), naps too long/too late, or bedtime mismatched to age",
+        "Anchor a fixed wake-up time first to stabilize the day's start",
+        "Adjust nap count and timing by age (e.g., drop the late-evening nap; naps end no later than 15:30)",
+        "Shift bedtime earlier or later by 15 minutes every 2-3 days toward the target",
+        "Fix the bedtime routine and sleep environment (dark room; white noise optional)",
+        "Re-evaluate after 2 stable weeks: use daytime alertness and number of night wakings as the metrics"
+      ],
+      "caution": "Best used as the gentle first-line approach and as the prerequisite foundation for other training methods; for newborns (0-3 months), only guide rhythm — no 'training'; if frequent night wakings, snoring, apnea, or severe daytime sleepiness persist after 4 weeks, see a doctor to rule out a sleep disorder"
+    }
+  ]
+}

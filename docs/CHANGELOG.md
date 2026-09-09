@@ -2,6 +2,15 @@
 
 本项目的所有显著变更记录于此。格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## [1.3.3] - 2026-09-09
+
+### Fixed · per-skill 安装资产缺失（安装后技能目录只有 SKILL.md）
+- **根因**：共享资产（templates/ references/ knowledge/）原置于仓库根，per-skill 安装器（`npx skills add` → `.agents/skills/<name>/`）只拷贝 `skills/<name>/` 目录，导致模板 16 个、schema、safety-rules 等全部缺失，kid-init 硬约束「模板源实测清点」按设计阻断初始化
+- **修复**：技能目录自包含——各技能声明的依赖资产（含 en 变体）捆绑进 `skills/<name>/{templates,references,knowledge}/`（共 64 个捆绑文件）；仓库根保持唯一编辑源
+- **防漂移**：新增 `scripts/sync-skill-assets.mjs`（幂等同步 + `--check` 校验模式），CI 增加 "Check skill asset sync" step，根目录资产改动未同步即失败
+- 9 个 SKILL.md 的 source_of_truth 增补资产路径解析说明（相对本技能目录）；kid-init 硬约束 5 措辞同步（「技能包模板源」→「本技能目录下模板源」），阻断逻辑与数量校验（=8）不变
+- README 安装节新增「安装完整性验证」
+
 ## [1.3.2] - 2026-09-09
 
 ### Fixed · menu 集真实评测迭代（test 4/4 + val 5/5 = held-out 9/9 hard 100%）

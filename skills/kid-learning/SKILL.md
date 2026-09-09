@@ -15,7 +15,9 @@ source_of_truth:
   - references/milestones.json · references/safety-rules.json（screen_time）
   - knowledge/picture-books.md（分龄绘本库）
   - templates/{zh,en}/learning-plan.md
+  - 上述 templates/references/knowledge 为本技能目录捆绑副本（路径相对本技能目录解析；仓库根为唯一编辑源，scripts/sync-skill-assets.mjs 同步）
 ---
+
 
 # kid-learning
 

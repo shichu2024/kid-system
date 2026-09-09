@@ -11,6 +11,7 @@
 - **语言**：由 `99_system/kid.config.yaml.language` 决定（zh/en），模板取 `99_system/templates/<lang>/`
 - **触发词命名空间**：`kid-*` 前缀；中英双语触发词写在 SKILL.md frontmatter description
 - **输出反馈**：技能执行完毕输出简报（做了什么/写了哪些文件/下一步建议）
+- **技能资产（v1.3.3）**：SKILL.md 中的 `templates/` `references/` `knowledge/` 路径**相对本技能目录**解析——各技能声明的依赖资产已捆绑于 `skills/<name>/` 下（仓库根为唯一编辑源，`scripts/sync-skill-assets.mjs` 同步）；写入 vault 的路径仍相对 vault 根
 
 ---
 
